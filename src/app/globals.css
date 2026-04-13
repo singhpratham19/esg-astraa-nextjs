@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --base: #1A1A2E;
+  --violet: #00338D;
+  --violet-light: #0091DA;
+  --coral: #0091DA;
+  --slate-body: #4A5568;
+  --slate-bg: #F5F7FA;
+  --slate-border: #DDE3ED;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--slate-body);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, nav, .font-display {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fadeUp 0.7s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.animate-slide-left { animation: slideInLeft 0.7s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+.animate-count { animation: countUp 0.6s ease-out forwards; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Accent bar — KPMG navy */
+.accent-bar {
+  width: 48px;
+  height: 3px;
+  background: #00338D;
+  border-radius: 0;
+}
+
+/* Section label — KPMG style */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: #0091DA;
+  font-family: 'Open Sans', sans-serif;
+  border-left: 3px solid #00338D;
+  padding-left: 10px;
+}
+
+/* Button styles — KPMG navy */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: #00338D;
+  color: #fff;
+  border-radius: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 2px solid #00338D;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  background: #002266;
+  border-color: #002266;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 51, 141, 0.25);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: transparent;
+  color: #00338D;
+  border: 2px solid #00338D;
+  border-radius: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-outline:hover {
+  background: #00338D;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 51, 141, 0.10);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--slate-bg); }
+::-webkit-scrollbar-thumb { background: var(--slate-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--violet); }
