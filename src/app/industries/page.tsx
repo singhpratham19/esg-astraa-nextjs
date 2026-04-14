@@ -52,7 +52,7 @@ const INDUSTRY_META: Record<string, {
     color: '#7516EA',
     tagline: 'Clinical waste, patient impact, responsible sourcing, and BRSR support for healthcare and pharma.',
     metrics: [
-      { val: '1000+', lbl: 'BRSR entities' },
+      { val: 'GHG', lbl: 'Scope 3 reporting' },
       { val: 'BMW', lbl: 'Waste rules' },
       { val: 'Global', lbl: 'Supply scrutiny' },
     ],

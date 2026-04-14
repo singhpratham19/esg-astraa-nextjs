@@ -111,14 +111,23 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
               </Link>
             </div>
 
-            <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
-              {ind.engagementHighlights.map((item, i) => (
-                <div key={item} className="bg-slate-bg border border-slate-border/50 rounded-xl p-7 hover:shadow-md hover:border-[#2E8AEA]/25 transition-all group">
-                  <span className="text-xs font-bold text-[#2E8AEA] block mb-3">0{i + 1}</span>
-                  <h4 className="font-bold text-[#0D1B3E] mb-2 group-hover:text-[#2E8AEA] transition-colors">Sector Priority</h4>
-                  <p className="text-sm text-slate-body/60 leading-relaxed">{item}</p>
-                </div>
-              ))}
+            <div className="lg:col-span-3">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-6 bg-gradient-to-b from-[#2E8AEA] to-[#7516EA] rounded-full"></div>
+                <h3 className="font-display text-lg font-bold text-[#0D1B3E]">Key Engagement Areas</h3>
+              </div>
+              <div className="flex flex-col divide-y divide-slate-border/40 border border-slate-border/50 rounded-2xl overflow-hidden">
+                {ind.engagementHighlights.map((item, i) => (
+                  <div key={String(item)} className="flex items-start gap-6 px-8 py-7 bg-white hover:bg-slate-bg/50 transition-colors group">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#EEF4FF] to-[#F3E8FF] flex items-center justify-center border border-[#2E8AEA]/20">
+                      <span className="text-sm font-bold bg-gradient-to-r from-[#2E8AEA] to-[#7516EA] bg-clip-text text-transparent">0{i + 1}</span>
+                    </div>
+                    <p className="text-[15px] text-slate-body/70 leading-relaxed pt-2 group-hover:text-slate-body/90 transition-colors">
+                      {typeof item === 'string' ? item : (item as { detail: string }).detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
