@@ -191,10 +191,10 @@ function NavItemDesktop({ item }: { item: NavItem }) {
 
   return (
     <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors bg-transparent border-0 cursor-pointer">
+      <Link href={item.href} className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
         {item.label}
         <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
-      </button>
+      </Link>
       {open && <DropdownMenu sections={item.dropdown.sections} />}
     </div>
   )
