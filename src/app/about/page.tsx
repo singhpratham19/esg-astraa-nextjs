@@ -16,7 +16,7 @@ export default function AboutPage() {
               Strategic ESG Advisory with<br />Data-Backed Execution
             </h1>
             <p className="text-lg text-slate-body/65 leading-relaxed max-w-xl">
-              ESG Astraa is a MindEarth Consulting company combining deep domain expertise with proprietary data-backed methodologies to help organisations in emerging markets navigate the ESG transition.
+              ESG Astraa combines deep domain expertise with proprietary data-backed methodologies to help organisations in emerging markets navigate the ESG transition.
             </p>
           </div>
         </div>

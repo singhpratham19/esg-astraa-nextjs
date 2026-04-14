@@ -31,7 +31,7 @@ export default function Home() {
                 <span className="gradient-text">Strategic Advantage</span>
               </h1>
               <p className="text-lg text-slate-body/70 leading-relaxed mb-8 max-w-lg">
-                ESG Astraa is a MindEarth Consulting company delivering data-backed advisory across strategy, compliance, carbon, governance, and sustainable finance — for organisations building resilient futures in emerging markets.
+                ESG Astraa delivers data-backed advisory across strategy, compliance, carbon, governance, and sustainable finance — for organisations building resilient futures in emerging markets.
               </p>
 
               {/* 3 proof points */}

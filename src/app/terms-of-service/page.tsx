@@ -10,7 +10,7 @@ export default function TermsPage() {
           <h2 className="font-display text-xl font-bold text-base !mt-10 !mb-4">Services</h2>
           <p>ESG Astraa provides strategic ESG advisory, compliance consulting, carbon advisory, and related professional services. The specific scope of each engagement is defined in individual consulting agreements.</p>
           <h2 className="font-display text-xl font-bold text-base !mt-10 !mb-4">Intellectual Property</h2>
-          <p>All content on this website — including text, graphics, methodologies, and frameworks — is the intellectual property of ESG Astraa and MindEarth Consulting. Reproduction without written consent is prohibited.</p>
+          <p>All content on this website — including text, graphics, methodologies, and frameworks — is the intellectual property of ESG Astraa. Reproduction without written consent is prohibited.</p>
           <h2 className="font-display text-xl font-bold text-base !mt-10 !mb-4">Confidentiality</h2>
           <p>Information shared during consulting engagements is treated as confidential. We maintain strict data handling protocols aligned with professional advisory standards.</p>
           <h2 className="font-display text-xl font-bold text-base !mt-10 !mb-4">Limitation of Liability</h2>

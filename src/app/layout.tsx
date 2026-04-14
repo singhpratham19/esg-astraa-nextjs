@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'ESG Astraa — Strategic ESG Advisory | A MindEarth Company',
+  title: 'ESG Astraa — Strategic ESG Advisory',
   description: 'ESG Astraa is a strategic ESG advisory firm combining deep domain expertise with proprietary data-backed methodologies for emerging markets.',
 }
 

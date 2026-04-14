@@ -31,7 +31,7 @@ export default function Footer() {
               <ButterflyLogo size={30} variant="white" />
               <div className="border-l border-white/20 pl-3 leading-tight">
                 <span className="font-display font-bold text-sm text-white block">ESG Astraa</span>
-                <span className="text-[9px] text-white/30 tracking-[0.12em] uppercase">A MindEarth Company</span>
+                <span className="text-[9px] text-white/30 tracking-[0.12em] uppercase">Strategic ESG Advisory</span>
               </div>
             </div>
             <p className="text-sm text-white/30 leading-relaxed mb-6">
@@ -98,7 +98,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="max-w-site mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/20">© 2026 ESG Astraa, a MindEarth Consulting Company. All rights reserved.</p>
+          <p className="text-xs text-white/20">© 2026 ESG Astraa. All rights reserved.</p>
           <p className="text-xs text-white/20">Pune, Maharashtra, India · advisory@esgastraa.com</p>
         </div>
       </div>

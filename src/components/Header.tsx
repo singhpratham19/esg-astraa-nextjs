@@ -29,7 +29,7 @@ export default function Header() {
               style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               ESG Astraa
             </span>
-            <span className="text-[9px] text-slate-400 font-medium tracking-[0.12em] uppercase">A MindEarth Company</span>
+            <span className="text-[9px] text-slate-400 font-medium tracking-[0.12em] uppercase">Strategic ESG Advisory</span>
           </div>
         </Link>
 
