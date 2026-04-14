@@ -201,7 +201,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        <div className="py-24 bg-white border-y border-slate-border/50">
+        <div className="py-24 bg-slate-bg border-y border-slate-border/50">
           <div className="max-w-site mx-auto px-6">
             <div className="mb-12">
               <span className="section-label mb-5 inline-flex">Material Topics</span>
@@ -209,30 +209,33 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
                 ESG material topics in {ind.title}
               </h2>
 
-              <div className="flex flex-wrap gap-2 border-b border-slate-border/40">
-                {['Material Topics'].map((tab) => (
-                  <button
+              <div className="flex flex-wrap gap-2 pb-6 border-b border-slate-border/40">
+                {['GRI Frameworks'].map((tab) => (
+                  <span
                     key={tab}
-                    className="px-4 py-3 text-sm font-semibold text-[#2E8AEA] border-b-2 border-[#2E8AEA] hover:bg-slate-bg/30 transition-colors"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-slate-body/60 border border-slate-border/60 rounded-full bg-white"
                   >
+                    <span className="w-2 h-2 rounded-full bg-[#2E8AEA]"></span>
                     {tab}
-                  </button>
+                  </span>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-4">
-              {ind.materialTopics.map((item) => (
-                <div key={item.topic} className="flex items-start gap-4 pb-5 border-b border-slate-border/20 last:border-b-0 last:pb-0 group hover:bg-slate-bg/30 -mx-6 px-6 py-4 rounded transition-colors">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#EEF4FF] flex items-center justify-center mt-1 group-hover:bg-[#2E8AEA]/10 transition-colors">
-                    <span className="text-xs font-bold text-[#2E8AEA]">•</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-[#0D1B3E] text-[15px] mb-1">{item.topic}</h4>
+            <div className="bg-white rounded-2xl border border-slate-border/50 p-8">
+              <div className="space-y-6">
+                {ind.materialTopics.map((item) => (
+                  <div key={item.topic} className="pb-6 border-b border-slate-border/20 last:border-b-0 last:pb-0">
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                      <h4 className="font-semibold text-[#0D1B3E] text-[15px]">{item.topic}</h4>
+                      <span className="flex-shrink-0 px-3 py-1 text-xs font-bold bg-[#EEF4FF] text-[#2E8AEA] rounded-full whitespace-nowrap">
+                        {item.metric}
+                      </span>
+                    </div>
                     <p className="text-sm text-slate-body/65 leading-relaxed">{item.context}</p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

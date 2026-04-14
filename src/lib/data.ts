@@ -28,7 +28,7 @@ type Industry = {
   opportunities: string[]
   regulatory: string[]
   engagementHighlights: string[]
-  materialTopics: { topic: string; context: string }[]
+  materialTopics: { topic: string; metric: string; context: string }[]
   marketLeaderActions: string[]
   relevantServiceSlugs: string[]
 }
@@ -197,10 +197,10 @@ export const INDUSTRIES: Industry[] = [
       'Board-level reporting on decarbonisation progress, CBAM exposure, and BRSR compliance readiness using our benchmarking and peer comparison capabilities',
     ],
     materialTopics: [
-      { topic: 'Energy and Emissions Intensity', context: 'Power consumption, fuel mix, process emissions, and energy efficiency are core material topics for listed manufacturers because they affect both operating cost and BRSR disclosure obligations.' },
-      { topic: 'Supply Chain Labour and Traceability', context: 'Manufacturers face growing expectations to document supplier practices, worker conditions, and sourcing controls across value chains for BRSR Core, OEM qualification, and export market requirements.' },
-      { topic: 'Waste, Circularity, and Resource Efficiency', context: 'Waste handling compliance, water use management, scrap recovery programmes, and circular product design shape both regulatory risk and measurable margin improvement opportunities.' },
-      { topic: 'Worker Health, Safety, and Workforce Standards', context: 'Plant operations carry direct scrutiny on safety systems, incident disclosure, training compliance, and operating discipline from SEBI BRSR, OEM customers, and institutional investors.' },
+      { topic: 'Energy and Emissions Intensity', metric: 'GRI 305-1 & 305-2', context: 'Power consumption, fuel mix, process emissions, and energy efficiency are core material topics for listed manufacturers because they affect both operating cost and BRSR disclosure obligations.' },
+      { topic: 'Supply Chain Labour and Traceability', metric: 'GRI 408-1 & 409-1', context: 'Manufacturers face growing expectations to document supplier practices, worker conditions, and sourcing controls across value chains for BRSR Core, OEM qualification, and export market requirements.' },
+      { topic: 'Waste, Circularity, and Resource Efficiency', metric: 'GRI 306-3 & 303-3', context: 'Waste handling compliance, water use management, scrap recovery programmes, and circular product design shape both regulatory risk and measurable margin improvement opportunities.' },
+      { topic: 'Worker Health, Safety, and Workforce Standards', metric: 'GRI 403-9 & 403-10', context: 'Plant operations carry direct scrutiny on safety systems, incident disclosure, training compliance, and operating discipline from SEBI BRSR, OEM customers, and institutional investors.' },
     ],
     marketLeaderActions: [
       'Leading Indian manufacturers are deploying technology-enabled plant-level ESG dashboards for energy, waste, water, and safety data instead of relying on year-end manual consolidation across sites.',
@@ -249,10 +249,10 @@ export const INDUSTRIES: Industry[] = [
       'Climate risk governance frameworks for board oversight of transition risk, CCTS exposure, physical climate risk, and long-term asset resilience planning',
     ],
     materialTopics: [
-      { topic: 'Transition Strategy and Capital Allocation', context: 'Investors and infrastructure lenders assess energy companies on whether climate ambitions are backed by credible asset-level investment plans, technology choices, and financing commitments.' },
-      { topic: 'Operational Emissions and Carbon Market Participation', context: 'Emissions measurement quality and methodology rigour determine both CCTS compliance obligations and the credibility of carbon credit claims in voluntary and compliance markets.' },
-      { topic: 'Community Impact and Land Use Management', context: 'Large power generation projects, transmission corridors, and renewable energy installations face scrutiny on community relations, land use, environmental impact, and project approval timelines.' },
-      { topic: 'Climate Governance and Physical Resilience', context: 'Boards, lenders, and institutional investors expect structured oversight of climate transition risk, physical risk exposure, and long-term resilience planning for generation and distribution infrastructure.' },
+      { topic: 'Transition Strategy and Capital Allocation', metric: 'TCFD 1.1 & 1.2', context: 'Investors and infrastructure lenders assess energy companies on whether climate ambitions are backed by credible asset-level investment plans, technology choices, and financing commitments.' },
+      { topic: 'Operational Emissions and Carbon Market Participation', metric: 'GRI 305-1, 305-2 & 305-3', context: 'Emissions measurement quality and methodology rigour determine both CCTS compliance obligations and the credibility of carbon credit claims in voluntary and compliance markets.' },
+      { topic: 'Community Impact and Land Use Management', metric: 'GRI 411-1 & 412-1', context: 'Large power generation projects, transmission corridors, and renewable energy installations face scrutiny on community relations, land use, environmental impact, and project approval timelines.' },
+      { topic: 'Climate Governance and Physical Resilience', metric: 'BRSR P7 & TCFD 2.1', context: 'Boards, lenders, and institutional investors expect structured oversight of climate transition risk, physical risk exposure, and long-term resilience planning for generation and distribution infrastructure.' },
     ],
     marketLeaderActions: [
       'Leading Indian energy companies are pairing net zero and CCTS compliance targets with asset-level investment roadmaps and project-specific financing structures that satisfy institutional lender requirements.',
@@ -300,10 +300,10 @@ export const INDUSTRIES: Industry[] = [
       'BRSR disclosure drafting and assurance readiness support that integrates operational data with governance narratives and investor-facing sustainability communication',
     ],
     materialTopics: [
-      { topic: 'Patient Safety and Product Responsibility', context: 'Quality systems, pharmacovigilance, product stewardship, and patient-facing clinical safety outcomes are core material topics for listed pharma and hospital groups seeking credible institutional ESG ratings.' },
-      { topic: 'Biomedical Waste and Environmental Compliance', context: 'Hospitals and pharma manufacturers face direct BMW Rules enforcement obligations and investor scrutiny on pharmaceutical wastewater treatment, hazardous waste handling, and utility consumption intensity.' },
-      { topic: 'Patient Access, Affordability, and Business Ethics', context: 'Stakeholders in India and globally expect a credible and evidenced position on medicine access, pricing practices, clinical trial ethics, and responsible marketing conduct.' },
-      { topic: 'API Supplier Integrity and Supply Chain Traceability', context: 'The pharmaceutical sector depends on highly regulated supply chains where quality system failures, labour issues, and sourcing transparency gaps can escalate rapidly to regulatory and reputational consequences.' },
+      { topic: 'Patient Safety and Product Responsibility', metric: 'GRI 416-1 & 416-2', context: 'Quality systems, pharmacovigilance, product stewardship, and patient-facing clinical safety outcomes are core material topics for listed pharma and hospital groups seeking credible institutional ESG ratings.' },
+      { topic: 'Biomedical Waste and Environmental Compliance', metric: 'GRI 306-1, 306-2 & 306-3', context: 'Hospitals and pharma manufacturers face direct BMW Rules enforcement obligations and investor scrutiny on pharmaceutical wastewater treatment, hazardous waste handling, and utility consumption intensity.' },
+      { topic: 'Patient Access, Affordability, and Business Ethics', metric: 'GRI 405-1 & 412-2', context: 'Stakeholders in India and globally expect a credible and evidenced position on medicine access, pricing practices, clinical trial ethics, and responsible marketing conduct.' },
+      { topic: 'API Supplier Integrity and Supply Chain Traceability', metric: 'GRI 408-1 & 409-1', context: 'The pharmaceutical sector depends on highly regulated supply chains where quality system failures, labour issues, and sourcing transparency gaps can escalate rapidly to regulatory and reputational consequences.' },
     ],
     marketLeaderActions: [
       'Leading Indian pharma and hospital groups are building quantified social impact narratives tied to patient outcome data and access metrics rather than relying on CSR expenditure summaries and activity descriptions.',
@@ -352,10 +352,10 @@ export const INDUSTRIES: Industry[] = [
       'LEED, IGBC, and GRIHA certification advisory from schematic design through commissioning to reduce timeline risk, certification costs, and documentation rework',
     ],
     materialTopics: [
-      { topic: 'Environmental and Social Impact Assessment', context: 'Land use, environmental clearances, biodiversity impact, community displacement, and resettlement management are critical material issues at the project approval and construction lifecycle phases.' },
-      { topic: 'Embodied and Operational Carbon', context: 'Institutional investors and DFIs increasingly require quantified views of construction-phase embodied carbon and operational building emissions as part of green finance eligibility screening and BRSR reporting.' },
-      { topic: 'Worker Safety and Contractor Management', context: 'Large contractor ecosystems in construction and infrastructure development create significant governance obligations around occupational safety systems, labour standards, and subcontractor oversight.' },
-      { topic: 'Green Building Performance and Climate Resilience', context: 'LEED, IGBC, and GRIHA ratings are increasingly tied to commercial asset valuations, institutional tenant lease requirements, DFI green financing conditions, and long-term operational energy cost advantages.' },
+      { topic: 'Environmental and Social Impact Assessment', metric: 'GRI 304-3 & 411-1', context: 'Land use, environmental clearances, biodiversity impact, community displacement, and resettlement management are critical material issues at the project approval and construction lifecycle phases.' },
+      { topic: 'Embodied and Operational Carbon', metric: 'GRI 305-1 & 305-2', context: 'Institutional investors and DFIs increasingly require quantified views of construction-phase embodied carbon and operational building emissions as part of green finance eligibility screening and BRSR reporting.' },
+      { topic: 'Worker Safety and Contractor Management', metric: 'GRI 403-9 & 403-10', context: 'Large contractor ecosystems in construction and infrastructure development create significant governance obligations around occupational safety systems, labour standards, and subcontractor oversight.' },
+      { topic: 'Green Building Performance and Climate Resilience', metric: 'BRSR P6 & LEED Certification', context: 'LEED, IGBC, and GRIHA ratings are increasingly tied to commercial asset valuations, institutional tenant lease requirements, DFI green financing conditions, and long-term operational energy cost advantages.' },
     ],
     marketLeaderActions: [
       'Leading Indian real estate developers are embedding LEED and IGBC green building certification requirements into architectural design briefs and principal contractor selection criteria from the earliest project planning stages.',
@@ -404,10 +404,10 @@ export const INDUSTRIES: Industry[] = [
       'Investor and lender communication support for ESG strategy articulation, climate risk disclosure, sustainable finance portfolio reporting, and BRSR compliance documentation',
     ],
     materialTopics: [
-      { topic: 'Climate Risk and Financed Portfolio Exposure', context: 'Institutions need a rigorous and auditable view of PCAF financed emissions by sector, climate transition risk concentration, and physical risk exposure across lending and investment portfolios.' },
-      { topic: 'Green and Sustainability-Linked Product Governance', context: 'Labelled finance instruments require robust KPI frameworks, use-of-proceeds documentation, internal approval controls, and independent verification processes to defend against greenwashing risk.' },
-      { topic: 'RBI Compliance and Climate Disclosure Quality', context: 'Regulators and institutional investors expect consistent and evidenced communication on climate risk strategy, financed emissions methodology, product credibility, and transition portfolio alignment progress.' },
-      { topic: 'Governance Across Risk, Treasury, and Business Functions', context: 'ESG and climate materiality in financial institutions depends critically on how well product teams, credit risk functions, treasury operations, and executive leadership are aligned around integrated governance frameworks.' },
+      { topic: 'Climate Risk and Financed Portfolio Exposure', metric: 'PCAF 2.2 & GRI 305-3', context: 'Institutions need a rigorous and auditable view of PCAF financed emissions by sector, climate transition risk concentration, and physical risk exposure across lending and investment portfolios.' },
+      { topic: 'Green and Sustainability-Linked Product Governance', metric: 'ICMA Green Bond & BRSR P8', context: 'Labelled finance instruments require robust KPI frameworks, use-of-proceeds documentation, internal approval controls, and independent verification processes to defend against greenwashing risk.' },
+      { topic: 'RBI Compliance and Climate Disclosure Quality', metric: 'TCFD 1.1 & BRSR P9', context: 'Regulators and institutional investors expect consistent and evidenced communication on climate risk strategy, financed emissions methodology, product credibility, and transition portfolio alignment progress.' },
+      { topic: 'Governance Across Risk, Treasury, and Business Functions', metric: 'IFRS S2 & GRI 2-12', context: 'ESG and climate materiality in financial institutions depends critically on how well product teams, credit risk functions, treasury operations, and executive leadership are aligned around integrated governance frameworks.' },
     ],
     marketLeaderActions: [
       'Leading Indian banks and NBFCs are building RBI-compliant climate risk capabilities into credit risk assessment, treasury management, and business decision processes rather than treating climate as a standalone sustainability function.',
@@ -456,10 +456,10 @@ export const INDUSTRIES: Industry[] = [
       'BRSR disclosure drafting and assurance readiness support that translates complex multi-site mining operations into credible, auditable, and investor-grade sustainability reporting',
     ],
     materialTopics: [
-      { topic: 'Environmental Footprint and Remediation Planning', context: 'Land disturbance, water use and contamination, waste management, tailings safety, and environmental rehabilitation planning are core material topics for mining companies facing IBM, regulatory, and investor scrutiny.' },
-      { topic: 'Community Impact, FPIC, and Licence to Operate', context: 'Community relationships, free prior and informed consent processes, and tribal engagement outcomes often directly determine whether mining operations retain long-term regulatory licences and operating stability.' },
-      { topic: 'Worker Safety and Operational Discipline', context: 'High-risk underground and surface mining operations create direct expectations around safety management systems, fatality prevention records, near-miss reporting, and DGMS regulatory compliance.' },
-      { topic: 'Mine Closure, SDF Compliance, and Legacy Liabilities', context: 'Mine closure planning, environmental rehabilitation financial provisioning, and SDF compliance under the IBM framework are material for both regulators assessing operating licences and investors evaluating long-term financial liabilities.' },
+      { topic: 'Environmental Footprint and Remediation Planning', metric: 'GRI 304-2 & 303-3', context: 'Land disturbance, water use and contamination, waste management, tailings safety, and environmental rehabilitation planning are core material topics for mining companies facing IBM, regulatory, and investor scrutiny.' },
+      { topic: 'Community Impact, FPIC, and Licence to Operate', metric: 'GRI 411-1 & 412-3', context: 'Community relationships, free prior and informed consent processes, and tribal engagement outcomes often directly determine whether mining operations retain long-term regulatory licences and operating stability.' },
+      { topic: 'Worker Safety and Operational Discipline', metric: 'GRI 403-9 & 403-10', context: 'High-risk underground and surface mining operations create direct expectations around safety management systems, fatality prevention records, near-miss reporting, and DGMS regulatory compliance.' },
+      { topic: 'Mine Closure, SDF Compliance, and Legacy Liabilities', metric: 'IBM SDF & GRI 304-3', context: 'Mine closure planning, environmental rehabilitation financial provisioning, and SDF compliance under the IBM framework are material for both regulators assessing operating licences and investors evaluating long-term financial liabilities.' },
     ],
     marketLeaderActions: [
       'Leading Indian mining and metals companies are formalising mine closure and environmental remediation planning earlier in the asset lifecycle, supported by documented financial provisions and IBM-compliant planning frameworks.',
@@ -508,10 +508,10 @@ export const INDUSTRIES: Industry[] = [
       'Data centre and workplace sustainability KPI design, benchmarking against sector peers, and reporting support for investor communication and enterprise procurement qualification',
     ],
     materialTopics: [
-      { topic: 'Scope 3 Emissions and Supply Chain Carbon Footprint', context: 'For most technology companies, the largest carbon footprint sits in purchased goods and services, cloud infrastructure energy, hardware manufacturing, business travel, and upstream supplier activity rather than direct operations.' },
-      { topic: 'Data Centre Energy Efficiency and Renewable Sourcing', context: 'Data centre energy consumption, power usage effectiveness (PUE), and renewable energy sourcing are increasingly material for CSRD customer compliance, enterprise procurement decisions, and institutional investor ESG analysis.' },
-      { topic: 'Governance, Data Privacy, AI Ethics, and Inclusion', context: 'Workforce diversity, data privacy management, AI governance frameworks, and ethical business conduct sit alongside environmental topics in institutional investor reviews, enterprise procurement evaluations, and talent acquisition.' },
-      { topic: 'Enterprise Customer and Supply Chain Disclosures', context: 'Global enterprise customers, government procurement bodies, and CSRD-obligated clients increasingly require structured and verified ESG questionnaire responses, responsible sourcing commitments, and audit-ready documentation.' },
+      { topic: 'Scope 3 Emissions and Supply Chain Carbon Footprint', metric: 'GRI 305-3 & CSRD C.2', context: 'For most technology companies, the largest carbon footprint sits in purchased goods and services, cloud infrastructure energy, hardware manufacturing, business travel, and upstream supplier activity rather than direct operations.' },
+      { topic: 'Data Centre Energy Efficiency and Renewable Sourcing', metric: 'GRI 302-1 & RE100', context: 'Data centre energy consumption, power usage effectiveness (PUE), and renewable energy sourcing are increasingly material for CSRD customer compliance, enterprise procurement decisions, and institutional investor ESG analysis.' },
+      { topic: 'Governance, Data Privacy, AI Ethics, and Inclusion', metric: 'GRI 405-1 & 418-1', context: 'Workforce diversity, data privacy management, AI governance frameworks, and ethical business conduct sit alongside environmental topics in institutional investor reviews, enterprise procurement evaluations, and talent acquisition.' },
+      { topic: 'Enterprise Customer and Supply Chain Disclosures', metric: 'CSRD & GRI 408-1', context: 'Global enterprise customers, government procurement bodies, and CSRD-obligated clients increasingly require structured and verified ESG questionnaire responses, responsible sourcing commitments, and audit-ready documentation.' },
     ],
     marketLeaderActions: [
       'Leading Indian IT companies are building structured Scope 3 measurement frameworks and enterprise customer ESG response packs instead of relying on rough emission estimates and informal questionnaire answers.',
@@ -560,10 +560,10 @@ export const INDUSTRIES: Industry[] = [
       'BRSR and sustainability disclosure development that links operational sourcing practices, water stewardship data, and farmer welfare metrics to institutional investor and export customer expectations',
     ],
     materialTopics: [
-      { topic: 'Supply Chain Traceability and Responsible Sourcing', context: 'Traceability to farm or origin level, smallholder farmer engagement documentation, and sourcing control evidence are increasingly central to export market access, sustainability certification, and institutional ESG rating for food companies.' },
-      { topic: 'Water Stress and Land Use Risk', context: 'Water scarcity in key sourcing regions, land conversion pressure, and irrigation intensity shape both operational supply chain risk and growing institutional investor expectations on nature-related financial disclosure.' },
-      { topic: 'Deforestation, Biodiversity, and Nature-Positive Claims', context: 'Export buyers, global retailers, and institutional investors expect evidenced controls around land conversion, forest protection, and biodiversity management rather than broad sustainability commitments without documented operational controls.' },
-      { topic: 'Farmer Livelihoods and Rural Community Resilience', context: 'Smallholder farmer welfare, income stability programmes, and rural community resilience are material where supply chain continuity and quality standards depend directly on producer sustainability and climate adaptation capacity.' },
+      { topic: 'Supply Chain Traceability and Responsible Sourcing', metric: 'GRI 204-1 & EUDR', context: 'Traceability to farm or origin level, smallholder farmer engagement documentation, and sourcing control evidence are increasingly central to export market access, sustainability certification, and institutional ESG rating for food companies.' },
+      { topic: 'Water Stress and Land Use Risk', metric: 'GRI 303-3 & TNFD', context: 'Water scarcity in key sourcing regions, land conversion pressure, and irrigation intensity shape both operational supply chain risk and growing institutional investor expectations on nature-related financial disclosure.' },
+      { topic: 'Deforestation, Biodiversity, and Nature-Positive Claims', metric: 'GRI 304-2 & 304-3', context: 'Export buyers, global retailers, and institutional investors expect evidenced controls around land conversion, forest protection, and biodiversity management rather than broad sustainability commitments without documented operational controls.' },
+      { topic: 'Farmer Livelihoods and Rural Community Resilience', metric: 'GRI 202-1 & 412-2', context: 'Smallholder farmer welfare, income stability programmes, and rural community resilience are material where supply chain continuity and quality standards depend directly on producer sustainability and climate adaptation capacity.' },
     ],
     marketLeaderActions: [
       'Leading Indian agriculture and food companies are tightening traceability standards and responsible sourcing documentation deeper into their supply bases, particularly for export-oriented commodities facing deforestation scrutiny from EU buyers.',
