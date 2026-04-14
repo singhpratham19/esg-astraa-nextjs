@@ -1,7 +1,9 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SERVICES, INDUSTRIES, IMPACT_NUMBERS, FRAMEWORKS, CASE_STUDIES } from '@/lib/data'
 import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck } from 'lucide-react'
+import { SITE_NAME, SITE_URL } from '@/lib/seo'
 
 const INDUSTRY_ICONS: Record<string, string> = {
   'manufacturing': '🏭',
@@ -14,9 +16,96 @@ const INDUSTRY_ICONS: Record<string, string> = {
   'agriculture-food': '🌾',
 }
 
+export const metadata: Metadata = {
+  title: 'ESG Advisory in India | BRSR Consulting, Carbon Accounting, Sustainable Finance',
+  description:
+    'ESG Astraa provides ESG advisory in India across BRSR consulting, ESG reporting, sustainable finance advisory, carbon accounting, and ESG strategy for sector-specific business needs.',
+  keywords: [
+    'ESG advisory India',
+    'BRSR consulting India',
+    'ESG reporting consultancy',
+    'sustainable finance advisory India',
+    'carbon accounting consulting',
+    'ESG strategy consulting',
+    'ESG compliance India',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'ESG Advisory in India | BRSR Consulting, Carbon Accounting, Sustainable Finance',
+    description:
+      'Sector-focused ESG advisory for BRSR, carbon accounting, ESG reporting, governance, and sustainable finance.',
+    url: SITE_URL,
+  },
+}
+
+const homeStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      email: 'advisory@esgastraa.com',
+    },
+    {
+      '@type': 'ProfessionalService',
+      name: SITE_NAME,
+      url: SITE_URL,
+      areaServed: 'India',
+      serviceType: [
+        'ESG Advisory',
+        'BRSR Consulting',
+        'Sustainable Finance Advisory',
+        'Carbon Accounting',
+        'ESG Reporting',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What does an ESG advisory firm do?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'An ESG advisory firm helps companies with ESG strategy, reporting, compliance, governance, carbon accounting, and sustainable finance.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do Indian companies need BRSR consulting support?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Many Indian companies need support with BRSR gap assessments, disclosure drafting, evidence management, and assurance readiness.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is ESG linked to sustainable finance?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sustainable finance links ESG performance, climate risk, and credible targets to green bonds, ESG-linked lending, investor communication, and capital decisions.',
+          },
+        },
+      ],
+    },
+  ],
+}
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeStructuredData) }}
+      />
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="bg-white pt-24 pb-0 overflow-hidden">
         <div className="max-w-site mx-auto px-6">
@@ -26,18 +115,16 @@ export default function Home() {
             <div className="flex flex-col justify-center py-16 pr-12">
               <span className="section-label mb-6">Strategic ESG Advisory</span>
               <h1 className="font-display text-5xl md:text-[3.5rem] font-bold text-[#0D1B3E] leading-[1.08] mb-6 tracking-tight">
-                Turning ESG Complexity<br />
-                into{' '}
-                <span className="gradient-text">Strategic Advantage</span>
+                ESG advisory in India for BRSR, carbon accounting, and sustainable finance
               </h1>
               <p className="text-lg text-slate-body/70 leading-relaxed mb-8 max-w-lg">
-                ESG Astraa delivers data-backed advisory across strategy, compliance, carbon, governance, and sustainable finance — for organisations building resilient futures in emerging markets.
+                ESG Astraa delivers ESG consulting for Indian companies across strategy, compliance, carbon, governance, and sustainable finance with sector-specific support for listed businesses, financial institutions, and growth-stage companies.
               </p>
 
               {/* 3 proof points */}
               <div className="space-y-3 mb-10">
                 {[
-                  'BRSR, ISSB, CSRD, TCFD & GRI — all frameworks, one advisory team',
+                  'BRSR, ISSB, CSRD, TCFD, and GRI advisory in one team',
                   'Deep Indian regulatory expertise: SEBI, RBI, MCA, CCTS',
                   'Sector-calibrated advisory across 8 industry specialisations',
                 ].map((pt) => (
@@ -106,10 +193,10 @@ export default function Home() {
             <div>
               <span className="section-label mb-5 inline-flex">Advisory Services</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-                Six Consulting Pillars
+                ESG advisory services for reporting, carbon, governance, and finance
               </h2>
               <p className="text-slate-body/60 mt-3 max-w-md leading-relaxed">
-                Structured advisory frameworks covering every dimension of the ESG transition.
+                Structured service lines covering ESG strategy, BRSR consulting, carbon advisory, ESG risk, sustainable finance, and ESG data support.
               </p>
             </div>
             <Link href="/services/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2E8AEA] hover:gap-3 transition-all flex-shrink-0">
@@ -167,14 +254,14 @@ export default function Home() {
                 Not a SaaS Platform.<br />Not a Generic Consultant.
               </h2>
               <p className="text-slate-body/65 leading-relaxed mb-10">
-                We are a strategic ESG partner with data-backed execution capabilities — bridging the gap between advisory insight and measurable, auditable outcomes across emerging markets.
+                We are an ESG advisory firm with data-backed execution capabilities, built for companies that need practical support on reporting, compliance, governance, and sustainable finance.
               </p>
               <div className="space-y-5">
                 {[
-                  { icon: <ShieldCheck size={20} />, title: 'Consulting-First, Data-Powered', desc: 'Proprietary benchmarking and analytics underpin every recommendation — no generic checklists.' },
-                  { icon: <TrendingUp size={20} />, title: 'End-to-End Delivery', desc: 'From baseline assessment to board-ready disclosure — strategy, implementation, and measurement in one model.' },
+                  { icon: <ShieldCheck size={20} />, title: 'Consulting-First, Data-Powered', desc: 'Proprietary benchmarking and analytics underpin every recommendation without relying on generic checklists.' },
+                  { icon: <TrendingUp size={20} />, title: 'End-to-End Delivery', desc: 'From baseline assessment to board-ready disclosure, we support strategy, implementation, and measurement in one model.' },
                   { icon: <Leaf size={20} />, title: 'India-Rooted, Globally Aligned', desc: 'Deep expertise in SEBI, RBI, MCA and CCTS, connected to ISSB, CSRD, and TCFD frameworks.' },
-                  { icon: <BarChart2 size={20} />, title: 'Industry-Calibrated Advisory', desc: 'Sector-specific teams across 8 industries — not one-size-fits-all advisory.' },
+                  { icon: <BarChart2 size={20} />, title: 'Industry-Calibrated Advisory', desc: 'Sector-specific teams across 8 industries, not one-size-fits-all advisory.' },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4 items-start">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white"
@@ -244,7 +331,7 @@ export default function Home() {
                 ESG Advisory Grounded<br />in Financial Rigour
               </h2>
               <p className="text-slate-body/65 leading-relaxed mb-8">
-                Our sustainable finance practice is led by Chartered Accountants with deep capital markets, structured finance, and IFRS expertise. We speak the language of deal rooms, credit committees, and investor mandates — translating ESG into financially quantified outcomes.
+                Our sustainable finance practice is led by Chartered Accountants with deep capital markets, structured finance, and IFRS expertise. We support green bonds, ESG-linked lending, transaction ESG due diligence, and climate-related finance work with a finance-first approach.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 mb-10">
                 {[
@@ -353,7 +440,7 @@ export default function Home() {
             <div>
               <span className="section-label mb-5 inline-flex">Sector Expertise</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-                Eight Industry Specialisations
+                Industry focused ESG consulting in India
               </h2>
             </div>
             <Link href="/industries/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2E8AEA] hover:gap-3 transition-all flex-shrink-0">
@@ -481,6 +568,75 @@ export default function Home() {
           </blockquote>
           <p className="font-semibold text-sm text-[#0D1B3E]">Chief Sustainability Officer</p>
           <p className="text-xs text-slate-body/45 mt-1">Leading Listed Manufacturer, India</p>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white border-b border-slate-border/50">
+        <div className="max-w-site mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="section-label mb-5 inline-flex justify-center">Search Intent</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] mt-3 mb-4">
+              Common ESG advisory priorities for Indian companies
+            </h2>
+            <p className="text-slate-body/60 leading-relaxed">
+              These are the topics companies usually evaluate when they are searching for an ESG consulting partner. Making them explicit also strengthens the site’s search relevance.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'BRSR Consulting And ESG Reporting',
+                desc: 'Support for BRSR gap assessments, disclosure drafting, evidence workflows, assurance readiness, and broader ESG reporting alignment.',
+              },
+              {
+                title: 'Carbon Accounting And Climate Strategy',
+                desc: 'Scope 1, 2, and 3 measurement, decarbonisation planning, carbon market advisory, and climate-related management reporting.',
+              },
+              {
+                title: 'Sustainable Finance And ESG Governance',
+                desc: 'Green finance frameworks, ESG-linked lending support, transaction due diligence, and governance structures for boards and management.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-xl border border-slate-border/60 bg-slate-bg/40 p-8">
+                <h3 className="font-display font-bold text-xl text-[#0D1B3E] mb-3">{item.title}</h3>
+                <p className="text-sm text-slate-body/60 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-slate-bg border-b border-slate-border/50">
+        <div className="max-w-site mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="section-label mb-5 inline-flex justify-center">FAQ</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] mt-3 mb-4">
+              Questions companies ask before choosing an ESG advisory firm
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {[
+              {
+                q: 'What does an ESG advisory firm do?',
+                a: 'An ESG advisory firm helps companies with ESG strategy, reporting, compliance, governance, carbon accounting, and sustainable finance. The exact scope depends on whether the company needs reporting support, a management roadmap, or transaction-related work.',
+              },
+              {
+                q: 'Do Indian companies need BRSR consulting support?',
+                a: 'Many do. BRSR work usually requires cross-functional data collection, disclosure interpretation, evidence management, and internal review processes. Consulting support is often useful when timelines are tight or internal systems are still developing.',
+              },
+              {
+                q: 'How is ESG linked to sustainable finance?',
+                a: 'Lenders and investors increasingly expect ESG performance, climate risk information, and credible targets to support green bonds, ESG-linked lending, and investor communication. Sustainable finance advisory helps connect ESG work to capital decisions.',
+              },
+            ].map((item) => (
+              <div key={item.q} className="rounded-xl border border-slate-border/60 bg-white p-6">
+                <h3 className="font-display font-bold text-[#0D1B3E] mb-2">{item.q}</h3>
+                <p className="text-sm text-slate-body/60 leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

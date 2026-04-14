@@ -2,7 +2,11 @@ import Link from 'next/link'
 import { SERVICES } from '@/lib/data'
 import { ArrowRight, CheckCircle, Target, FileCheck, Leaf, Shield, TrendingUp, BarChart3 } from 'lucide-react'
 
-export const metadata = { title: 'Services — ESG Astraa' }
+export const metadata = {
+  title: 'ESG Advisory Services | BRSR Consulting, Carbon Accounting, Sustainable Finance',
+  description:
+    'Explore ESG Astraa services for ESG strategy, BRSR consulting, carbon advisory, ESG governance, sustainable finance, and ESG data intelligence.',
+}
 
 const SERVICE_ICONS: Record<string, React.ReactElement> = {
   'esg-strategy-transformation': <Target size={28} strokeWidth={1.5} />,

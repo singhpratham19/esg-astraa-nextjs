@@ -52,7 +52,23 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const service = SERVICES.find((s) => s.slug === params.slug)
-  return { title: service ? `${service.title} — ESG Astraa` : 'Service — ESG Astraa' }
+  if (!service) {
+    return { title: 'Service | ESG Astraa' }
+  }
+
+  return {
+    title: `${service.title}`,
+    description: `${service.title} from ESG Astraa covering ${service.deliverables.slice(0, 2).join(' and ').toLowerCase()} for companies seeking ESG advisory, reporting, compliance, and execution support.`,
+    keywords: [
+      `${service.title} advisory`,
+      `${service.shortTitle} consulting`,
+      'ESG advisory India',
+      'ESG consulting',
+    ],
+    alternates: {
+      canonical: `/services/${service.slug}/`,
+    },
+  }
 }
 
 export default function ServicePage({ params }: { params: { slug: string } }) {

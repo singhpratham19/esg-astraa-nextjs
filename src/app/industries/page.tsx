@@ -1,102 +1,110 @@
 import Link from 'next/link'
 import { INDUSTRIES } from '@/lib/data'
-import { ArrowRight, ArrowUpRight, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Leaf, CheckCircle2 } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  CheckCircle2,
+  Cpu,
+  Factory,
+  Heart,
+  Landmark,
+  Mountain,
+  type LucideIcon,
+  Wheat,
+  Zap,
+} from 'lucide-react'
 
-export const metadata = { title: 'Industries — ESG Astraa' }
+export const metadata = {
+  title: 'Industries Served | ESG Advisory for Manufacturing, Finance, Energy, Healthcare',
+  description:
+    'Explore ESG Astraa industry expertise across manufacturing, energy, healthcare, infrastructure, financial services, mining, technology, and agriculture.',
+}
 
 const INDUSTRY_META: Record<string, {
-  icon: React.ReactElement
+  icon: LucideIcon
   color: string
-  bg: string
   tagline: string
   metrics: { val: string; lbl: string }[]
 }> = {
   'manufacturing': {
-    icon: <Factory size={22} />,
+    icon: Factory,
     color: '#2E8AEA',
-    bg: '#EEF5FF',
-    tagline: 'BRSR, supply chain ESG, Scope 1/2 reduction, energy transition — for India\'s listed and export-oriented manufacturers.',
+    tagline: 'BRSR, supply chain ESG, Scope 1 and 2 reduction, and energy transition for listed and export-oriented manufacturers.',
     metrics: [
-      { val: '17%', lbl: 'Of Indian GDP from sector' },
-      { val: '40%', lbl: 'India\'s GHG from sector' },
-      { val: 'CBAM', lbl: 'EU export compliance' },
+      { val: '17%', lbl: 'Of Indian GDP' },
+      { val: '40%', lbl: 'India GHG share' },
+      { val: 'CBAM', lbl: 'Export pressure' },
     ],
   },
   'energy-power': {
-    icon: <Zap size={22} />,
+    icon: Zap,
     color: '#0D9488',
-    bg: '#F0FDFA',
-    tagline: 'Carbon accounting, CCTS compliance, renewable integration, net-zero pathways — for generators, transmitters, and energy developers.',
+    tagline: 'Carbon accounting, CCTS readiness, renewable integration, and transition planning for energy businesses.',
     metrics: [
-      { val: '500GW', lbl: 'India\'s 2030 RE target' },
-      { val: '45%', lbl: 'Emission intensity cut by 2030' },
-      { val: 'CCTS', lbl: 'Carbon market live' },
+      { val: '500GW', lbl: '2030 RE target' },
+      { val: '45%', lbl: 'Intensity goal' },
+      { val: 'CCTS', lbl: 'Carbon market' },
     ],
   },
   'healthcare-pharma': {
-    icon: <Heart size={22} />,
+    icon: Heart,
     color: '#7516EA',
-    bg: '#F5F0FF',
-    tagline: 'Clinical waste ESG, patient-impact metrics, BRSR for pharma, responsible supply chains — for hospitals and life sciences.',
+    tagline: 'Clinical waste, patient impact, responsible sourcing, and BRSR support for healthcare and pharma.',
     metrics: [
-      { val: '₹5.6L Cr', lbl: 'Pharma market by 2030' },
-      { val: '1000+', lbl: 'Listed cos. under BRSR' },
-      { val: 'BMW', lbl: 'Waste rules tightening' },
+      { val: '1000+', lbl: 'BRSR entities' },
+      { val: 'BMW', lbl: 'Waste rules' },
+      { val: 'Global', lbl: 'Supply scrutiny' },
     ],
   },
   'infrastructure-real-estate': {
-    icon: <Building2 size={22} />,
+    icon: Building2,
     color: '#1A6DC4',
-    bg: '#EFF6FF',
-    tagline: 'Green building certification, ESIA, project-level ESG, sustainable construction — for developers, contractors, and asset owners.',
+    tagline: 'Project ESG, green building priorities, ESIA support, and sustainable construction advisory.',
     metrics: [
-      { val: '₹111L Cr', lbl: 'NIP pipeline' },
-      { val: '40%', lbl: 'Global CO₂ from buildings' },
-      { val: 'ESIA', lbl: 'Mandatory for major projects' },
+      { val: 'NIP', lbl: 'Project pipeline' },
+      { val: '40%', lbl: 'Built env CO2' },
+      { val: 'ESIA', lbl: 'Project review' },
     ],
   },
   'financial-services': {
-    icon: <Landmark size={22} />,
-    color: '#0D1B3E',
-    bg: '#F1F5F9',
-    tagline: 'ESG-linked lending, portfolio climate alignment, RBI climate risk, green bond frameworks — for banks, NBFCs, and asset managers.',
+    icon: Landmark,
+    color: '#2E8AEA',
+    tagline: 'ESG-linked lending, portfolio climate alignment, RBI climate risk, and green finance support.',
     metrics: [
-      { val: 'RBI', lbl: 'Climate risk guidelines' },
-      { val: 'IFRS S2', lbl: 'Disclosure standard' },
-      { val: 'PCAF', lbl: 'Financed emissions standard' },
+      { val: 'RBI', lbl: 'Climate guidance' },
+      { val: 'IFRS S2', lbl: 'Disclosure shift' },
+      { val: 'PCAF', lbl: 'Portfolio focus' },
     ],
   },
   'mining-metals': {
-    icon: <Mountain size={22} />,
+    icon: Mountain,
     color: '#92400E',
-    bg: '#FEF3C7',
-    tagline: 'Environmental remediation, community impact, mine closure ESG, SDF compliance — for mining operators and metals producers.',
+    tagline: 'Environmental remediation, community impact, closure planning, and SDF-related ESG priorities.',
     metrics: [
-      { val: '15%', lbl: 'India\'s GHG from sector' },
-      { val: '2%', lbl: 'Profits mandated for SDF' },
-      { val: 'High', lbl: 'Community ESG risk' },
+      { val: 'SDF', lbl: 'Sector requirement' },
+      { val: '15%', lbl: 'India GHG share' },
+      { val: 'High', lbl: 'Licence risk' },
     ],
   },
   'it-technology': {
-    icon: <Cpu size={22} />,
+    icon: Cpu,
     color: '#7516EA',
-    bg: '#F5F0FF',
-    tagline: 'Scope 3 emissions, CSRD preparation, data centre sustainability, supply chain transparency — for IT services and product companies.',
+    tagline: 'Scope 3 accounting, CSRD preparation, supply chain transparency, and data centre sustainability.',
     metrics: [
-      { val: '85%', lbl: 'Emissions in Scope 3' },
-      { val: 'CSRD', lbl: 'EU affecting Indian exporters' },
-      { val: 'RE100', lbl: 'Customer energy pressure' },
+      { val: '85%', lbl: 'Scope 3 share' },
+      { val: 'CSRD', lbl: 'Client pressure' },
+      { val: 'RE100', lbl: 'Energy focus' },
     ],
   },
   'agriculture-food': {
-    icon: <Leaf size={22} />,
+    icon: Wheat,
     color: '#16A34A',
-    bg: '#F0FDF4',
-    tagline: 'Sustainable sourcing, water footprint, deforestation-free supply chains, regenerative agriculture — for agri and food businesses.',
+    tagline: 'Sourcing, water, traceability, and deforestation-related ESG priorities for agri and food businesses.',
     metrics: [
-      { val: '80%', lbl: 'Freshwater from agriculture' },
-      { val: '18%', lbl: 'India\'s GHG from sector' },
-      { val: 'EUDR', lbl: 'Deforestation regulation' },
+      { val: '18%', lbl: 'India GHG share' },
+      { val: '80%', lbl: 'Freshwater use' },
+      { val: 'EUDR', lbl: 'Trade pressure' },
     ],
   },
 }
@@ -104,102 +112,106 @@ const INDUSTRY_META: Record<string, {
 export default function IndustriesPage() {
   return (
     <main>
-      {/* ── HERO ── */}
-      <section className="bg-white border-b border-slate-border/50 pt-32 pb-20">
+      <section className="bg-white pt-24 pb-0 overflow-hidden border-b border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-end">
-            <div>
-              <span className="section-label mb-6 inline-flex">Industry Expertise</span>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0D1B3E] leading-[1.06] tracking-tight mt-3 mb-6">
-                Sector-Specific<br />ESG Advisory
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch min-h-[70vh]">
+            <div className="flex flex-col justify-center py-16 pr-6">
+              <span className="section-label mb-6">Industry Expertise</span>
+              <h1 className="font-display text-5xl md:text-6xl font-bold text-[#0D1B3E] leading-[1.06] mb-6 tracking-tight">
+                Sector specific ESG advisory
               </h1>
-              <p className="text-lg text-slate-body/60 leading-relaxed max-w-lg">
-                Generic advisory misses what matters. Our sector-specialist teams deliver focused ESG advisory grounded in your industry's operating reality, regulatory environment, and stakeholder expectations.
+              <p className="text-lg text-slate-body/70 leading-relaxed mb-8 max-w-xl">
+                Generic advice misses what matters. Our sector teams focus on the operating realities, regulations, and stakeholder expectations that shape ESG decisions in each industry.
               </p>
+
+              <div className="space-y-3 mb-10">
+                {[
+                  'Sector materiality and regulation mapped to real business priorities',
+                  'Relevant service pathways for each industry instead of generic ESG menus',
+                  'Industry-specific support across manufacturing, finance, energy, technology, and more',
+                ].map((point) => (
+                  <div key={point} className="flex items-start gap-3">
+                    <CheckCircle2 size={17} className="text-[#2E8AEA] mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-slate-body/75 leading-relaxed">{point}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-px bg-slate-border/30 border border-slate-border/30 rounded-xl overflow-hidden">
-              {[
-                { val: '8', lbl: 'Industry Specialisations' },
-                { val: '50+', lbl: 'Sector Engagements' },
-                { val: '7', lbl: 'ESG Framework Alignments' },
-                { val: '100%', lbl: 'India-Focused Advisory' },
-              ].map((s) => (
-                <div key={s.lbl} className="bg-white p-8">
-                  <div className="font-display text-3xl font-bold gradient-text mb-1">{s.val}</div>
-                  <div className="text-xs text-slate-body/50 leading-tight">{s.lbl}</div>
-                </div>
-              ))}
+
+            <div className="flex items-center py-16">
+              <div className="grid grid-cols-2 gap-4 w-full">
+                {[
+                  { val: '8', lbl: 'Industry Specialisations' },
+                  { val: '50+', lbl: 'Sector Engagements' },
+                  { val: '7', lbl: 'Framework Alignments' },
+                  { val: '100%', lbl: 'India Focused Advisory' },
+                ].map((stat) => (
+                  <div key={stat.lbl} className="rounded-xl border border-slate-border/60 bg-slate-bg p-8">
+                    <div className="font-display text-3xl font-bold text-[#0D1B3E] mb-1">{stat.val}</div>
+                    <div className="text-xs text-slate-body/45 leading-tight">{stat.lbl}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INDUSTRY GRID ── */}
-      <section className="py-24 bg-slate-bg">
+      <section className="py-24 bg-white">
         <div className="max-w-site mx-auto px-6">
-          <div className="mb-16">
-            <span className="section-label mb-5 inline-flex">All Sectors</span>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mt-3">
-              <h2 className="font-display text-4xl font-bold text-[#0D1B3E] flex-1">
-                Our Industry Practices
+          <div className="flex flex-col md:flex-row md:items-end gap-5 mb-14">
+            <div className="flex-1">
+              <span className="section-label mb-5 inline-flex">All Sectors</span>
+              <h2 className="font-display text-4xl font-bold text-[#0D1B3E] mt-3">
+                Our industry practices
               </h2>
-              <p className="text-slate-body/55 text-sm max-w-xs leading-relaxed">
-                Each practice combines sector domain knowledge with our proprietary 4-phase ESG methodology.
-              </p>
             </div>
+            <p className="text-slate-body/50 text-sm max-w-xs leading-relaxed">
+              Each practice connects sector context with the most relevant ESG advisory services.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {INDUSTRIES.map((ind) => {
-              const meta = INDUSTRY_META[ind.slug]
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {INDUSTRIES.map((industry) => {
+              const meta = INDUSTRY_META[industry.slug]
+              const Icon = meta.icon
               return (
-                <Link key={ind.slug} href={`/industries/${ind.slug}/`}
-                  className="group bg-white rounded-xl border border-slate-border/60 p-8 hover:shadow-xl hover:border-transparent transition-all no-underline flex flex-col relative overflow-hidden">
-                  {/* Top color accent */}
-                  <div className="absolute top-0 left-0 w-full h-[3px] opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ background: `linear-gradient(90deg, ${meta?.color}, #7516EA)` }} />
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-colors"
-                    style={{ background: meta?.bg, color: meta?.color }}>
-                    {meta?.icon}
+                <Link
+                  key={industry.slug}
+                  href={`/industries/${industry.slug}/`}
+                  className="group bg-white rounded-xl border border-slate-border/60 hover:shadow-lg hover:border-transparent hover:-translate-y-1 transition-all duration-300 no-underline flex flex-col p-6"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="w-11 h-11 rounded-lg flex items-center justify-center text-white" style={{ background: meta.color }}>
+                      <Icon size={20} />
+                    </div>
+                    <div className="grid grid-cols-3 gap-1.5 flex-1">
+                      {meta.metrics.map((metric) => (
+                        <div key={metric.lbl} className="bg-slate-bg rounded-lg px-2 py-2 text-center">
+                          <div className="font-bold text-[10px] leading-tight" style={{ color: meta.color }}>{metric.val}</div>
+                          <div className="text-[8px] text-slate-body/40 leading-tight mt-0.5">{metric.lbl}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Industry name */}
-                  <h3 className="font-display font-bold text-lg text-[#0D1B3E] mb-2 group-hover:text-[#2E8AEA] transition-colors">
-                    {ind.title}
+                  <h3 className="font-display font-bold text-lg text-[#0D1B3E] group-hover:text-[#2E8AEA] transition-colors mb-3">
+                    {industry.title}
                   </h3>
+                  <p className="text-xs text-slate-body/55 leading-relaxed mb-5 flex-1">{meta.tagline}</p>
 
-                  {/* Tagline */}
-                  <p className="text-sm text-slate-body/55 leading-relaxed mb-6 flex-1">
-                    {meta?.tagline}
-                  </p>
-
-                  {/* Focus areas */}
-                  <div className="space-y-2 mb-6 border-t border-slate-border/40 pt-5">
-                    {ind.focus.slice(0, 3).map((f) => (
-                      <div key={f} className="flex items-center gap-2">
-                        <CheckCircle2 size={12} style={{ color: meta?.color }} className="flex-shrink-0" />
-                        <span className="text-xs text-slate-body/65">{f}</span>
+                  <div className="space-y-1.5 mb-5">
+                    {industry.focus.slice(0, 2).map((item) => (
+                      <div key={item} className="flex items-center gap-2">
+                        <CheckCircle2 size={11} style={{ color: meta.color }} className="flex-shrink-0" />
+                        <span className="text-[11px] text-slate-body/60 leading-tight">{item}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Metrics + CTA */}
-                  <div className="border-t border-slate-border/40 pt-5">
-                    <div className="grid grid-cols-3 gap-2 mb-5">
-                      {meta?.metrics.map((m) => (
-                        <div key={m.lbl} className="bg-slate-bg rounded-lg px-2.5 py-2.5 text-center">
-                          <div className="font-display font-bold text-xs leading-tight" style={{ color: meta?.color }}>{m.val}</div>
-                          <div className="text-[9px] text-slate-body/40 leading-tight mt-0.5">{m.lbl}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold group-hover:gap-3 transition-all"
-                      style={{ color: meta?.color }}>
-                      Explore Practice <ArrowRight size={12} />
-                    </span>
-                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold group-hover:gap-3 transition-all" style={{ color: meta.color }}>
+                    Explore Practice <ArrowRight size={11} />
+                  </span>
                 </Link>
               )
             })}
@@ -207,55 +219,36 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* ── WHY SECTOR-SPECIFIC ── */}
-      <section className="py-24 bg-white border-t border-slate-border/50">
-        <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20 items-start">
+      <section className="bg-slate-bg border-t border-slate-border/50">
+        <div className="max-w-site mx-auto px-6 py-24">
+          <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <span className="section-label mb-5 inline-flex">Our Approach</span>
               <h2 className="font-display text-4xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-6">
-                Why Industry-Specific Advisory Matters
+                Why industry specific advisory matters
               </h2>
-              <p className="text-slate-body/65 leading-relaxed mb-5">
-                A manufacturing BRSR programme and a financial services ESG integration look nothing alike. The material issues, regulatory obligations, stakeholder expectations, and value levers are fundamentally different.
+              <p className="text-slate-body/65 leading-relaxed mb-8">
+                A manufacturing BRSR program and a financial services ESG integration effort do not look the same. The material issues, regulatory obligations, and value levers are different. Our industry pages are built around those differences.
               </p>
-              <p className="text-slate-body/55 leading-relaxed mb-8">
-                Generic ESG advice misses what actually drives investor decisions, regulatory compliance, and competitive advantage in your sector. Our industry-specialist teams bring the domain depth that generic frameworks miss.
-              </p>
+
               <Link href="/contact/" className="btn-primary inline-flex">
                 Discuss Your Sector <ArrowRight size={16} />
               </Link>
             </div>
 
-            <div className="space-y-0 divide-y divide-slate-border/40 border border-slate-border/40 rounded-xl overflow-hidden">
+            <div className="space-y-0 divide-y divide-slate-border/40 border border-slate-border/40 rounded-xl overflow-hidden bg-white">
               {[
-                {
-                  num: '01',
-                  title: 'Sector Materiality Mapping',
-                  desc: 'We identify the ESG factors that genuinely affect your sector — emissions intensity for energy, supply chain labour for manufacturing, financed emissions for banks — not generic sustainability checklists.',
-                },
-                {
-                  num: '02',
-                  title: 'Regulation-Calibrated Advisory',
-                  desc: 'SEBI BRSR for listed companies, RBI climate risk for banks, CCTS for emitters, CSRD for exporters — we know which regulations bite hardest in your sector.',
-                },
-                {
-                  num: '03',
-                  title: 'Sector Peer Benchmarking',
-                  desc: 'We compare your ESG performance against calibrated sector peers — the kind of benchmarks that hold up with boards, investors, and rating agencies.',
-                },
-                {
-                  num: '04',
-                  title: 'Value Creation, Not Just Compliance',
-                  desc: 'ESG is not just risk management. We identify where sustainability creates measurable business value — green finance access, supply chain resilience, talent retention.',
-                },
+                { num: '01', title: 'Sector Materiality Mapping', desc: 'We identify the ESG factors that genuinely affect your sector and operating model.' },
+                { num: '02', title: 'Regulation Calibrated Advisory', desc: 'We focus on the standards and regulatory themes that are most relevant in that industry.' },
+                { num: '03', title: 'Peer And Market Context', desc: 'Our recommendations are shaped by how boards, investors, lenders, and customers look at that sector.' },
+                { num: '04', title: 'Value Beyond Compliance', desc: 'We show where ESG work can support risk management, capital access, operations, and credibility.' },
               ].map((item) => (
-                <div key={item.num} className="p-8 bg-white hover:bg-slate-bg transition-colors group">
-                  <div className="flex gap-6 items-start">
-                    <span className="text-sm font-bold gradient-text flex-shrink-0 pt-0.5">{item.num}</span>
+                <div key={item.num} className="p-6 hover:bg-slate-bg/50 transition-colors group">
+                  <div className="flex gap-5 items-start">
+                    <span className="text-xs font-bold text-[#2E8AEA] flex-shrink-0 pt-0.5">{item.num}</span>
                     <div>
-                      <h4 className="font-bold text-[#0D1B3E] mb-2 group-hover:text-[#2E8AEA] transition-colors">{item.title}</h4>
-                      <p className="text-sm text-slate-body/60 leading-relaxed">{item.desc}</p>
+                      <h4 className="font-bold text-[#0D1B3E] mb-1 text-sm group-hover:text-[#2E8AEA] transition-colors">{item.title}</h4>
+                      <p className="text-xs text-slate-body/55 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -265,55 +258,31 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* ── ENGAGEMENT MODEL ── */}
-      <section className="py-24 bg-slate-bg border-t border-slate-border/50">
+      <section className="py-24 bg-white border-t border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="section-label mb-5 inline-flex justify-center">How We Engage</span>
             <h2 className="font-display text-4xl font-bold text-[#0D1B3E] mt-3 mb-4">
-              A Sector Engagement, Step by Step
+              A sector engagement, step by step
             </h2>
             <p className="text-slate-body/55 leading-relaxed">
-              Every engagement follows our proven 4-phase methodology — adapted to the specific operating reality, regulatory context, and stakeholder landscape of your sector.
+              Every engagement follows our four phase methodology, adapted to the operating reality and regulatory context of the sector.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              {
-                num: '01',
-                title: 'Sector Diagnostic',
-                desc: 'We map ESG maturity against sector peers, identify material issues specific to your industry, and benchmark disclosure quality against best-in-class.',
-                deliverable: 'Sector materiality matrix & peer benchmark report',
-              },
-              {
-                num: '02',
-                title: 'Strategy & Roadmap',
-                desc: 'We build a data-informed ESG roadmap calibrated to your sector\'s regulatory timeline, stakeholder expectations, and business planning cycle.',
-                deliverable: 'Board-ready ESG strategy & 12–36 month roadmap',
-              },
-              {
-                num: '03',
-                title: 'Implementation',
-                desc: 'Hands-on execution support — data architecture, governance structures, disclosure drafting, and assurance preparation — all adapted to sector operating realities.',
-                deliverable: 'Operational ESG programme with owned workflows',
-              },
-              {
-                num: '04',
-                title: 'Measure & Report',
-                desc: 'Continuous KPI tracking, peer benchmarking, regulatory monitoring, and stakeholder communication — powered by our proprietary analytics infrastructure.',
-                deliverable: 'Dashboard, disclosure pack & board reporting',
-              },
-            ].map((p) => (
-              <div key={p.num}
-                className="bg-white border border-slate-border/50 rounded-xl p-8 hover:shadow-lg hover:border-[#2E8AEA]/30 transition-all group flex flex-col relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-[3px] opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ background: 'linear-gradient(90deg, #2E8AEA, #7516EA)' }} />
-                <span className="font-display text-4xl font-bold gradient-text mb-6">{p.num}</span>
-                <h4 className="font-display font-bold text-lg text-[#0D1B3E] mb-3">{p.title}</h4>
-                <p className="text-sm text-slate-body/60 leading-relaxed mb-5 flex-1">{p.desc}</p>
+              { num: '01', title: 'Sector Diagnostic', desc: 'We review maturity, material issues, and disclosure quality against sector needs.', deliverable: 'Sector materiality map and peer benchmark' },
+              { num: '02', title: 'Strategy And Roadmap', desc: 'We shape a roadmap calibrated to the sector timeline and management priorities.', deliverable: 'Board ready roadmap and action plan' },
+              { num: '03', title: 'Implementation', desc: 'We support data architecture, governance, drafting, and operating workflows.', deliverable: 'Working ESG process with owners' },
+              { num: '04', title: 'Measure And Report', desc: 'We support KPI tracking, reporting, and stakeholder communication.', deliverable: 'Dashboard, review pack, and reporting support' },
+            ].map((item) => (
+              <div key={item.num} className="bg-white border border-slate-border/50 rounded-xl p-8 hover:shadow-xl hover:border-[#2E8AEA]/30 transition-all group flex flex-col">
+                <span className="font-display text-4xl font-bold text-[#2E8AEA] mb-6">{item.num}</span>
+                <h4 className="font-display font-bold text-lg text-[#0D1B3E] mb-3">{item.title}</h4>
+                <p className="text-sm text-slate-body/60 leading-relaxed mb-5 flex-1">{item.desc}</p>
                 <div className="pt-4 border-t border-slate-border/40">
-                  <p className="text-xs text-[#7516EA] font-semibold leading-relaxed">{p.deliverable}</p>
+                  <p className="text-xs text-[#00338D] font-semibold leading-relaxed">{item.deliverable}</p>
                 </div>
               </div>
             ))}
@@ -321,7 +290,6 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* ── FRAMEWORKS ── */}
       <section className="py-14 bg-white border-t border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
@@ -329,38 +297,35 @@ export default function IndustriesPage() {
               Advisory aligned to
             </p>
             <div className="flex flex-wrap gap-x-10 gap-y-3 items-center">
-              {['SEBI BRSR', 'GRI Standards', 'ISSB / IFRS S1 & S2', 'TCFD', 'EU CSRD', 'CDP', 'SASB', 'ICMA Green Bond Principles'].map((f) => (
-                <span key={f} className="text-sm font-semibold text-slate-body/45">{f}</span>
+              {['SEBI BRSR', 'GRI Standards', 'ISSB / IFRS S1 & S2', 'TCFD', 'EU CSRD', 'CDP', 'SASB', 'ICMA Green Bond Principles'].map((framework) => (
+                <span key={framework} className="text-sm font-semibold text-slate-body/45">{framework}</span>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #1a2f5e 100%)' }}>
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.05]"
-          style={{ background: 'radial-gradient(circle, #2E8AEA, transparent)', transform: 'translate(30%, -30%)' }} />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.04]"
-          style={{ background: 'radial-gradient(circle, #7516EA, transparent)', transform: 'translate(-20%, 20%)' }} />
-        <div className="max-w-site mx-auto px-6 relative z-10">
+      <section className="py-24 bg-[#0D1B3E]">
+        <div className="max-w-site mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#5BA8EF] block mb-4">Get Started</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
-                Discuss Your Sector&apos;s ESG Priorities
+                Discuss your sector ESG priorities
               </h2>
               <p className="text-white/45 leading-relaxed">
-                Our sector-specialist advisory team is ready to understand your unique challenges, regulatory exposure, and value creation opportunities. Start with a 30-minute sector consultation.
+                Our sector specialists can help you identify the most relevant challenges, service pathways, and reporting priorities for your industry.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
               <Link href="/contact/" className="btn-primary justify-center text-center">
                 Book a Sector Consultation <ArrowRight size={16} />
               </Link>
-              <Link href="/services/"
+              <Link
+                href="/services/"
                 className="btn-outline justify-center text-center"
-                style={{ borderColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.65)' }}>
+                style={{ borderColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.65)' }}
+              >
                 Explore Services <ArrowUpRight size={16} />
               </Link>
             </div>
