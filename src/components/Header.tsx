@@ -1,15 +1,211 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { NAV_LINKS } from '@/lib/data'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { ChevronDown, Menu, X, BarChart3, LayoutDashboard, Database, ClipboardCheck, FileOutput, PlayCircle, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Wheat, Target, FileCheck, Leaf, Shield, TrendingUp, Globe, Settings, BookOpen, BarChart2, Users, Repeat, Bell } from 'lucide-react'
 import ButterflyLogo from './ButterflyLogo'
 
-export default function Header() {
+type DropdownItem = {
+  label: string
+  desc: string
+  href: string
+  icon: React.ReactNode
+}
+
+type NavItem = {
+  label: string
+  href: string
+  dropdown?: {
+    sections: { title?: string; items: DropdownItem[] }[]
+  }
+}
+
+const NAV: NavItem[] = [
+  {
+    label: 'Platform',
+    href: '/platform/',
+    dropdown: {
+      sections: [
+        {
+          title: 'Core Platform',
+          items: [
+            { label: 'Audit Automation', desc: 'End-to-end ESG audit engine', href: '/platform/audit-automation/', icon: <ClipboardCheck size={16} /> },
+            { label: 'Reporting Dashboard', desc: 'Real-time ESG KPI tracking', href: '/platform/reporting/', icon: <LayoutDashboard size={16} /> },
+            { label: 'Data Management', desc: 'Integrate & centralise ESG data', href: '/platform/data-management/', icon: <Database size={16} /> },
+            { label: 'Compliance Tracker', desc: 'Monitor regulatory deadlines', href: '/platform/compliance/', icon: <BarChart3 size={16} /> },
+            { label: 'Custom Report Builder', desc: 'Tailored output for any audience', href: '/platform/reports/', icon: <FileOutput size={16} /> },
+          ],
+        },
+        {
+          title: '',
+          items: [
+            { label: 'Request a Demo', desc: 'See the platform live', href: '/request-demo/', icon: <PlayCircle size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    label: 'Industries',
+    href: '/industries/',
+    dropdown: {
+      sections: [
+        {
+          items: [
+            { label: 'Manufacturing', desc: 'BRSR, supply chain, net zero', href: '/industries/manufacturing/', icon: <Factory size={16} /> },
+            { label: 'Energy & Power', desc: 'CCTS, carbon markets, transition', href: '/industries/energy-power/', icon: <Zap size={16} /> },
+            { label: 'Healthcare & Pharma', desc: 'BMW waste, patient impact, BRSR', href: '/industries/healthcare-pharma/', icon: <Heart size={16} /> },
+            { label: 'Infrastructure & Real Estate', desc: 'ESIA, green buildings, LEED', href: '/industries/infrastructure-real-estate/', icon: <Building2 size={16} /> },
+            { label: 'Financial Services', desc: 'RBI climate, PCAF, green bonds', href: '/industries/financial-services/', icon: <Landmark size={16} /> },
+            { label: 'Mining & Metals', desc: 'SDF, FPIC, mine closure', href: '/industries/mining-metals/', icon: <Mountain size={16} /> },
+            { label: 'IT & Technology', desc: 'Scope 3, CSRD, data centres', href: '/industries/it-technology/', icon: <Cpu size={16} /> },
+            { label: 'Agriculture & Food', desc: 'EUDR, water, traceability', href: '/industries/agriculture-food/', icon: <Wheat size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    label: 'Services',
+    href: '/services/',
+    dropdown: {
+      sections: [
+        {
+          items: [
+            { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/esg-strategy-transformation/', icon: <Target size={16} /> },
+            { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/brsr-esg-compliance/', icon: <FileCheck size={16} /> },
+            { label: 'Carbon Advisory & Credits', desc: 'Scope 1/2/3, CBAM, credits', href: '/services/carbon-advisory-credits/', icon: <Leaf size={16} /> },
+            { label: 'ESG Risk & Governance', desc: 'Board governance, supply chain risk', href: '/services/esg-risk-governance/', icon: <Shield size={16} /> },
+            { label: 'Sustainable Finance', desc: 'Green bonds, SLL, PCAF', href: '/services/sustainable-finance/', icon: <TrendingUp size={16} /> },
+            { label: 'ESG Data & Intelligence', desc: 'KPI framework, benchmarks', href: '/services/esg-data-intelligence/', icon: <BarChart3 size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    label: 'Solutions',
+    href: '/solutions/',
+    dropdown: {
+      sections: [
+        {
+          items: [
+            { label: 'Environmental', desc: 'GHG, wastewater, renewable energy', href: '/solutions/environmental/', icon: <Leaf size={16} /> },
+            { label: 'Biodiversity & Nature', desc: 'TNFD, water stewardship, deforestation', href: '/solutions/biodiversity-nature/', icon: <Globe size={16} /> },
+            { label: 'By Process', desc: 'Energy audit, ETP, clearances, LCA', href: '/solutions/by-process/', icon: <Settings size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    label: 'Our Ecosystem',
+    href: '/ecosystem/',
+    dropdown: {
+      sections: [
+        {
+          items: [
+            { label: 'About ESG Astraa', desc: 'Our mission, team, and approach', href: '/about/', icon: <Users size={16} /> },
+            { label: 'Our Methodology', desc: 'How we deliver outcomes', href: '/about/our-methodology/', icon: <Repeat size={16} /> },
+            { label: 'Partners & Certifications', desc: 'Frameworks and accreditations', href: '/about/partners-certifications/', icon: <ClipboardCheck size={16} /> },
+            { label: 'Case Studies', desc: 'Client outcomes and results', href: '/case-studies/', icon: <BookOpen size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    label: 'Insights',
+    href: '/insights/',
+    dropdown: {
+      sections: [
+        {
+          items: [
+            { label: 'Whitepapers', desc: 'In-depth ESG research documents', href: '/insights/whitepapers/', icon: <BookOpen size={16} /> },
+            { label: 'Industry Reports', desc: 'Sector ESG landscape analysis', href: '/insights/industry-reports/', icon: <BarChart2 size={16} /> },
+            { label: 'ESG Benchmarks', desc: 'Data-driven performance benchmarks', href: '/insights/esg-benchmarks/', icon: <BarChart3 size={16} /> },
+            { label: 'Thought Leadership', desc: 'Expert commentary and trends', href: '/insights/thought-leadership/', icon: <Users size={16} /> },
+            { label: 'Regulatory Updates', desc: 'SEBI, RBI, CSRD tracking', href: '/insights/regulatory-updates/', icon: <Bell size={16} /> },
+          ],
+        },
+      ],
+    },
+  },
+]
+
+type Section = { title?: string; items: DropdownItem[] }
+
+function DropdownMenu({ sections }: { sections: Section[] }) {
+  return (
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+      <div className="bg-white rounded-xl shadow-2xl border border-slate-200/80 overflow-hidden min-w-[280px]">
+        {sections.map((section, si) => (
+          <div key={si}>
+            {section.title && (
+              <div className="px-4 pt-4 pb-1">
+                <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-slate-400">{section.title}</span>
+              </div>
+            )}
+            <div className="p-2">
+              {section.items.map((item) => (
+                <Link key={item.href} href={item.href}
+                  className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors no-underline group/item">
+                  <span className="text-[#2E8AEA] mt-0.5 flex-shrink-0 opacity-70 group-hover/item:opacity-100 transition-opacity">{item.icon}</span>
+                  <div>
+                    <div className="text-sm font-semibold text-[#0D1B3E] group-hover/item:text-[#2E8AEA] transition-colors leading-tight">{item.label}</div>
+                    <div className="text-xs text-slate-400 leading-tight mt-0.5">{item.desc}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            {si < sections.length - 1 && <div className="border-t border-slate-100 mx-4" />}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function NavItemDesktop({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+  }
+
+  useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current) }, [])
+
+  if (!item.dropdown) {
+    return (
+      <Link href={item.href} className="text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
+        {item.label}
+      </Link>
+    )
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a2847]">
+    <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <button className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors bg-transparent border-0 cursor-pointer">
+        {item.label}
+        <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && <DropdownMenu sections={item.dropdown.sections} />}
+    </div>
+  )
+}
+
+export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a2847] border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
 
         {/* Logo */}
@@ -18,55 +214,76 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href}
-              className="text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline flex items-center gap-1.5">
-              {link.label}
-              <ChevronDown size={14} className="opacity-50" />
-            </Link>
+        <nav className="hidden lg:flex items-center gap-7">
+          {NAV.map((item) => (
+            <NavItemDesktop key={item.href} item={item} />
           ))}
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          <Link href="/auth/signin" className="text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
+          <Link href="/auth/signin/" className="text-[14px] font-medium text-white/75 hover:text-white transition-colors no-underline">
             Sign In
           </Link>
-          <Link href="/request-demo" className="text-[14px] font-bold text-white px-5 py-2.5 rounded-lg transition-all hover:opacity-90 hover:shadow-md"
+          <Link href="/request-demo/"
+            className="text-[13px] font-bold text-white px-5 py-2.5 rounded-lg transition-all hover:opacity-90"
             style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
             Request Demo
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
-          {open ? <X size={22} /> : <Menu size={22} />}
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="lg:hidden bg-[#152038] border-t border-white/10 shadow-lg">
-          <nav className="max-w-site mx-auto px-6 py-6 flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
-                className="font-medium text-sm text-white/80 hover:text-white transition-colors no-underline py-3 border-b border-white/10">
-                {link.label}
-              </Link>
+      {mobileOpen && (
+        <div className="lg:hidden bg-[#152038] border-t border-white/10 max-h-[80vh] overflow-y-auto">
+          <div className="max-w-site mx-auto px-5 py-4">
+            {NAV.map((item) => (
+              <div key={item.href} className="border-b border-white/10">
+                {item.dropdown ? (
+                  <>
+                    <button
+                      onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                      className="w-full flex items-center justify-between py-3.5 text-sm font-medium text-white/80 bg-transparent border-0 cursor-pointer text-left">
+                      {item.label}
+                      <ChevronDown size={14} className={`opacity-50 transition-transform ${mobileExpanded === item.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileExpanded === item.label && (
+                      <div className="pb-3 space-y-1">
+                        {item.dropdown.sections.flatMap(s => s.items).map((sub) => (
+                          <Link key={sub.href} href={sub.href} onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors no-underline">
+                            <span className="text-[#5BA8EF] flex-shrink-0">{sub.icon}</span>
+                            <span className="text-sm text-white/65">{sub.label}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link href={item.href} onClick={() => setMobileOpen(false)}
+                    className="block py-3.5 text-sm font-medium text-white/80 no-underline">
+                    {item.label}
+                  </Link>
+                )}
+              </div>
             ))}
-            <div className="mt-6 space-y-3">
-              <Link href="/auth/signin" onClick={() => setOpen(false)}
-                className="block text-center text-sm font-medium text-white/80 no-underline py-2">
+            <div className="pt-5 pb-2 space-y-3">
+              <Link href="/auth/signin/" onClick={() => setMobileOpen(false)}
+                className="block text-center text-sm font-medium text-white/70 no-underline py-2">
                 Sign In
               </Link>
-              <Link href="/request-demo" onClick={() => setOpen(false)}
-                className="block text-center text-[13px] font-bold text-white px-5 py-3 rounded-lg transition-all"
+              <Link href="/request-demo/" onClick={() => setMobileOpen(false)}
+                className="block text-center text-[13px] font-bold text-white px-5 py-3 rounded-lg"
                 style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
                 Request Demo
               </Link>
             </div>
-          </nav>
+          </div>
         </div>
       )}
     </header>
