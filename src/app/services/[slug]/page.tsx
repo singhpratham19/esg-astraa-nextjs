@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { SERVICES, CASE_STUDIES } from '@/lib/data'
-import { ArrowRight, CheckCircle2, Target, FileCheck, Leaf, Shield, TrendingUp, BarChart3, Award } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
 
 const SERVICE_IMAGES: Record<string, string> = {
@@ -12,13 +13,37 @@ const SERVICE_IMAGES: Record<string, string> = {
   'esg-data-intelligence': '/images/service-data.jpg',
 }
 
+const SERVICE_SECONDARY_IMAGES: Record<string, string> = {
+  'esg-strategy-transformation': '/images/team-meeting.jpg',
+  'brsr-esg-compliance': '/images/report-writing.jpg',
+  'carbon-advisory-credits': '/images/carbon-forest.jpg',
+  'esg-risk-governance': '/images/board-meeting.jpg',
+  'sustainable-finance': '/images/office-people.jpg',
+  'esg-data-intelligence': '/images/data-analysis.jpg',
+}
+
+const CASE_STUDY_IMAGES: Record<string, string> = {
+  'manufacturing-brsr': '/images/case-study-1.jpg',
+  'energy-carbon-credits': '/images/case-study-2.jpg',
+  'finance-green-bond': '/images/case-study-3.jpg',
+}
+
 const SERVICE_BENEFITS: Record<string, string[]> = {
   'esg-strategy-transformation': ['Align ESG with core business strategy for competitive advantage', 'Identify material issues through structured stakeholder engagement', 'Create actionable roadmaps with clear milestones and KPIs', 'Benchmark against industry peers using proprietary data'],
   'brsr-esg-compliance': ['Achieve SEBI BRSR compliance with audit-ready documentation', 'Single reporting effort satisfies GRI, ISSB, TCFD, CDP, and SASB', 'Reduce data collection cycles by 40% with smart architecture', 'Prepare for reasonable assurance with confidence'],
   'carbon-advisory-credits': ['Precise Scope 1/2/3 emissions accounting using GHG Protocol', 'Access premium carbon credits from VCS and Gold Standard registries', 'Navigate India\'s Carbon Credit Trading Scheme framework', 'Build EU CBAM readiness for export-oriented operations'],
   'esg-risk-governance': ['Embed ESG into enterprise risk management frameworks', 'Build board-level ESG oversight structures and committees', 'Assess supply chain ESG risks across your value chain', 'Align with COSO ERM and TCFD risk categories'],
-  'sustainable-finance': ['Design green bond frameworks aligned to ICMA principles', 'Structure ESG-linked lending and sustainability-linked loans', 'Quantify climate risk for financial decision-making', 'Engage investors with credible ESG narratives'],
+  'sustainable-finance': ['Design green, social, and sustainability-linked finance frameworks with ICMA-aligned discipline', 'Structure ESG-linked lending KPIs and sustainability performance targets that withstand lender scrutiny', 'Support transaction ESG due diligence for M&A, PE, VC, and credit processes', 'Prepare institutions for IFRS S1/S2, RBI climate-risk expectations, and investor disclosure demands'],
   'esg-data-intelligence': ['Benchmark ESG performance against industry peers', 'Track 200+ KPIs across environmental, social, and governance pillars', 'Generate board-ready dashboards and progress reports', 'Make data-driven decisions with validated industry benchmarks'],
+}
+
+const RELATED_CASE_STUDIES: Record<string, string> = {
+  'esg-strategy-transformation': 'manufacturing-brsr',
+  'brsr-esg-compliance': 'manufacturing-brsr',
+  'carbon-advisory-credits': 'energy-carbon-credits',
+  'esg-risk-governance': 'manufacturing-brsr',
+  'sustainable-finance': 'finance-green-bond',
+  'esg-data-intelligence': 'manufacturing-brsr',
 }
 
 export function generateStaticParams() {
@@ -34,7 +59,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = SERVICES.find((s) => s.slug === params.slug)
   if (!service) return notFound()
 
-  const related = CASE_STUDIES[0]
+  const related = CASE_STUDIES.find((study) => study.slug === RELATED_CASE_STUDIES[service.slug]) || CASE_STUDIES[0]
   const benefits = SERVICE_BENEFITS[service.slug] || []
 
   return (
@@ -56,14 +81,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.cta} <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="w-80 h-64 rounded-2xl bg-gradient-to-br from-violet/15 to-coral/15 flex items-center justify-center shadow-xl">
-              {service.slug === 'esg-strategy-transformation' && <Target size={160} className="text-violet/40" strokeWidth={0.5} />}
-              {service.slug === 'brsr-esg-compliance' && <FileCheck size={160} className="text-violet/40" strokeWidth={0.5} />}
-              {service.slug === 'carbon-advisory-credits' && <Leaf size={160} className="text-violet/40" strokeWidth={0.5} />}
-              {service.slug === 'esg-risk-governance' && <Shield size={160} className="text-violet/40" strokeWidth={0.5} />}
-              {service.slug === 'sustainable-finance' && <TrendingUp size={160} className="text-violet/40" strokeWidth={0.5} />}
-              {service.slug === 'esg-data-intelligence' && <BarChart3 size={160} className="text-violet/40" strokeWidth={0.5} />}
+          <div className="hidden lg:block">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-xl">
+              <Image
+                src={SERVICE_IMAGES[service.slug]}
+                alt={service.title}
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-base/70 via-base/10 to-transparent" />
+              <div className="absolute left-6 bottom-6 rounded-xl bg-white/92 px-5 py-4 backdrop-blur-sm">
+                <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-violet mb-1">Advisory Practice</p>
+                <p className="font-display font-bold text-base text-base">{service.shortTitle}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -84,6 +115,54 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
+
+      <section className="py-16 bg-white border-b border-slate-border/50">
+        <div className="max-w-site mx-auto px-6">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 max-w-5xl mx-auto items-start">
+            <div className="relative min-h-[460px] overflow-hidden rounded-2xl shadow-sm">
+              <Image
+                src={SERVICE_SECONDARY_IMAGES[service.slug]}
+                alt={`${service.title} engagement`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-base/65 via-base/10 to-transparent" />
+              <div className="absolute left-6 right-6 bottom-6 rounded-xl bg-white/90 p-5 backdrop-blur-sm">
+                <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-violet mb-2">How We Engage</p>
+                <p className="text-sm text-slate-body/75 leading-relaxed">
+                  Each engagement blends strategic advisory, operating design, and evidence-backed execution support tailored to your organisation.
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-6">
+              <div className="rounded-2xl border border-slate-border/60 bg-slate-bg/40 p-8">
+              <span className="section-label mb-4 inline-block">Where We Engage</span>
+              <h2 className="font-display text-2xl font-bold text-base mt-4 mb-6">Who This Service Is For</h2>
+              <ul className="space-y-4">
+                {service.idealFor.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-coral mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-slate-body/80 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              </div>
+              <div className="rounded-2xl border border-slate-border/60 bg-white p-8 shadow-sm">
+                <span className="section-label mb-4 inline-block">Expected Outputs</span>
+                <h2 className="font-display text-2xl font-bold text-base mt-4 mb-6">Typical Deliverables</h2>
+                <ul className="space-y-4">
+                  {service.deliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 size={18} className="text-violet/40 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-slate-body/80 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Content Sections */}
       <section className="py-section bg-white">
@@ -118,13 +197,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="bg-slate-bg">
         <div className="max-w-site mx-auto px-6 py-section">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="flex items-center justify-center aspect-[4/3] rounded-2xl bg-gradient-to-br from-violet/10 to-coral/10 shadow-lg">
-              {service.slug === 'esg-strategy-transformation' && <Target size={150} className="text-violet/30" strokeWidth={0.5} />}
-              {service.slug === 'brsr-esg-compliance' && <FileCheck size={150} className="text-violet/30" strokeWidth={0.5} />}
-              {service.slug === 'carbon-advisory-credits' && <Leaf size={150} className="text-violet/30" strokeWidth={0.5} />}
-              {service.slug === 'esg-risk-governance' && <Shield size={150} className="text-violet/30" strokeWidth={0.5} />}
-              {service.slug === 'sustainable-finance' && <TrendingUp size={150} className="text-violet/30" strokeWidth={0.5} />}
-              {service.slug === 'esg-data-intelligence' && <BarChart3 size={150} className="text-violet/30" strokeWidth={0.5} />}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={SERVICE_IMAGES[service.slug]}
+                alt={`${service.title} methodology`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-base/70 via-transparent to-transparent" />
             </div>
             <div>
               <span className="section-label mb-4 inline-block">Our Methodology</span>
@@ -157,8 +237,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="max-w-3xl mx-auto">
             <span className="section-label mb-6 inline-block">Related Case Study</span>
             <Link href={`/case-studies/${related.slug}/`} className="group card-hover block rounded-2xl border border-slate-border/60 bg-white overflow-hidden no-underline mt-4">
-              <div className="h-48 bg-gradient-to-br from-violet/10 to-coral/10 flex items-center justify-center">
-                <Award size={100} className="text-violet/20" strokeWidth={0.5} />
+              <div className="relative h-56">
+                <Image
+                  src={CASE_STUDY_IMAGES[related.slug] || '/images/case-study-1.jpg'}
+                  alt={related.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-base/70 via-transparent to-transparent" />
               </div>
               <div className="p-8 md:p-10">
                 <span className="text-xs font-display font-semibold text-coral tracking-wider uppercase">{related.industry}</span>

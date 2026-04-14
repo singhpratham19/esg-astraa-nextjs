@@ -4,20 +4,19 @@ import ButterflyLogo from './ButterflyLogo'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A2E] text-white/60">
+    <footer style={{ background: '#0D1B3E' }} className="text-white/60">
       {/* CTA Band */}
       <div className="border-b border-white/8">
         <div className="max-w-site mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-xl">
-            <div className="w-8 h-[3px] bg-[#0091DA] mb-5" />
+            <p className="text-xs font-bold tracking-[0.15em] uppercase text-white/30 mb-3">Start a Conversation</p>
             <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
               Ready to turn ESG complexity into strategic advantage?
             </h3>
-            <p className="text-white/40 text-sm">
-              Book a complimentary 30-minute consultation with our advisory team.
-            </p>
+            <p className="text-white/40 text-sm">Book a complimentary 30-minute consultation with our advisory team.</p>
           </div>
-          <Link href="/contact/" className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-display font-semibold text-white px-8 py-4 bg-[#00338D] hover:bg-[#002266] transition-colors whitespace-nowrap">
+          <Link href="/contact/" className="flex-shrink-0 inline-flex items-center gap-2 text-sm font-bold text-white px-8 py-4 rounded-lg transition-all hover:opacity-90 whitespace-nowrap"
+            style={{ background: 'linear-gradient(135deg, #2E8AEA 0%, #7516EA 100%)' }}>
             Book Consultation →
           </Link>
         </div>
@@ -39,15 +38,15 @@ export default function Footer() {
               Strategic ESG advisory with data-backed execution for emerging markets.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['GRI', 'ISSB', 'BRSR', 'TCFD', 'CSRD'].map((f) => (
-                <span key={f} className="text-[10px] font-display font-semibold tracking-wider text-white/25 border border-white/10 px-2 py-1">{f}</span>
+              {['GRI', 'ISSB', 'BRSR', 'TCFD', 'CSRD', 'CDP'].map((f) => (
+                <span key={f} className="text-[10px] font-bold tracking-wider text-white/25 border border-white/10 px-2 py-1 rounded">{f}</span>
               ))}
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Services</h4>
+            <h4 className="font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Services</h4>
             <ul className="space-y-3">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
@@ -61,7 +60,7 @@ export default function Footer() {
 
           {/* Industries */}
           <div>
-            <h4 className="font-display font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Industries</h4>
+            <h4 className="font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Industries</h4>
             <ul className="space-y-3">
               {INDUSTRIES.slice(0, 6).map((i) => (
                 <li key={i.slug}>
@@ -75,7 +74,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-display font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Company</h4>
+            <h4 className="font-bold text-xs text-white/50 tracking-[0.12em] uppercase mb-5">Company</h4>
             <ul className="space-y-3">
               {[
                 { label: 'About Us', href: '/about/' },

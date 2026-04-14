@@ -4,18 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        kpmg: {
-          navy:    '#00338D',
-          blue:    '#0091DA',
-          purple:  '#470A68',
-          green:   '#00A3A1',
-          sky:     '#E8F4FD',
-          ink:     '#1A1A2E',
+        brand: {
+          blue:   '#2E8AEA',
+          purple: '#7516EA',
+          navy:   '#0D1B3E',
+          light:  '#EEF5FF',
         },
-        slate: { body: '#4A5568', border: '#DDE3ED', bg: '#F5F7FA' },
-        base: '#1A1A2E',
-        violet: { DEFAULT: '#00338D', light: '#0091DA', dark: '#002266' },
-        coral:  { DEFAULT: '#0091DA', light: '#33A8E3', dark: '#0073B1' },
+        slate: { body: '#4A5568', border: '#E2E8F0', bg: '#F8F9FC' },
+        base: '#0D1B3E',
+        violet: { DEFAULT: '#2E8AEA', light: '#5BA8EF', dark: '#1A6DC4' },
+        coral:  { DEFAULT: '#7516EA', light: '#9B30FF', dark: '#5A0FBB' },
       },
       fontFamily: {
         display: ['"Open Sans"', 'sans-serif'],
