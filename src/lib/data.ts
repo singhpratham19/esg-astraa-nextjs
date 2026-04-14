@@ -27,8 +27,8 @@ type Industry = {
   challenges: string[]
   opportunities: string[]
   regulatory: string[]
-  engagementHighlights: { title: string; detail: string }[]
-  materialTopics: { topic: string; metric: string; context: string }[]
+  engagementHighlights: string[]
+  materialTopics: { topic: string; context: string }[]
   marketLeaderActions: string[]
   relevantServiceSlugs: string[]
 }

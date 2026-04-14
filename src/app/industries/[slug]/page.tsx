@@ -123,7 +123,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
                       <span className="text-sm font-bold bg-gradient-to-r from-[#2E8AEA] to-[#7516EA] bg-clip-text text-transparent">0{i + 1}</span>
                     </div>
                     <p className="text-[15px] text-slate-body/70 leading-relaxed pt-2 group-hover:text-slate-body/90 transition-colors">
-                      {typeof item === 'string' ? item : (item as { detail: string }).detail}
+                      {item}
                     </p>
                   </div>
                 ))}
