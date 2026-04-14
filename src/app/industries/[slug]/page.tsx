@@ -201,28 +201,38 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        <div className="py-24 bg-slate-bg border-y border-slate-border/50">
+        <div className="py-24 bg-white border-y border-slate-border/50">
           <div className="max-w-site mx-auto px-6">
-            <div className="grid lg:grid-cols-5 gap-16 items-start">
-              <div className="lg:col-span-2">
-                <span className="section-label mb-5 inline-flex">Material Topics</span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-5">
-                  ESG material topics in {ind.title}
-                </h2>
-                <p className="text-slate-body/60 leading-relaxed">
-                  These are the themes that usually matter most in this sector because they influence regulation, stakeholder scrutiny, operating risk, and long-term value creation.
-                </p>
-              </div>
+            <div className="mb-12">
+              <span className="section-label mb-5 inline-flex">Material Topics</span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-8">
+                ESG material topics in {ind.title}
+              </h2>
 
-              <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
-                {ind.materialTopics.map((item, i) => (
-                  <div key={item.topic} className="bg-white border border-slate-border/50 rounded-xl p-7 hover:shadow-md hover:border-[#2E8AEA]/25 transition-all">
-                    <span className="text-xs font-bold text-[#2E8AEA] block mb-3">0{i + 1}</span>
-                    <h3 className="font-display font-bold text-[#0D1B3E] mb-2">{item.topic}</h3>
-                    <p className="text-sm text-slate-body/60 leading-relaxed">{item.context}</p>
-                  </div>
+              <div className="flex flex-wrap gap-2 border-b border-slate-border/40">
+                {['Material Topics'].map((tab) => (
+                  <button
+                    key={tab}
+                    className="px-4 py-3 text-sm font-semibold text-[#2E8AEA] border-b-2 border-[#2E8AEA] hover:bg-slate-bg/30 transition-colors"
+                  >
+                    {tab}
+                  </button>
                 ))}
               </div>
+            </div>
+
+            <div className="space-y-4">
+              {ind.materialTopics.map((item) => (
+                <div key={item.topic} className="flex items-start gap-4 pb-5 border-b border-slate-border/20 last:border-b-0 last:pb-0 group hover:bg-slate-bg/30 -mx-6 px-6 py-4 rounded transition-colors">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#EEF4FF] flex items-center justify-center mt-1 group-hover:bg-[#2E8AEA]/10 transition-colors">
+                    <span className="text-xs font-bold text-[#2E8AEA]">•</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-[#0D1B3E] text-[15px] mb-1">{item.topic}</h4>
+                    <p className="text-sm text-slate-body/65 leading-relaxed">{item.context}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
