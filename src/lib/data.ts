@@ -34,11 +34,12 @@ type Industry = {
 }
 
 export const NAV_LINKS = [
-  { label: 'Services', href: '/services/' },
+  { label: 'Platform', href: '/platform/' },
   { label: 'Industries', href: '/industries/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Solutions', href: '/solutions/' },
+  { label: 'Our Ecosystem', href: '/ecosystem/' },
   { label: 'Insights', href: '/insights/' },
-  { label: 'Case Studies', href: '/case-studies/' },
-  { label: 'About', href: '/about/' },
 ]
 
 export const SERVICES: Service[] = [
