@@ -189,28 +189,8 @@ export default function Home() {
       {/* ── WHY ESG ASTRAA (split with image) ───────────────────── */}
       <section className="py-28 bg-slate-bg border-y border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-            {/* Image side */}
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/images/handshake.jpg" alt="Strategic ESG partnership" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B3E]/70 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { val: '₹500Cr+', lbl: 'Green Finance Facilitated' },
-                    { val: '1.2M', lbl: 'tCO₂e Measured' },
-                  ].map((s) => (
-                    <div key={s.lbl} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-white">
-                      <div className="font-display font-bold text-2xl mb-1">{s.val}</div>
-                      <div className="text-xs text-white/60">{s.lbl}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Content side */}
+          <div className="max-w-3xl">
+            {/* Content */}
             <div>
               <span className="section-label mb-5 inline-flex">Why ESG Astraa</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-6">
