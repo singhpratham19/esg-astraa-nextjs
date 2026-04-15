@@ -276,6 +276,70 @@ export default function FinanceRiskPage() {
         </div>
       </section>
 
+      {/* CAPITAL EVENTS WE SUPPORT */}
+      <section className="py-20 bg-[#0A1628] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #0D9488 0%, transparent 55%)' }} />
+        <div className="max-w-site mx-auto px-6 relative">
+          <div className="mb-12">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#2DD4BF] block mb-4">Transaction Support</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight max-w-xl">
+              ESG prepared for every capital event
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { title: 'IPO and Public Listing', detail: 'BRSR readiness, ESG data room preparation, rating agency pre-engagement, and investor ESG Q&A support for companies approaching a public listing.', tag: 'SEBI BRSR' },
+              { title: 'Private Equity Fundraise', detail: 'ESG due diligence questionnaire responses, portfolio-level ESG baseline, and impact framework design aligned to LP reporting requirements.', tag: 'UNPRI DDQ' },
+              { title: 'Green Bond Issuance', detail: 'Framework development, second-party opinion coordination, use-of-proceeds structuring, and post-issuance annual impact reporting for SEBI GDS compliance.', tag: 'ICMA GBP' },
+              { title: 'Sustainability-Linked Loan', detail: 'KPI selection, SPT calibration, lender ESG questionnaire preparation, and ongoing measurement and verification programme setup.', tag: 'LMA SLL' },
+              { title: 'M&A and Acquisition', detail: 'Environmental liability screening, social and governance red flag assessment, and ESG integration into deal valuation and post-merger integration planning.', tag: 'IFC PS' },
+              { title: 'CBAM Export Compliance', detail: 'Carbon content calculation, EU-importer data package preparation, and embedded emissions documentation for steel, cement, aluminium, and fertiliser exporters.', tag: 'CBAM 2026' },
+            ].map((ev) => (
+              <div key={ev.title} className="rounded-xl bg-white/5 border border-white/8 p-6 hover:bg-white/8 transition-colors">
+                <span className="text-[9px] font-bold text-[#2DD4BF] tracking-wide uppercase bg-[#0D9488]/20 px-2 py-0.5 rounded mb-3 inline-block">{ev.tag}</span>
+                <h3 className="font-bold text-white text-sm mb-2">{ev.title}</h3>
+                <p className="text-xs text-white/40 leading-relaxed">{ev.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CA FIRM ADVANTAGE */}
+      <section className="py-20 bg-white border-b border-slate-border/40">
+        <div className="max-w-site mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-center">
+            <div>
+              <span className="section-label mb-5 inline-flex">Why It Matters</span>
+              <h2 className="font-display text-3xl font-bold text-[#0D1B3E] mt-3 leading-tight">
+                Financial ESG advisory backed by a chartered accountancy firm
+              </h2>
+              <p className="text-sm text-slate-body/60 leading-relaxed mt-4 mb-6">
+                ESG advice that touches capital markets, tax structuring, or financial disclosures requires the same rigour as financial reporting. Our CA firm backing means our work carries professional accountability, not just advisory opinion.
+              </p>
+              <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-[#0D9488] no-underline hover:gap-3 transition-all">
+                Speak to a CA-backed advisor <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { title: 'Regulatory Defensibility', desc: 'PCAF financed emissions and CBAM carbon content calculations are prepared to the standard required for regulatory submission and third-party audit.' },
+                { title: 'Assurance-Ready Outputs', desc: 'Financial analysis and ESG disclosures are documented with evidence trails that satisfy ISAE 3000 and SEBI assurance requirements.' },
+                { title: 'Tax Structuring Expertise', desc: 'CBAM planning, green tax incentive claims, and sustainability-linked transfer pricing involve real tax exposure. CA oversight ensures technical accuracy.' },
+                { title: 'Lender Credibility', desc: 'SLL KPI frameworks and green bond documentation prepared by a CA-backed team carry greater credibility with lenders and second-party opinion providers.' },
+              ].map((item) => (
+                <div key={item.title} className="p-5 rounded-xl border border-slate-border/40 bg-slate-bg">
+                  <div className="w-5 h-1 rounded-full bg-[#0D9488] mb-3" />
+                  <h3 className="font-bold text-[#0D1B3E] text-sm mb-2">{item.title}</h3>
+                  <p className="text-xs text-slate-body/55 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── WHY FINANCE & RISK NOW ─── */}
       <section className="py-20 bg-slate-bg border-t border-b border-slate-border/40">
         <div className="max-w-site mx-auto px-6">

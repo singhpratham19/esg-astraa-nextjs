@@ -292,6 +292,70 @@ export default function StrategyAdvisoryPage() {
         </div>
       </section>
 
+      {/* ENGAGEMENT MODEL */}
+      <section className="py-20 bg-[#0D1B3E] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 90% 50%, #2E8AEA 0%, transparent 55%)' }} />
+        <div className="max-w-site mx-auto px-6 relative">
+          <div className="mb-12">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#5BA8EF] block mb-4">How We Work</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight max-w-xl">
+              Four phases from baseline to board-ready disclosure
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-px bg-white/8 rounded-2xl overflow-hidden">
+            {[
+              { num: '01', phase: 'Diagnose', desc: 'We assess your current ESG performance, identify material topics, map regulatory obligations, and benchmark against sector peers. Output is a gap assessment with prioritised action areas.' },
+              { num: '02', phase: 'Design', desc: 'We co-develop your ESG strategy, target architecture, KPI framework, and governance structure. Every element is anchored to your business model, not a generic template.' },
+              { num: '03', phase: 'Implement', desc: 'We manage workstream execution across data collection, policy deployment, carbon measurement, and supplier engagement. Milestones are tracked against a shared delivery plan.' },
+              { num: '04', phase: 'Report', desc: 'We prepare BRSR filings, GRI reports, CDP responses, and investor ESG disclosures. Data is verified against source evidence before publication.' },
+            ].map((p) => (
+              <div key={p.num} className="bg-white/4 p-8">
+                <span className="font-display font-bold text-4xl text-white/10 block mb-4">{p.num}</span>
+                <h3 className="font-display font-bold text-lg text-white mb-3">{p.phase}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* REGULATORY DEADLINES */}
+      <section className="py-20 bg-white">
+        <div className="max-w-site mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
+            <div>
+              <span className="section-label mb-5 inline-flex">Compliance Timeline</span>
+              <h2 className="font-display text-3xl font-bold text-[#0D1B3E] mt-3 leading-tight">
+                Regulatory deadlines you cannot miss
+              </h2>
+              <p className="text-sm text-slate-body/60 leading-relaxed mt-4">
+                ESG compliance in India is moving from voluntary to mandatory across multiple tracks simultaneously. We help you prioritise and sequence obligations so nothing falls through the gap.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {[
+                { year: 'Now', label: 'BRSR Core Filing', detail: 'Top-1000 listed companies must file BRSR Core KPIs with limited assurance. Data quality and audit trails are under regulatory scrutiny.', color: '#DC2626', bg: '#FEF2F2' },
+                { year: '2025', label: 'CCTS Carbon Credits', detail: 'India\'s Carbon Credit Trading Scheme is operational. Businesses without a verified GHG baseline cannot generate or trade credits.', color: '#16A34A', bg: '#F0FDF4' },
+                { year: '2026', label: 'CBAM Financial Impact', detail: 'EU Carbon Border Adjustment Mechanism moves from reporting to financial liability. Indian exporters of steel, cement, aluminium, and fertiliser face direct cost exposure.', color: '#CA8A04', bg: '#FEF9C3' },
+                { year: '2026', label: 'ISSB S1 and S2 Readiness', detail: 'SEBI is evaluating mandatory ISSB-aligned climate disclosure. Companies without TCFD-ready risk frameworks will need urgent remediation.', color: '#7516EA', bg: '#F5F3FF' },
+              ].map((item) => (
+                <div key={item.label} className="flex gap-5 p-5 rounded-xl border border-slate-border/40 hover:border-slate-border transition-colors">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-display font-bold text-sm"
+                    style={{ backgroundColor: item.bg, color: item.color }}>
+                    {item.year}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0D1B3E] text-sm mb-1">{item.label}</h3>
+                    <p className="text-xs text-slate-body/55 leading-relaxed">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FRAMEWORKS BAR */}
       <section className="py-12 bg-white border-b border-slate-border/40">
         <div className="max-w-site mx-auto px-6 flex flex-col md:flex-row items-center gap-8 justify-between">

@@ -265,6 +265,67 @@ export default function GovernanceSocialPage() {
         </div>
       </section>
 
+      {/* BRSR ASSURANCE PROCESS */}
+      <section className="py-20 bg-[#120826] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 85% 50%, #7516EA 0%, transparent 60%)' }} />
+        <div className="max-w-site mx-auto px-6 relative">
+          <div className="mb-12">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#A78BFA] block mb-4">BRSR Core Assurance</span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight max-w-2xl">
+              How we deliver SEBI-compliant BRSR Core assurance
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-px bg-white/8 rounded-2xl overflow-hidden">
+            {[
+              { num: '01', step: 'Scoping', desc: 'We identify which BRSR Core KPIs require assurance, review prior-year disclosures, and agree the assurance boundary and materiality threshold with your finance and sustainability teams.' },
+              { num: '02', step: 'Evidence Review', desc: 'We collect and test primary data supporting each KPI. Energy meter readings, water utility bills, waste disposal records, and HR datasets are traced to source.' },
+              { num: '03', step: 'Assertion Testing', desc: 'Each KPI calculation is independently recalculated and compared against disclosed figures. Discrepancies are raised with management and resolved before the assurance statement is issued.' },
+              { num: '04', step: 'Statement Issue', desc: 'A limited assurance statement is issued under ISAE 3000, confirming no material misstatement. Post-engagement, we provide a management letter with data quality improvement recommendations.' },
+            ].map((p) => (
+              <div key={p.num} className="bg-white/4 p-8">
+                <span className="font-display font-bold text-4xl text-white/10 block mb-4">{p.num}</span>
+                <h3 className="font-display font-bold text-lg text-white mb-3">{p.step}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INVESTOR SCRUTINY */}
+      <section className="py-20 bg-white">
+        <div className="max-w-site mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-12">
+            <div>
+              <span className="section-label mb-5 inline-flex">Investor Expectations</span>
+              <h2 className="font-display text-3xl font-bold text-[#0D1B3E] mt-3 leading-tight">
+                What ESG rating agencies examine in governance and social
+              </h2>
+              <p className="text-sm text-slate-body/60 leading-relaxed mt-4">
+                MSCI, Sustainalytics, and CDP assess governance and social performance through defined criteria. Companies that understand these criteria before the assessment cycle avoid preventable score gaps.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { agency: 'MSCI ESG', area: 'Board Governance', criteria: 'Independent director ratios, board ESG oversight structures, executive pay linkage to ESG KPIs, and whistleblower mechanism quality.' },
+                { agency: 'Sustainalytics', area: 'Human Rights', criteria: 'UNGP policy commitment, salient risk identification process, grievance mechanism coverage across supply chain tiers, and remediation track record.' },
+                { agency: 'CDP', area: 'Social Indicators', criteria: 'Gender diversity at board and senior leadership level, workforce health and safety metrics, community investment, and living wage commitments.' },
+                { agency: 'SEBI BRSR', area: 'Ethics and Anti-Corruption', criteria: 'GRI 205-aligned anti-corruption policy coverage, percentage of employees trained, confirmed incidents, and ISO 37001 certification status.' },
+              ].map((item) => (
+                <div key={item.area} className="p-5 rounded-xl border border-slate-border/40 hover:border-[#7516EA]/30 transition-colors">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[9px] font-bold text-[#7516EA] tracking-wide uppercase bg-[#F5F3FF] px-2 py-0.5 rounded">{item.agency}</span>
+                    <span className="text-xs font-bold text-[#0D1B3E]">{item.area}</span>
+                  </div>
+                  <p className="text-xs text-slate-body/55 leading-relaxed">{item.criteria}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTEXT */}
       <section className="py-20 bg-slate-bg border-t border-b border-slate-border/40">
         <div className="max-w-site mx-auto px-6">

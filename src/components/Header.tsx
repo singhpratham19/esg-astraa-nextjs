@@ -6,7 +6,7 @@ import {
   PlayCircle, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Wheat, Target,
   FileCheck, Leaf, Shield, TrendingUp, Globe, Settings, BookOpen, BarChart2, Users,
   Repeat, Bell, DollarSign, Scale, ShieldCheck, Award, Receipt, Link2, Search, ShieldAlert,
-  FileText, Droplets, Recycle, Truck, TreePine,
+  FileText, Droplets, Recycle, Truck, TreePine, ArrowRight,
 } from 'lucide-react'
 import ButterflyLogo from './ButterflyLogo'
 
@@ -20,12 +20,14 @@ type DropdownItem = {
 
 type Section = {
   title?: string
+  href?: string
   items: DropdownItem[]
 }
 
 type NavItem = {
   label: string
   href: string
+  noLink?: boolean
   dropdown?: {
     wide?: boolean
     sections: Section[]
@@ -80,11 +82,13 @@ const NAV: NavItem[] = [
   {
     label: 'Services',
     href: '/services/',
+    noLink: true,
     dropdown: {
       wide: true,
       sections: [
         {
           title: 'Strategy & Advisory',
+          href: '/services/strategy-advisory/',
           items: [
             { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/strategy-advisory/#esg-strategy', icon: <Target size={16} /> },
             { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/strategy-advisory/#brsr-compliance', icon: <FileCheck size={16} /> },
@@ -96,6 +100,7 @@ const NAV: NavItem[] = [
         },
         {
           title: 'Finance & Risk',
+          href: '/services/finance-risk/',
           items: [
             { label: 'ESG Financial Analysis', desc: 'PCAF financed emissions & ROI', href: '/services/finance-risk/#esg-financial-analysis', icon: <TrendingUp size={16} /> },
             { label: 'ESG Tax Advisory', desc: 'CBAM, carbon levy planning', href: '/services/finance-risk/#esg-tax-advisory', icon: <Receipt size={16} /> },
@@ -108,6 +113,7 @@ const NAV: NavItem[] = [
         },
         {
           title: 'Governance & Social',
+          href: '/services/governance-social/',
           items: [
             { label: 'Governance & Board Advisory', desc: 'Board ESG oversight, SEBI LODR', href: '/services/governance-social/#governance-board', icon: <Users size={16} /> },
             { label: 'ESG Policy Frameworks', desc: 'Policy design & implementation', href: '/services/governance-social/#esg-policy-frameworks', icon: <FileText size={16} /> },
@@ -215,10 +221,18 @@ function WideDropdownMenu({ sections }: { sections: Section[] }) {
         <div className="grid grid-cols-3 divide-x divide-slate-100">
           {sections.map((section, si) => (
             <div key={si} className="flex flex-col">
-              {/* Column header */}
+              {/* Column header — clickable if href provided */}
               {section.title && (
                 <div className="px-5 pt-5 pb-3 border-b border-slate-100">
-                  <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2E8AEA]">{section.title}</span>
+                  {section.href ? (
+                    <Link href={section.href}
+                      className="group/col flex items-center gap-1.5 no-underline">
+                      <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2E8AEA] group-hover/col:text-[#1a6fc4] transition-colors">{section.title}</span>
+                      <ArrowRight size={10} className="text-[#2E8AEA] opacity-0 group-hover/col:opacity-100 transition-opacity" />
+                    </Link>
+                  ) : (
+                    <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2E8AEA]">{section.title}</span>
+                  )}
                 </div>
               )}
               {/* Items */}
@@ -285,10 +299,17 @@ function NavItemDesktop({ item }: { item: NavItem }) {
 
   return (
     <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Link href={item.href} className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
-        {item.label}
-        <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
-      </Link>
+      {item.noLink ? (
+        <button className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors bg-transparent border-0 cursor-default p-0">
+          {item.label}
+          <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        </button>
+      ) : (
+        <Link href={item.href} className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
+          {item.label}
+          <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        </Link>
+      )}
       {open && (
         isWide
           ? <WideDropdownMenu sections={item.dropdown.sections} />
