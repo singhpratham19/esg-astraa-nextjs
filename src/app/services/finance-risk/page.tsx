@@ -33,6 +33,7 @@ export const metadata = {
 const SERVICES = [
   {
     num: '01',
+    id: 'esg-financial-analysis',
     icon: TrendingUp,
     title: 'ESG Financial Analysis',
     badge: 'PCAF / GRI 201',
@@ -50,6 +51,7 @@ const SERVICES = [
   },
   {
     num: '02',
+    id: 'esg-tax-advisory',
     icon: Receipt,
     title: 'ESG Tax Advisory',
     badge: 'Green Tax / Carbon Levy',
@@ -67,6 +69,7 @@ const SERVICES = [
   },
   {
     num: '03',
+    id: 'green-finance-bonds',
     icon: Landmark,
     title: 'Green Finance & Bonds',
     badge: 'GBP / SEBI Green Bonds',
@@ -84,6 +87,7 @@ const SERVICES = [
   },
   {
     num: '04',
+    id: 'esg-linked-financing',
     icon: Link2,
     title: 'ESG-Linked Financing',
     badge: 'SLL / RBI Climate Risk',
@@ -101,6 +105,7 @@ const SERVICES = [
   },
   {
     num: '05',
+    id: 'esg-due-diligence',
     icon: Search,
     title: 'ESG Due Diligence',
     badge: 'M&A / Investment Screening',
@@ -118,6 +123,7 @@ const SERVICES = [
   },
   {
     num: '06',
+    id: 'cyber-risk-privacy',
     icon: ShieldAlert,
     title: 'Cyber Risk & ESG Privacy',
     badge: 'ISO 27001 / DPDP Act',
@@ -216,8 +222,8 @@ export default function FinanceRiskPage() {
             {SERVICES.map((svc) => {
               const Icon = svc.icon
               return (
-                <div key={svc.num}
-                  className="group rounded-2xl border border-slate-border/50 bg-white hover:shadow-xl hover:border-transparent transition-all duration-300 p-7 flex flex-col">
+                <div key={svc.num} id={svc.id}
+                  className="group rounded-2xl border border-slate-border/50 bg-white hover:shadow-xl hover:border-transparent transition-all duration-300 p-7 flex flex-col scroll-mt-24">
                   <div className="flex items-start justify-between gap-4 mb-5">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0"

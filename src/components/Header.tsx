@@ -1,7 +1,13 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Menu, X, BarChart3, LayoutDashboard, Database, ClipboardCheck, FileOutput, PlayCircle, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Wheat, Target, FileCheck, Leaf, Shield, TrendingUp, Globe, Settings, BookOpen, BarChart2, Users, Repeat, Bell } from 'lucide-react'
+import {
+  ChevronDown, Menu, X, BarChart3, LayoutDashboard, Database, ClipboardCheck, FileOutput,
+  PlayCircle, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Wheat, Target,
+  FileCheck, Leaf, Shield, TrendingUp, Globe, Settings, BookOpen, BarChart2, Users,
+  Repeat, Bell, DollarSign, Scale, ShieldCheck, Award, Receipt, Link2, Search, ShieldAlert,
+  FileText,
+} from 'lucide-react'
 import ButterflyLogo from './ButterflyLogo'
 
 type DropdownItem = {
@@ -9,13 +15,20 @@ type DropdownItem = {
   desc: string
   href: string
   icon: React.ReactNode
+  badge?: string
+}
+
+type Section = {
+  title?: string
+  items: DropdownItem[]
 }
 
 type NavItem = {
   label: string
   href: string
   dropdown?: {
-    sections: { title?: string; items: DropdownItem[] }[]
+    wide?: boolean
+    sections: Section[]
   }
 }
 
@@ -68,9 +81,10 @@ const NAV: NavItem[] = [
     label: 'Services',
     href: '/services/',
     dropdown: {
+      wide: true,
       sections: [
         {
-          title: 'Core Services',
+          title: 'Strategy & Advisory',
           items: [
             { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/esg-strategy-transformation/', icon: <Target size={16} /> },
             { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/brsr-esg-compliance/', icon: <FileCheck size={16} /> },
@@ -83,13 +97,24 @@ const NAV: NavItem[] = [
         {
           title: 'Finance & Risk',
           items: [
-            { label: 'Finance & Risk Advisory', desc: 'PCAF, green bonds, ESG due diligence', href: '/services/finance-risk/', icon: <TrendingUp size={16} /> },
+            { label: 'ESG Financial Analysis', desc: 'PCAF financed emissions & ROI', href: '/services/finance-risk/#esg-financial-analysis', icon: <TrendingUp size={16} /> },
+            { label: 'ESG Tax Advisory', desc: 'CBAM, carbon levy planning', href: '/services/finance-risk/#esg-tax-advisory', icon: <Receipt size={16} /> },
+            { label: 'Green Finance & Bonds', desc: 'ICMA GBP, SEBI green debt', href: '/services/finance-risk/#green-finance-bonds', icon: <Landmark size={16} /> },
+            { label: 'ESG-Linked Financing', desc: 'SLL structuring, RBI climate', href: '/services/finance-risk/#esg-linked-financing', icon: <Link2 size={16} /> },
+            { label: 'ESG Due Diligence', desc: 'M&A and investment screening', href: '/services/finance-risk/#esg-due-diligence', icon: <Search size={16} /> },
+            { label: 'Cyber Risk & Privacy', desc: 'ISO 27001, DPDP Act', href: '/services/finance-risk/#cyber-risk-privacy', icon: <ShieldAlert size={16} /> },
+            { label: 'CA Firm Backed', desc: 'All financial advisory supported by our CA firm', href: '/services/finance-risk/', icon: <Award size={16} />, badge: 'CA Backed' },
           ],
         },
         {
           title: 'Governance & Social',
           items: [
-            { label: 'Governance & Social Advisory', desc: 'Board ESG, DEI, BRSR assurance', href: '/services/governance-social/', icon: <Shield size={16} /> },
+            { label: 'Governance & Board Advisory', desc: 'Board ESG oversight, SEBI LODR', href: '/services/governance-social/#governance-board', icon: <Users size={16} /> },
+            { label: 'ESG Policy Frameworks', desc: 'Policy design & implementation', href: '/services/governance-social/#esg-policy-frameworks', icon: <FileText size={16} /> },
+            { label: 'DEI & Social Impact', desc: 'Diversity, inclusion & social metrics', href: '/services/governance-social/#dei-social-impact', icon: <Heart size={16} /> },
+            { label: 'Human Rights Due Diligence', desc: 'UNGP compliance, value chains', href: '/services/governance-social/#human-rights-diligence', icon: <Scale size={16} /> },
+            { label: 'Ethics & Anti-Corruption', desc: 'ISO 37001, integrity frameworks', href: '/services/governance-social/#ethics-anti-corruption', icon: <ShieldCheck size={16} /> },
+            { label: 'BRSR Core Assurance', desc: 'India disclosure & verification', href: '/services/governance-social/#brsr-assurance', icon: <ClipboardCheck size={16} /> },
           ],
         },
       ],
@@ -145,8 +170,7 @@ const NAV: NavItem[] = [
   },
 ]
 
-type Section = { title?: string; items: DropdownItem[] }
-
+/* ── Narrow dropdown (default) ── */
 function DropdownMenu({ sections }: { sections: Section[] }) {
   return (
     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
@@ -178,6 +202,56 @@ function DropdownMenu({ sections }: { sections: Section[] }) {
   )
 }
 
+/* ── Wide 3-column dropdown (Services) ── */
+function WideDropdownMenu({ sections }: { sections: Section[] }) {
+  return (
+    <div className="fixed left-1/2 -translate-x-1/2 pt-3 z-50" style={{ top: '72px' }}>
+      <div className="bg-white rounded-xl shadow-2xl border border-slate-200/80 overflow-hidden" style={{ width: '860px' }}>
+        <div className="grid grid-cols-3 divide-x divide-slate-100">
+          {sections.map((section, si) => (
+            <div key={si} className="flex flex-col">
+              {/* Column header */}
+              {section.title && (
+                <div className="px-5 pt-5 pb-3 border-b border-slate-100">
+                  <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2E8AEA]">{section.title}</span>
+                </div>
+              )}
+              {/* Items */}
+              <div className="p-3 flex flex-col gap-0.5 flex-1">
+                {section.items.map((item) => (
+                  item.badge ? (
+                    /* Special badge row (CA Firm Backed) */
+                    <Link key={item.href} href={item.href}
+                      className="flex items-start gap-3 px-3 py-3 mt-2 rounded-xl bg-[#F0FDF9] border border-[#0D9488]/15 hover:border-[#0D9488]/40 transition-colors no-underline group/item">
+                      <span className="text-[#0D9488] mt-0.5 flex-shrink-0">{item.icon}</span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-[#0D9488] leading-tight">{item.label}</span>
+                          <span className="text-[9px] font-bold bg-[#0D9488] text-white px-1.5 py-0.5 rounded">{item.badge}</span>
+                        </div>
+                        <div className="text-[11px] text-slate-400 leading-tight mt-0.5">{item.desc}</div>
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link key={item.href} href={item.href}
+                      className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors no-underline group/item">
+                      <span className="text-[#2E8AEA] mt-0.5 flex-shrink-0 opacity-60 group-hover/item:opacity-100 transition-opacity">{item.icon}</span>
+                      <div>
+                        <div className="text-[13px] font-semibold text-[#0D1B3E] group-hover/item:text-[#2E8AEA] transition-colors leading-tight">{item.label}</div>
+                        <div className="text-[11px] text-slate-400 leading-tight mt-0.5">{item.desc}</div>
+                      </div>
+                    </Link>
+                  )
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function NavItemDesktop({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -202,13 +276,19 @@ function NavItemDesktop({ item }: { item: NavItem }) {
     )
   }
 
+  const isWide = item.dropdown.wide === true
+
   return (
     <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link href={item.href} className="flex items-center gap-1 text-[14px] font-medium text-white/80 hover:text-white transition-colors no-underline">
         {item.label}
         <ChevronDown size={13} className={`opacity-50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
       </Link>
-      {open && <DropdownMenu sections={item.dropdown.sections} />}
+      {open && (
+        isWide
+          ? <WideDropdownMenu sections={item.dropdown.sections} />
+          : <DropdownMenu sections={item.dropdown.sections} />
+      )}
     </div>
   )
 }
@@ -266,13 +346,24 @@ export default function Header() {
                       <ChevronDown size={14} className={`opacity-50 transition-transform ${mobileExpanded === item.label ? 'rotate-180' : ''}`} />
                     </button>
                     {mobileExpanded === item.label && (
-                      <div className="pb-3 space-y-1">
-                        {item.dropdown.sections.flatMap(s => s.items).map((sub) => (
-                          <Link key={sub.href} href={sub.href} onClick={() => setMobileOpen(false)}
-                            className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors no-underline">
-                            <span className="text-[#5BA8EF] flex-shrink-0">{sub.icon}</span>
-                            <span className="text-sm text-white/65">{sub.label}</span>
-                          </Link>
+                      <div className="pb-3">
+                        {item.dropdown.sections.map((section, si) => (
+                          <div key={si}>
+                            {section.title && (
+                              <div className="px-3 pt-3 pb-1">
+                                <span className="text-[9px] font-bold tracking-[0.16em] uppercase text-[#5BA8EF]">{section.title}</span>
+                              </div>
+                            )}
+                            <div className="space-y-0.5">
+                              {section.items.map((sub) => (
+                                <Link key={sub.href} href={sub.href} onClick={() => setMobileOpen(false)}
+                                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors no-underline">
+                                  <span className="text-[#5BA8EF] flex-shrink-0">{sub.icon}</span>
+                                  <span className="text-sm text-white/65">{sub.label}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     )}

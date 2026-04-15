@@ -32,6 +32,7 @@ export const metadata = {
 const SERVICES = [
   {
     num: '01',
+    id: 'governance-board',
     icon: Users,
     title: 'Governance & Board Advisory',
     badge: 'Board ESG / SEBI LODR',
@@ -49,6 +50,7 @@ const SERVICES = [
   },
   {
     num: '02',
+    id: 'esg-policy-frameworks',
     icon: FileText,
     title: 'ESG Policy Frameworks',
     badge: 'Policy Design & Implementation',
@@ -66,6 +68,7 @@ const SERVICES = [
   },
   {
     num: '03',
+    id: 'dei-social-impact',
     icon: Heart,
     title: 'DEI & Social Impact',
     badge: 'GRI 405 / BRSR S-Series',
@@ -83,6 +86,7 @@ const SERVICES = [
   },
   {
     num: '04',
+    id: 'human-rights-diligence',
     icon: Scale,
     title: 'Human Rights Due Diligence',
     badge: 'UNGP / BRSR P5',
@@ -100,6 +104,7 @@ const SERVICES = [
   },
   {
     num: '05',
+    id: 'ethics-anti-corruption',
     icon: ShieldCheck,
     title: 'Ethics & Anti-Corruption',
     badge: 'ISO 37001 / GRI 205',
@@ -117,6 +122,7 @@ const SERVICES = [
   },
   {
     num: '06',
+    id: 'brsr-assurance',
     icon: Award,
     title: 'BRSR Core Assurance',
     badge: 'SEBI BRSR / GRI Assurance',
@@ -197,7 +203,7 @@ export default function GovernanceSocialPage() {
           const Icon = svc.icon
           const isEven = i % 2 === 0
           return (
-            <div key={svc.num} className={`border-b border-slate-border/40 ${isEven ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
+            <div key={svc.num} id={svc.id} className={`border-b border-slate-border/40 scroll-mt-20 ${isEven ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
               <div className="max-w-site mx-auto px-6 py-14">
                 <div className={`grid lg:grid-cols-[320px_1fr] gap-12 items-start ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
 
