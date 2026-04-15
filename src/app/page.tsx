@@ -186,43 +186,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ────────────────────────────────────────────── */}
-      <section className="py-28 bg-white">
-        <div className="max-w-site mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-            <div>
-              <span className="section-label mb-5 inline-flex">Advisory Services</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-                ESG advisory services for reporting, carbon, governance, and finance
-              </h2>
-              <p className="text-slate-body/60 mt-3 max-w-md leading-relaxed">
-                Structured service lines covering ESG strategy, BRSR consulting, carbon advisory, ESG risk, sustainable finance, and ESG data support.
-              </p>
-            </div>
-            <Link href="/services/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2E8AEA] hover:gap-3 transition-all flex-shrink-0">
-              All Services <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s, i) => (
-              <Link key={s.slug} href={s.href}
-                className="group relative bg-white border border-slate-border/60 rounded-xl p-8 hover:border-[#2E8AEA]/40 hover:shadow-lg transition-all no-underline overflow-hidden">
-                {/* gradient accent top-left */}
-                <div className="absolute top-0 left-0 w-full h-[3px] rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ background: 'linear-gradient(90deg, #2E8AEA, #7516EA)' }} />
-                <span className="font-bold text-6xl text-slate-border/40 group-hover:text-[#2E8AEA]/15 transition-colors block mb-4">0{i + 1}</span>
-                <h3 className="font-display font-bold text-lg text-[#0D1B3E] mb-3 group-hover:text-[#2E8AEA] transition-colors">{s.shortTitle}</h3>
-                <p className="text-sm text-slate-body/60 leading-relaxed mb-6">{s.desc}</p>
-                <span className="inline-flex items-center gap-2 text-xs font-bold text-[#7516EA] group-hover:gap-3 transition-all">
-                  Explore Practice <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── WHY ESG ASTRAA (split with image) ───────────────────── */}
       <section className="py-28 bg-slate-bg border-y border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
