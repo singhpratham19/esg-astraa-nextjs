@@ -186,44 +186,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY ESG ASTRAA (split with image) ───────────────────── */}
-      <section className="py-28 bg-slate-bg border-y border-slate-border/50">
+      {/* ── WHY ESG ASTRAA (stat-heavy interactive grid) ───────────────────── */}
+      <section className="py-28 bg-white">
         <div className="max-w-site mx-auto px-6">
-          <div className="max-w-3xl">
-            {/* Content */}
-            <div>
-              <span className="section-label mb-5 inline-flex">Why ESG Astraa</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-6">
-                Not a SaaS Platform.<br />Not a Generic Consultant.
-              </h2>
-              <p className="text-slate-body/65 leading-relaxed mb-10">
-                We are an ESG advisory firm with data-backed execution capabilities, built for companies that need practical support on reporting, compliance, governance, and sustainable finance.
-              </p>
-              <div className="space-y-5">
-                {[
-                  { icon: <ShieldCheck size={20} />, title: 'Consulting-First, Data-Powered', desc: 'Proprietary benchmarking and analytics underpin every recommendation without relying on generic checklists.' },
-                  { icon: <TrendingUp size={20} />, title: 'End-to-End Delivery', desc: 'From baseline assessment to board-ready disclosure, we support strategy, implementation, and measurement in one model.' },
-                  { icon: <Leaf size={20} />, title: 'India-Rooted, Globally Aligned', desc: 'Deep expertise in SEBI, RBI, MCA and CCTS, connected to ISSB, CSRD, and TCFD frameworks.' },
-                  { icon: <BarChart2 size={20} />, title: 'Industry-Calibrated Advisory', desc: 'Sector-specific teams across 8 industries, not one-size-fits-all advisory.' },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-4 items-start">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white"
-                      style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-sm text-[#0D1B3E] mb-1">{item.title}</h4>
-                      <p className="text-sm text-slate-body/60 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          <div className="mb-20">
+            <span className="section-label mb-5 inline-flex">Built on Data. Delivered with Rigor.</span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
+              Why ESG Astraa
+            </h2>
+          </div>
+
+          {/* Interactive Stat Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-border/30">
+            {[
+              {
+                num: '50+',
+                title: 'Organizations Advised',
+                desc: 'Across 8 sectors from manufacturing to fintech. Each engagement customized, never templated.',
+              },
+              {
+                num: '₹500Cr+',
+                title: 'Green Finance Facilitated',
+                desc: 'Capital raised and structured for ESG-linked transactions, green bonds, and sustainability-linked loans.',
+              },
+              {
+                num: '1.2M',
+                title: 'tCO₂e Measured & Verified',
+                desc: 'Rigorous Scope 1, 2, and 3 quantification across carbon markets and internal sustainability programs.',
+              },
+              {
+                num: '6',
+                title: 'ESG Frameworks Mastered',
+                desc: 'BRSR, CSRD, ISSB, TCFD, GRI, and CCTS. Compliance built into every recommendation.',
+              },
+            ].map((stat) => (
+              <div
+                key={stat.title}
+                className="bg-white p-9 group hover:bg-[#0D1B3E] transition-colors cursor-default"
+              >
+                <span className="font-display text-4xl font-bold text-slate-border/40 group-hover:text-white/15 transition-colors block mb-5">
+                  {stat.num}
+                </span>
+                <h3 className="font-display font-bold text-lg text-[#0D1B3E] group-hover:text-white mb-3 transition-colors">
+                  {stat.title}
+                </h3>
+                <p className="text-sm text-slate-body/55 group-hover:text-white/55 leading-relaxed transition-colors">
+                  {stat.desc}
+                </p>
               </div>
-              <div className="mt-10">
-                <Link href="/about/" className="btn-primary">
-                  Learn Our Approach <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-16 flex justify-center">
+            <Link href="/about/" className="btn-primary">
+              Learn Our Approach <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
