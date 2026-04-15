@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SERVICES, INDUSTRIES, IMPACT_NUMBERS, FRAMEWORKS, CASE_STUDIES } from '@/lib/data'
-import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck, Code, Zap, Settings, DollarSign, Shield, BarChart3 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck, Code, Zap, DollarSign, Shield, BarChart3 } from 'lucide-react'
 import { SITE_NAME, SITE_URL } from '@/lib/seo'
 
 const INDUSTRY_ICONS: Record<string, string> = {
@@ -213,36 +213,24 @@ export default function Home() {
               },
               {
                 id: 3,
-                icon: <Settings size={24} />,
-                title: 'API Integrations',
-                desc: 'Seamless connection to SAP, Oracle, and QuickBooks. Direct feeds from carbon accounting tools, ERPs, and financial reporting systems.',
-              },
-              {
-                id: 4,
                 icon: <DollarSign size={24} />,
                 title: 'Green Finance Structuring',
                 desc: 'Expert advisory on sustainable bonds, ESG-linked loans, and climate finance instruments. Capital market guidance for ESG-linked transactions.',
               },
               {
-                id: 5,
+                id: 4,
                 icon: <TrendingUp size={24} />,
                 title: 'Impact Measurement',
                 desc: 'Verified impact reporting for ESG-linked financial products. Third-party assurance aligned to ICMA and IFC standards.',
               },
               {
-                id: 6,
+                id: 5,
                 icon: <Shield size={24} />,
                 title: 'Regulatory Intelligence',
                 desc: 'Continuous monitoring of SEBI, RBI, CCTS, ISSB, CSRD, and TCFD updates. Proactive compliance roadmaps aligned to new regulations.',
               },
               {
-                id: 7,
-                icon: <CheckCircle size={24} />,
-                title: 'ESG Risk Assessment',
-                desc: 'Materiality analysis and stakeholder-specific risk profiling. Governance gap analysis with board-ready recommendations.',
-              },
-              {
-                id: 8,
+                id: 6,
                 icon: <BarChart3 size={24} />,
                 title: 'Carbon Accounting',
                 desc: 'Scope 1, 2, 3 quantification with third-party assurance. Carbon offset management and voluntary carbon credit solutions.',
