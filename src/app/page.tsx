@@ -206,7 +206,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((s, i) => (
-              <Link key={s.slug} href={`/services/${s.slug}/`}
+              <Link key={s.slug} href={s.href}
                 className="group relative bg-white border border-slate-border/60 rounded-xl p-8 hover:border-[#2E8AEA]/40 hover:shadow-lg transition-all no-underline overflow-hidden">
                 {/* gradient accent top-left */}
                 <div className="absolute top-0 left-0 w-full h-[3px] rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -356,7 +356,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link href="/services/sustainable-finance/" className="btn-primary">
+              <Link href="/services/finance-risk/" className="btn-primary">
                 Explore Finance Advisory <ArrowRight size={16} />
               </Link>
             </div>

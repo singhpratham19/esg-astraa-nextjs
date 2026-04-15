@@ -296,7 +296,7 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
                         </div>
                       ))}
                     </div>
-                    <Link href={`/services/${service.slug}/`} className="inline-flex items-center gap-2 text-sm font-bold text-[#00338D] no-underline hover:gap-3 transition-all">
+                    <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-bold text-[#00338D] no-underline hover:gap-3 transition-all">
                       Explore Service <ArrowRight size={13} />
                     </Link>
                   </div>

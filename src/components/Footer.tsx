@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}/`} className="text-sm text-white/35 hover:text-white/80 transition-colors no-underline">
+                  <Link href={s.href} className="text-sm text-white/35 hover:text-white/80 transition-colors no-underline">
                     {s.shortTitle}
                   </Link>
                 </li>

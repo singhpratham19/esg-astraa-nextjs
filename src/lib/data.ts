@@ -6,6 +6,7 @@ type ContentSection = {
 
 type Service = {
   slug: string
+  href: string
   title: string
   shortTitle: string
   icon: string
@@ -45,6 +46,7 @@ export const NAV_LINKS = [
 export const SERVICES: Service[] = [
   {
     slug: 'esg-strategy-transformation',
+    href: '/services/strategy-advisory/#esg-strategy',
     title: 'ESG Strategy & Transformation',
     shortTitle: 'Strategy & Transformation',
     icon: 'Target',
@@ -64,6 +66,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'brsr-esg-compliance',
+    href: '/services/strategy-advisory/#brsr-compliance',
     title: 'BRSR & ESG Compliance',
     shortTitle: 'BRSR & Compliance',
     icon: 'FileCheck',
@@ -83,6 +86,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'carbon-advisory-credits',
+    href: '/services/strategy-advisory/#carbon-advisory',
     title: 'Carbon Advisory & Credits',
     shortTitle: 'Carbon & Credits',
     icon: 'Leaf',
@@ -102,6 +106,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'esg-risk-governance',
+    href: '/services/strategy-advisory/#esg-risk',
     title: 'ESG Risk & Governance',
     shortTitle: 'Risk & Governance',
     icon: 'Shield',
@@ -120,6 +125,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'sustainable-finance',
+    href: '/services/strategy-advisory/#sustainable-finance-strategy',
     title: 'Sustainable Finance Advisory',
     shortTitle: 'Sustainable Finance',
     icon: 'TrendingUp',
@@ -140,6 +146,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'esg-data-intelligence',
+    href: '/services/strategy-advisory/#esg-data-strategy',
     title: 'ESG Data & Intelligence',
     shortTitle: 'Data & Intelligence',
     icon: 'BarChart3',
