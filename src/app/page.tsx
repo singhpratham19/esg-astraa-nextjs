@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { SERVICES, INDUSTRIES, IMPACT_NUMBERS, FRAMEWORKS, CASE_STUDIES } from '@/lib/data'
-import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck, Code, Zap, DollarSign, Shield, BarChart3 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle, Target, Leaf, BarChart3, ShieldCheck } from 'lucide-react'
 import { SITE_NAME, SITE_URL } from '@/lib/seo'
+import WhyChooseUsTabs from '@/components/WhyChooseUsTabs'
 
 const INDUSTRY_ICONS: Record<string, string> = {
   'manufacturing': '🏭',
@@ -29,13 +29,10 @@ export const metadata: Metadata = {
     'ESG strategy consulting',
     'ESG compliance India',
   ],
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'ESG Advisory in India | BRSR Consulting, Carbon Accounting, Sustainable Finance',
-    description:
-      'Sector-focused ESG advisory for BRSR, carbon accounting, ESG reporting, governance, and sustainable finance.',
+    description: 'Sector-focused ESG advisory for BRSR, carbon accounting, ESG reporting, governance, and sustainable finance.',
     url: SITE_URL,
   },
 }
@@ -43,57 +40,21 @@ export const metadata: Metadata = {
 const homeStructuredData = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      email: 'advisory@esgastraa.com',
-    },
+    { '@type': 'Organization', name: SITE_NAME, url: SITE_URL, email: 'advisory@esgastraa.com' },
     {
       '@type': 'ProfessionalService',
       name: SITE_NAME,
       url: SITE_URL,
       areaServed: 'India',
-      serviceType: [
-        'ESG Advisory',
-        'BRSR Consulting',
-        'Sustainable Finance Advisory',
-        'Carbon Accounting',
-        'ESG Reporting',
-      ],
+      serviceType: ['ESG Advisory', 'BRSR Consulting', 'Sustainable Finance Advisory', 'Carbon Accounting', 'ESG Reporting'],
     },
-    {
-      '@type': 'WebSite',
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     {
       '@type': 'FAQPage',
       mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'What does an ESG advisory firm do?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'An ESG advisory firm helps companies with ESG strategy, reporting, compliance, governance, carbon accounting, and sustainable finance.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do Indian companies need BRSR consulting support?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Many Indian companies need support with BRSR gap assessments, disclosure drafting, evidence management, and assurance readiness.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How is ESG linked to sustainable finance?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Sustainable finance links ESG performance, climate risk, and credible targets to green bonds, ESG-linked lending, investor communication, and capital decisions.',
-          },
-        },
+        { '@type': 'Question', name: 'What does an ESG advisory firm do?', acceptedAnswer: { '@type': 'Answer', text: 'An ESG advisory firm helps companies with ESG strategy, reporting, compliance, governance, carbon accounting, and sustainable finance.' } },
+        { '@type': 'Question', name: 'Do Indian companies need BRSR consulting support?', acceptedAnswer: { '@type': 'Answer', text: 'Many Indian companies need support with BRSR gap assessments, disclosure drafting, evidence management, and assurance readiness.' } },
+        { '@type': 'Question', name: 'How is ESG linked to sustainable finance?', acceptedAnswer: { '@type': 'Answer', text: 'Sustainable finance links ESG performance, climate risk, and credible targets to green bonds, ESG-linked lending, investor communication, and capital decisions.' } },
       ],
     },
   ],
@@ -102,82 +63,78 @@ const homeStructuredData = {
 export default function Home() {
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeStructuredData) }}
-      />
-      {/* ── HERO ────────────────────────────────────────────────── */}
-      <section className="bg-white pt-24 pb-0 overflow-hidden">
-        <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-0 items-stretch min-h-[86vh]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeStructuredData) }} />
 
-            {/* Left — Content */}
-            <div className="flex flex-col justify-center py-16 pr-12">
-              <span className="section-label mb-6">Strategic ESG Advisory</span>
-              <h1 className="font-display text-5xl md:text-[3.5rem] font-bold text-[#0D1B3E] leading-[1.08] mb-6 tracking-tight">
-                ESG advisory in India for BRSR, carbon accounting, and sustainable finance
-              </h1>
-              <p className="text-lg text-slate-body/70 leading-relaxed mb-8 max-w-lg">
-                ESG Astraa delivers ESG consulting for Indian companies across strategy, compliance, carbon, governance, and sustainable finance with sector-specific support for listed businesses, financial institutions, and growth-stage companies.
-              </p>
+      {/* ── HERO — Full-width dark ─────────────────────────────── */}
+      <section
+        className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden"
+        style={{ background: '#0D1B3E' }}
+      >
+        {/* Texture orbs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(46,138,234,0.12) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(117,22,234,0.10) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(46,138,234,0.04) 0%, transparent 60%)' }} />
 
-              {/* 3 proof points */}
-              <div className="space-y-3 mb-10">
-                {[
-                  'BRSR, ISSB, CSRD, TCFD, and GRI advisory in one team',
-                  'Deep Indian regulatory expertise: SEBI, RBI, MCA, CCTS',
-                  'Sector-calibrated advisory across 8 industry specialisations',
-                ].map((pt) => (
-                  <div key={pt} className="flex items-start gap-3">
-                    <CheckCircle size={17} className="text-[#2E8AEA] mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-slate-body/75 leading-relaxed">{pt}</span>
-                  </div>
-                ))}
-              </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-28 text-center">
+          <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase mb-7 px-4 py-2 rounded-full border"
+            style={{ color: '#5BA8EF', borderColor: 'rgba(91,168,239,0.25)', background: 'rgba(46,138,234,0.08)' }}>
+            Strategic ESG Advisory · India
+          </span>
 
-              <div className="flex flex-wrap gap-4">
-                <Link href="/contact/" className="btn-primary">
-                  Book a Consultation <ArrowRight size={16} />
-                </Link>
-                <Link href="/services/" className="btn-outline">
-                  Explore Services <ArrowRight size={16} />
-                </Link>
-              </div>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-7 tracking-tight">
+            ESG advisory that delivers<br />
+            <span style={{ background: 'linear-gradient(90deg, #2E8AEA, #7516EA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              measurable outcomes.
+            </span>
+          </h1>
 
-              {/* Stats */}
-              <div className="mt-14 pt-8 border-t border-slate-border/60 grid grid-cols-2 sm:grid-cols-4 gap-6">
-                {IMPACT_NUMBERS.map((n) => (
-                  <div key={n.label}>
-                    <div className="font-display text-2xl md:text-3xl font-bold text-[#0D1B3E] mb-0.5">{n.value}</div>
-                    <div className="text-[11px] text-slate-body/50 leading-tight">{n.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <p className="text-lg text-white/55 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Sector-specific ESG consulting for Indian businesses — across strategy, compliance, carbon, governance, and capital markets. Built for listed companies, financial institutions, and growth-stage enterprises.
+          </p>
 
-            {/* Right — Image collage */}
-            <div className="hidden lg:grid grid-rows-2 grid-cols-2 gap-3 py-8 pl-6">
-              <div className="relative col-span-2 row-span-1 rounded-2xl overflow-hidden">
-                <Image src="/images/hero-consulting.jpg" alt="ESG strategy session" fill className="object-cover" priority />
-                {/* floating card */}
-                <div className="absolute bottom-5 left-5 bg-white/95 backdrop-blur rounded-xl px-5 py-4 shadow-xl max-w-xs">
-                  <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#2E8AEA] mb-1">Data-backed delivery</p>
-                  <p className="font-display font-bold text-[#0D1B3E] text-sm leading-snug">Strategy, compliance & execution — built into one advisory model.</p>
-                </div>
+          <div className="flex flex-wrap gap-4 justify-center mb-12">
+            {[
+              'BRSR, ISSB, CSRD, TCFD, and GRI in one team',
+              'SEBI, RBI, MCA, and CCTS regulatory expertise',
+              'Sector-calibrated across 8 industries',
+            ].map((pt) => (
+              <div key={pt} className="flex items-center gap-2 text-sm text-white/60">
+                <CheckCircle size={14} className="text-[#2E8AEA] flex-shrink-0" />
+                {pt}
               </div>
-              <div className="relative rounded-2xl overflow-hidden">
-                <Image src="/images/team-meeting.jpg" alt="Advisory team" fill className="object-cover" />
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-bold text-white transition-all hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #2E8AEA 0%, #7516EA 100%)' }}>
+              Book a Consultation <ArrowRight size={16} />
+            </Link>
+            <Link href="/services/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-sm font-bold transition-all"
+              style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.75)' }}
+              onMouseEnter={undefined}>
+              Explore Services <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          {/* Stats row */}
+          <div className="mt-16 pt-10 border-t grid grid-cols-2 sm:grid-cols-4 gap-8"
+            style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+            {IMPACT_NUMBERS.map((n) => (
+              <div key={n.label} className="text-center">
+                <div className="font-display text-3xl font-bold text-white mb-1">{n.value}</div>
+                <div className="text-[11px] text-white/35 leading-tight tracking-wide">{n.label}</div>
               </div>
-              <div className="relative rounded-2xl overflow-hidden">
-                <Image src="/images/data-analysis.jpg" alt="ESG data analysis" fill className="object-cover" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── FRAMEWORK TRUST BAR ─────────────────────────────────── */}
-      <section className="border-y border-slate-border/50 bg-slate-bg">
+      <section className="border-b border-slate-border/50 bg-slate-bg">
         <div className="max-w-site mx-auto px-6 py-4 flex flex-wrap items-center gap-4 md:gap-0 justify-between">
           <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-slate-body/35">Aligned to</span>
           {FRAMEWORKS.map((f) => (
@@ -186,89 +143,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY ESG ASTRAA (tech & finance features with icons) ───────────────────── */}
+      {/* ── SERVICES ────────────────────────────────────────────── */}
       <section className="py-28 bg-white">
         <div className="max-w-site mx-auto px-6">
-          <div className="mb-20">
-            <span className="section-label mb-5 inline-flex">Why Choose ESG Astraa</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-              Tech-Driven ESG Advisory Built for Finance
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+            <div>
+              <span className="section-label mb-5 inline-flex">Our Services</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
+                Three integrated service lines
+              </h2>
+            </div>
+            <Link href="/services/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2E8AEA] hover:gap-3 transition-all flex-shrink-0">
+              All Services <ArrowRight size={14} />
+            </Link>
           </div>
 
-          {/* Feature List with Icons */}
-          <div className="space-y-8 max-w-4xl">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                id: 1,
-                icon: <Code size={24} />,
-                title: 'ESG Data Platform',
-                desc: 'Proprietary cloud infrastructure for automated ESG data collection, computation, and governance. Real-time dashboards with API integrations to your finance systems.',
+                icon: <Target size={22} />,
+                title: 'ESG Strategy & Reporting',
+                desc: 'From materiality assessment to board-ready disclosure — BRSR, ISSB, GRI, TCFD, and CSRD reporting with regulatory compliance built in.',
+                points: ['BRSR Core & Extended Reporting', 'ESG Strategy Roadmap', 'Regulatory Compliance', 'Disclosure & Assurance'],
+                href: '/services/strategy-advisory/',
               },
               {
-                id: 2,
-                icon: <Zap size={24} />,
-                title: 'AI-Powered Reporting',
-                desc: 'Intelligent disclosure drafting with regulatory change tracking. Automated BRSR, CSRD, and TCFD report generation with real-time compliance updates.',
+                icon: <Leaf size={22} />,
+                title: 'Carbon & Climate Advisory',
+                desc: 'Scope 1, 2, and 3 quantification, decarbonisation planning, and carbon market advisory aligned to India\'s CCTS and international standards.',
+                points: ['GHG Accounting (Scope 1/2/3)', 'Decarbonisation Roadmap', 'CCTS & Carbon Credits', 'Climate Risk (TCFD)'],
+                href: '/services/strategy-advisory/#carbon-advisory',
               },
               {
-                id: 3,
-                icon: <DollarSign size={24} />,
-                title: 'Green Finance Structuring',
-                desc: 'Expert advisory on sustainable bonds, ESG-linked loans, and climate finance instruments. Capital market guidance for ESG-linked transactions.',
+                icon: <ShieldCheck size={22} />,
+                title: 'Finance & Governance',
+                desc: 'Sustainable finance structuring, ESG due diligence for transactions, and governance frameworks for boards and management committees.',
+                points: ['Green Bond & SLL Structuring', 'Transaction ESG Due Diligence', 'Board Governance Frameworks', 'BRSR Assurance Readiness'],
+                href: '/services/finance-risk/',
               },
-              {
-                id: 4,
-                icon: <TrendingUp size={24} />,
-                title: 'Impact Measurement',
-                desc: 'Verified impact reporting for ESG-linked financial products. Third-party assurance aligned to ICMA and IFC standards.',
-              },
-              {
-                id: 5,
-                icon: <Shield size={24} />,
-                title: 'Regulatory Intelligence',
-                desc: 'Continuous monitoring of SEBI, RBI, CCTS, ISSB, CSRD, and TCFD updates. Proactive compliance roadmaps aligned to new regulations.',
-              },
-              {
-                id: 6,
-                icon: <BarChart3 size={24} />,
-                title: 'Carbon Accounting',
-                desc: 'Scope 1, 2, 3 quantification with third-party assurance. Carbon offset management and voluntary carbon credit solutions.',
-              },
-            ].map((feature) => (
-              <div key={feature.id} className="flex gap-6 items-start">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 text-white" style={{ background: feature.id % 2 === 0 ? 'linear-gradient(135deg, #7516EA, #2E8AEA)' : 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
-                  {feature.icon}
+            ].map((svc) => (
+              <Link key={svc.title} href={svc.href}
+                className="group block bg-white border border-slate-border/60 rounded-xl p-8 hover:border-[#2E8AEA]/50 hover:shadow-xl transition-all no-underline">
+                <div className="w-11 h-11 rounded-lg flex items-center justify-center text-white mb-6 flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
+                  {svc.icon}
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-[#0D1B3E] mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-slate-body/60 leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </div>
-              </div>
+                <h3 className="font-display font-bold text-lg text-[#0D1B3E] mb-3 group-hover:text-[#2E8AEA] transition-colors">
+                  {svc.title}
+                </h3>
+                <p className="text-sm text-slate-body/60 leading-relaxed mb-6">{svc.desc}</p>
+                <ul className="space-y-2 mb-6">
+                  {svc.points.map((pt) => (
+                    <li key={pt} className="flex items-center gap-2 text-xs text-slate-body/60">
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }} />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2E8AEA] group-hover:gap-2.5 transition-all">
+                  Explore <ArrowRight size={12} />
+                </span>
+              </Link>
             ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-16">
-            <Link href="/about/" className="btn-primary">
-              Explore Our Platform <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </section>
+
+      {/* ── WHY CHOOSE US — TAB FORM ────────────────────────────── */}
+      <WhyChooseUsTabs />
 
       {/* ── METHODOLOGY ─────────────────────────────────────────── */}
       <section className="py-24 bg-[#0D1B3E]">
         <div className="max-w-site mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             <div className="lg:col-span-2">
-              <span className="section-label mb-5 inline-flex" style={{ color: '#5BA8EF' }}>
-                Our Methodology
-              </span>
+              <span className="section-label mb-5 inline-flex" style={{ color: '#5BA8EF' }}>Our Methodology</span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mt-3 mb-5">
                 A Rigorous 4-Phase Framework
               </h2>
@@ -297,118 +247,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FINANCE-FIRST SECTION ───────────────────────────────── */}
-      <section className="py-28 bg-white border-y border-slate-border/50">
-        <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="section-label mb-5 inline-flex">CA-Backed Finance Expertise</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-6">
-                ESG Advisory Grounded<br />in Financial Rigour
-              </h2>
-              <p className="text-slate-body/65 leading-relaxed mb-8">
-                Our sustainable finance practice is led by Chartered Accountants with deep capital markets, structured finance, and IFRS expertise. We support green bonds, ESG-linked lending, transaction ESG due diligence, and climate-related finance work with a finance-first approach.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                {[
-                  { label: 'Green Bond Structuring', sub: 'ICMA-aligned, India Green Taxonomy' },
-                  { label: 'Transaction ESG Due Diligence', sub: 'PE, M&A, and lender mandates' },
-                  { label: 'IFRS S1 & S2 Readiness', sub: 'Climate disclosure gap assessment' },
-                  { label: 'ESG-Linked Lending KPIs', sub: 'SLB and SLL structuring' },
-                  { label: 'Climate Risk Modelling', sub: 'TCFD scenario analysis' },
-                  { label: 'Impact Measurement (IMM)', sub: 'For DFI and impact investors' },
-                  { label: 'Use-of-Proceeds Eligibility Mapping', sub: 'Green, social, and sustainability finance categories' },
-                  { label: 'Second-Party Opinion Readiness', sub: 'Documentation, controls, and reviewer coordination' },
-                  { label: 'Portfolio Climate Alignment', sub: 'Exposure analysis for lenders and financial institutions' },
-                  { label: 'ESG-Linked Working Capital Facilities', sub: 'KPI-linked structures for treasury and lending teams' },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-start gap-3 bg-slate-bg rounded-lg p-4 border border-slate-border/50">
-                    <div className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0"
-                      style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }} />
-                    <div>
-                      <p className="font-semibold text-sm text-[#0D1B3E]">{item.label}</p>
-                      <p className="text-xs text-slate-body/55 mt-0.5">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/services/finance-risk/" className="btn-primary">
-                Explore Finance Advisory <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/images/board-meeting.jpg" alt="ESG finance advisory" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B3E]/80 to-[#0D1B3E]/20" />
-              <div className="absolute bottom-8 left-8 right-8 space-y-3">
-                {[
-                  { val: '₹500Cr+', lbl: 'Green Finance Structured' },
-                  { val: '3', lbl: 'Framework Certifications per Issuance' },
-                  { val: 'ICMA · CBI · India SGrB', lbl: 'Standards Aligned' },
-                ].map((s) => (
-                  <div key={s.lbl} className="flex items-center justify-between bg-white/10 backdrop-blur border border-white/20 rounded-xl px-5 py-3 text-white">
-                    <span className="text-xs text-white/55">{s.lbl}</span>
-                    <span className="font-display font-bold text-sm">{s.val}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US FOR ESG-LINKED FINANCE ───────────────── */}
-      <section className="py-24 bg-slate-bg border-b border-slate-border/50">
-        <div className="max-w-site mx-auto px-6">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
-            <div>
-              <span className="section-label mb-5 inline-flex">Why Choose Us</span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] leading-tight mt-3 mb-6">
-                Why clients choose us for ESG-linked finance.
-              </h2>
-              <p className="text-slate-body/65 leading-relaxed">
-                ESG-linked finance fails when sustainability language is disconnected from lending logic, investor expectations, and transaction discipline. Our edge is that we build the finance story with the same rigor as the ESG story.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: <TrendingUp size={20} />,
-                  title: 'Finance-First Structuring',
-                  desc: 'We design ESG-linked instruments around KPI calibration, covenant logic, target credibility, and lender or investor usability.',
-                },
-                {
-                  icon: <ShieldCheck size={20} />,
-                  title: 'CA-Led Transaction Discipline',
-                  desc: 'Our finance work is grounded in capital markets, due diligence, and financially quantified risk assessment rather than broad sustainability messaging.',
-                },
-                {
-                  icon: <FileCheck size={20} />,
-                  title: 'Framework And Disclosure Alignment',
-                  desc: 'ICMA principles, RBI climate expectations, India green taxonomy logic, and IFRS S1/S2 readiness are handled in one coherent workstream.',
-                },
-                {
-                  icon: <BarChart2 size={20} />,
-                  title: 'Execution Beyond The Framework',
-                  desc: 'We support internal approvals, evidence requirements, second-party opinion readiness, investor materials, and recurring reporting expectations.',
-                },
-              ].map((item) => (
-                <div key={item.title} className="bg-white border border-slate-border/60 rounded-xl p-7">
-                  <div
-                    className="w-11 h-11 rounded-lg flex items-center justify-center text-white mb-5"
-                    style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}
-                  >
-                    {item.icon}
-                  </div>
-                  <h3 className="font-display font-bold text-lg text-[#0D1B3E] mb-3">{item.title}</h3>
-                  <p className="text-sm text-slate-body/60 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── INDUSTRIES ──────────────────────────────────────────── */}
       <section className="py-28 bg-white">
         <div className="max-w-site mx-auto px-6">
@@ -416,7 +254,7 @@ export default function Home() {
             <div>
               <span className="section-label mb-5 inline-flex">Sector Expertise</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-                Industry focused ESG consulting in India
+                Industry-focused ESG consulting
               </h2>
             </div>
             <Link href="/industries/" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2E8AEA] hover:gap-3 transition-all flex-shrink-0">
@@ -453,7 +291,6 @@ export default function Home() {
             {CASE_STUDIES.map((cs, i) => (
               <Link key={cs.slug} href={`/case-studies/${cs.slug}/`}
                 className="group block bg-white border border-slate-border/60 rounded-xl overflow-hidden hover:shadow-xl hover:border-[#2E8AEA]/30 transition-all no-underline">
-                {/* Top accent */}
                 <div className="h-[3px] w-full" style={{ background: i % 2 === 0 ? 'linear-gradient(90deg,#2E8AEA,#7516EA)' : 'linear-gradient(90deg,#7516EA,#9B30FF)' }} />
                 <div className="p-8">
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-slate-body/40 block mb-4">{cs.industry}</span>
@@ -471,7 +308,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INSIGHTS WITH IMAGES ─────────────────────────────────── */}
+      {/* ── INSIGHTS ─────────────────────────────────────────────── */}
       <section className="py-28 bg-white">
         <div className="max-w-site mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
@@ -484,21 +321,25 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Featured + 2 side */}
           <div className="grid lg:grid-cols-5 gap-6">
             {/* Featured */}
             <Link href="/insights/" className="group lg:col-span-3 block bg-white border border-slate-border/60 rounded-xl overflow-hidden hover:shadow-xl hover:border-[#2E8AEA]/30 transition-all no-underline">
-              <div className="relative h-56 overflow-hidden">
-                <Image src="/images/report-writing.jpg" alt="ESG research" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B3E]/60 to-transparent" />
-                <span className="absolute top-4 left-4 text-[10px] font-bold tracking-[0.14em] uppercase text-white bg-[#2E8AEA] px-3 py-1.5 rounded-full">Whitepaper</span>
+              <div className="h-52 relative flex items-end p-6"
+                style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #1a3a6e 50%, #2E8AEA 100%)' }}>
+                <div className="absolute top-5 left-5">
+                  <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-white bg-white/15 backdrop-blur px-3 py-1.5 rounded-full">Whitepaper</span>
+                </div>
+                <div className="absolute bottom-5 right-5 text-right">
+                  <div className="text-4xl font-display font-bold text-white/10">ESG</div>
+                </div>
+                <BarChart3 size={48} className="text-white/20" />
               </div>
               <div className="p-8">
                 <h3 className="font-display font-bold text-[#0D1B3E] text-xl mb-3 group-hover:text-[#2E8AEA] transition-colors leading-snug">
                   ESG in Indian Manufacturing: From Compliance to Competitive Advantage
                 </h3>
                 <p className="text-sm text-slate-body/60 leading-relaxed mb-5">
-                  An in-depth analysis of how India&apos;s manufacturing sector can transform ESG compliance into strategic value creation — with proprietary benchmarking across 200+ companies.
+                  An in-depth analysis of how India&apos;s manufacturing sector can transform ESG compliance into strategic value — with benchmarking across 200+ companies.
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-bold text-[#2E8AEA]">
                   Download Report <ArrowUpRight size={14} />
@@ -509,15 +350,26 @@ export default function Home() {
             {/* Side stack */}
             <div className="lg:col-span-2 flex flex-col gap-6">
               {[
-                { tag: 'Industry Report', title: 'Carbon Markets in India: CCTS Framework & Opportunities', img: '/images/carbon-forest.jpg', desc: 'India\'s evolving carbon credit trading scheme and implications for corporate strategy.' },
-                { tag: 'Regulatory Update', title: 'SEBI BRSR Core: Value Chain Implications', img: '/images/green-energy.jpg', desc: 'Practical guidance on BRSR Core requirements and supply chain ESG management.' },
+                {
+                  tag: 'Industry Report',
+                  title: 'Carbon Markets in India: CCTS Framework & Opportunities',
+                  desc: "India's evolving carbon credit trading scheme and implications for corporate strategy.",
+                  gradient: 'linear-gradient(135deg, #052E16 0%, #064E3B 50%, #059669 100%)',
+                },
+                {
+                  tag: 'Regulatory Update',
+                  title: 'SEBI BRSR Core: Value Chain Implications',
+                  desc: 'Practical guidance on BRSR Core requirements and supply chain ESG management.',
+                  gradient: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #7516EA 100%)',
+                },
               ].map((a) => (
-                <Link key={a.title} href="/insights/" className="group flex gap-4 bg-white border border-slate-border/60 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#2E8AEA]/30 transition-all no-underline">
-                  <div className="relative w-28 flex-shrink-0">
-                    <Image src={a.img} alt={a.title} fill className="object-cover" />
+                <Link key={a.title} href="/insights/" className="group flex gap-0 bg-white border border-slate-border/60 rounded-xl overflow-hidden hover:shadow-lg hover:border-[#2E8AEA]/30 transition-all no-underline">
+                  <div className="w-24 flex-shrink-0 flex items-center justify-center"
+                    style={{ background: a.gradient }}>
+                    <BarChart3 size={20} className="text-white/40" />
                   </div>
                   <div className="p-4 flex flex-col justify-center">
-                    <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#7516EA] mb-2">{a.tag}</span>
+                    <span className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#7516EA] mb-1.5">{a.tag}</span>
                     <h4 className="font-display font-bold text-sm text-[#0D1B3E] group-hover:text-[#2E8AEA] transition-colors leading-snug mb-2">{a.title}</h4>
                     <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#2E8AEA]">
                       Read <ArrowUpRight size={11} />
@@ -547,43 +399,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FAQ ─────────────────────────────────────────────────── */}
       <section className="py-24 bg-white border-b border-slate-border/50">
-        <div className="max-w-site mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="section-label mb-5 inline-flex justify-center">Search Intent</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] mt-3 mb-4">
-              Common ESG advisory priorities for Indian companies
-            </h2>
-            <p className="text-slate-body/60 leading-relaxed">
-              These are the topics companies usually evaluate when they are searching for an ESG consulting partner. Making them explicit also strengthens the site’s search relevance.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'BRSR Consulting And ESG Reporting',
-                desc: 'Support for BRSR gap assessments, disclosure drafting, evidence workflows, assurance readiness, and broader ESG reporting alignment.',
-              },
-              {
-                title: 'Carbon Accounting And Climate Strategy',
-                desc: 'Scope 1, 2, and 3 measurement, decarbonisation planning, carbon market advisory, and climate-related management reporting.',
-              },
-              {
-                title: 'Sustainable Finance And ESG Governance',
-                desc: 'Green finance frameworks, ESG-linked lending support, transaction due diligence, and governance structures for boards and management.',
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-slate-border/60 bg-slate-bg/40 p-8">
-                <h3 className="font-display font-bold text-xl text-[#0D1B3E] mb-3">{item.title}</h3>
-                <p className="text-sm text-slate-body/60 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-slate-bg border-b border-slate-border/50">
         <div className="max-w-site mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="section-label mb-5 inline-flex justify-center">FAQ</span>
@@ -591,7 +408,6 @@ export default function Home() {
               Questions companies ask before choosing an ESG advisory firm
             </h2>
           </div>
-
           <div className="max-w-4xl mx-auto space-y-4">
             {[
               {
@@ -618,12 +434,10 @@ export default function Home() {
 
       {/* ── CTA BAND ────────────────────────────────────────────── */}
       <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0D1B3E 0%, #1a2f5e 60%, #0D1B3E 100%)' }}>
-        {/* subtle gradient orbs */}
         <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full opacity-[0.07]"
           style={{ background: 'radial-gradient(circle, #2E8AEA, transparent)' }} />
         <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full opacity-[0.06]"
           style={{ background: 'radial-gradient(circle, #7516EA, transparent)' }} />
-
         <div className="max-w-site mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -639,7 +453,8 @@ export default function Home() {
               <Link href="/contact/" className="btn-primary text-center justify-center">
                 Book a Consultation <ArrowRight size={16} />
               </Link>
-              <Link href="/insights/" className="btn-outline text-center justify-center" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.75)' }}>
+              <Link href="/insights/" className="btn-outline text-center justify-center"
+                style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.75)' }}>
                 View Research
               </Link>
             </div>
