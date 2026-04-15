@@ -70,6 +70,7 @@ const NAV: NavItem[] = [
     dropdown: {
       sections: [
         {
+          title: 'Core Services',
           items: [
             { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/esg-strategy-transformation/', icon: <Target size={16} /> },
             { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/brsr-esg-compliance/', icon: <FileCheck size={16} /> },
@@ -77,6 +78,18 @@ const NAV: NavItem[] = [
             { label: 'ESG Risk & Governance', desc: 'Board governance, supply chain risk', href: '/services/esg-risk-governance/', icon: <Shield size={16} /> },
             { label: 'Sustainable Finance', desc: 'Green bonds, SLL, PCAF', href: '/services/sustainable-finance/', icon: <TrendingUp size={16} /> },
             { label: 'ESG Data & Intelligence', desc: 'KPI framework, benchmarks', href: '/services/esg-data-intelligence/', icon: <BarChart3 size={16} /> },
+          ],
+        },
+        {
+          title: 'Finance & Risk',
+          items: [
+            { label: 'Finance & Risk Advisory', desc: 'PCAF, green bonds, ESG due diligence', href: '/services/finance-risk/', icon: <TrendingUp size={16} /> },
+          ],
+        },
+        {
+          title: 'Governance & Social',
+          items: [
+            { label: 'Governance & Social Advisory', desc: 'Board ESG, DEI, BRSR assurance', href: '/services/governance-social/', icon: <Shield size={16} /> },
           ],
         },
       ],
