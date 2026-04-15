@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SERVICES, INDUSTRIES, IMPACT_NUMBERS, FRAMEWORKS, CASE_STUDIES } from '@/lib/data'
-import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle, TrendingUp, ShieldCheck, Leaf, BarChart2, FileCheck, Code, Zap, Settings, DollarSign, Shield, BarChart3 } from 'lucide-react'
 import { SITE_NAME, SITE_URL } from '@/lib/seo'
 
 const INDUSTRY_ICONS: Record<string, string> = {
@@ -186,61 +186,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY ESG ASTRAA (stat-heavy interactive grid) ───────────────────── */}
+      {/* ── WHY ESG ASTRAA (tech & finance features with icons) ───────────────────── */}
       <section className="py-28 bg-white">
         <div className="max-w-site mx-auto px-6">
           <div className="mb-20">
-            <span className="section-label mb-5 inline-flex">Built on Data. Delivered with Rigor.</span>
+            <span className="section-label mb-5 inline-flex">Why Choose ESG Astraa</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0D1B3E] leading-tight mt-3">
-              Why ESG Astraa
+              Tech-Driven ESG Advisory Built for Finance
             </h2>
           </div>
 
-          {/* Interactive Stat Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-border/30">
+          {/* Feature List with Icons */}
+          <div className="space-y-8 max-w-4xl">
             {[
               {
-                num: '50+',
-                title: 'Organizations Advised',
-                desc: 'Across 8 sectors from manufacturing to fintech. Each engagement customized, never templated.',
+                id: 1,
+                icon: <Code size={24} />,
+                title: 'ESG Data Platform',
+                desc: 'Proprietary cloud infrastructure for automated ESG data collection, computation, and governance. Real-time dashboards with API integrations to your finance systems.',
               },
               {
-                num: '₹500Cr+',
-                title: 'Green Finance Facilitated',
-                desc: 'Capital raised and structured for ESG-linked transactions, green bonds, and sustainability-linked loans.',
+                id: 2,
+                icon: <Zap size={24} />,
+                title: 'AI-Powered Reporting',
+                desc: 'Intelligent disclosure drafting with regulatory change tracking. Automated BRSR, CSRD, and TCFD report generation with real-time compliance updates.',
               },
               {
-                num: '1.2M',
-                title: 'tCO₂e Measured & Verified',
-                desc: 'Rigorous Scope 1, 2, and 3 quantification across carbon markets and internal sustainability programs.',
+                id: 3,
+                icon: <Settings size={24} />,
+                title: 'API Integrations',
+                desc: 'Seamless connection to SAP, Oracle, and QuickBooks. Direct feeds from carbon accounting tools, ERPs, and financial reporting systems.',
               },
               {
-                num: '6',
-                title: 'ESG Frameworks Mastered',
-                desc: 'BRSR, CSRD, ISSB, TCFD, GRI, and CCTS. Compliance built into every recommendation.',
+                id: 4,
+                icon: <DollarSign size={24} />,
+                title: 'Green Finance Structuring',
+                desc: 'Expert advisory on sustainable bonds, ESG-linked loans, and climate finance instruments. Capital market guidance for ESG-linked transactions.',
               },
-            ].map((stat) => (
-              <div
-                key={stat.title}
-                className="bg-white p-9 group hover:bg-[#0D1B3E] transition-colors cursor-default"
-              >
-                <span className="font-display text-4xl font-bold text-slate-border/40 group-hover:text-white/15 transition-colors block mb-5">
-                  {stat.num}
-                </span>
-                <h3 className="font-display font-bold text-lg text-[#0D1B3E] group-hover:text-white mb-3 transition-colors">
-                  {stat.title}
-                </h3>
-                <p className="text-sm text-slate-body/55 group-hover:text-white/55 leading-relaxed transition-colors">
-                  {stat.desc}
-                </p>
+              {
+                id: 5,
+                icon: <TrendingUp size={24} />,
+                title: 'Impact Measurement',
+                desc: 'Verified impact reporting for ESG-linked financial products. Third-party assurance aligned to ICMA and IFC standards.',
+              },
+              {
+                id: 6,
+                icon: <Shield size={24} />,
+                title: 'Regulatory Intelligence',
+                desc: 'Continuous monitoring of SEBI, RBI, CCTS, ISSB, CSRD, and TCFD updates. Proactive compliance roadmaps aligned to new regulations.',
+              },
+              {
+                id: 7,
+                icon: <CheckCircle size={24} />,
+                title: 'ESG Risk Assessment',
+                desc: 'Materiality analysis and stakeholder-specific risk profiling. Governance gap analysis with board-ready recommendations.',
+              },
+              {
+                id: 8,
+                icon: <BarChart3 size={24} />,
+                title: 'Carbon Accounting',
+                desc: 'Scope 1, 2, 3 quantification with third-party assurance. Carbon offset management and voluntary carbon credit solutions.',
+              },
+            ].map((feature) => (
+              <div key={feature.id} className="flex gap-6 items-start">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 text-white" style={{ background: feature.id % 2 === 0 ? 'linear-gradient(135deg, #7516EA, #2E8AEA)' : 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
+                  {feature.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-[#0D1B3E] mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-body/60 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 flex justify-center">
+          <div className="mt-16">
             <Link href="/about/" className="btn-primary">
-              Learn Our Approach <ArrowRight size={16} />
+              Explore Our Platform <ArrowRight size={16} />
             </Link>
           </div>
         </div>
