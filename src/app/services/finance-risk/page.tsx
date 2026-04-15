@@ -157,50 +157,24 @@ export default function FinanceRiskPage() {
             <span className="text-[11px] text-white/50">Finance & Risk</span>
           </div>
 
-          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-16 items-end pb-16">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0D9488]/15 border border-[#0D9488]/25 mb-6">
-                <DollarSign size={12} className="text-[#2DD4BF]" />
-                <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#2DD4BF]">Finance & Risk Advisory</span>
-              </div>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
-                ESG-integrated<br />finance, risk &<br /><span className="text-[#2DD4BF]">capital advisory</span>
-              </h1>
-              <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
-                Six specialist practices covering ESG financial analysis, green bond issuance, sustainability-linked lending, ESG due diligence for M&A, carbon tax planning, and digital risk governance — all CA-firm backed.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
-                  Speak to an Advisor <ArrowRight size={14} />
-                </Link>
-                <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
-                  All Six Practices ↓
-                </Link>
-              </div>
+          <div className="max-w-3xl pb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0D9488]/15 border border-[#0D9488]/25 mb-6">
+              <DollarSign size={12} className="text-[#2DD4BF]" />
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#2DD4BF]">Finance & Risk Advisory</span>
             </div>
-
-            {/* Trust panel */}
-            <div className="flex flex-col gap-3 mb-2">
-              <div className="rounded-xl border border-white/8 bg-white/4 p-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <Building2 size={14} className="text-[#2DD4BF]" />
-                  <span className="text-[10px] font-bold tracking-wide uppercase text-[#2DD4BF]">CA Firm Backed</span>
-                </div>
-                <p className="text-xs text-white/40 leading-relaxed">All financial advisory, tax structuring, and bond framework work is supported by our chartered accountancy firm — ensuring technical rigour and regulatory defensibility.</p>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { val: 'PCAF', lbl: 'Financed emissions' },
-                  { val: 'CBAM', lbl: 'Carbon border' },
-                  { val: 'ICMA', lbl: 'Green bond' },
-                  { val: 'RBI', lbl: 'Climate risk' },
-                ].map((s) => (
-                  <div key={s.lbl} className="rounded-xl border border-white/8 bg-white/4 p-4">
-                    <div className="font-display font-bold text-base text-[#2DD4BF] mb-0.5">{s.val}</div>
-                    <div className="text-[10px] text-white/30">{s.lbl}</div>
-                  </div>
-                ))}
-              </div>
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
+              ESG-integrated<br />finance, risk &<br /><span className="text-[#2DD4BF]">capital advisory</span>
+            </h1>
+            <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
+              Six specialist practices covering ESG financial analysis, green bond issuance, sustainability-linked lending, ESG due diligence for M&A, carbon tax planning, and digital risk governance. All CA-firm backed.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
+                Speak to an Advisor <ArrowRight size={14} />
+              </Link>
+              <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
+                All Six Practices
+              </Link>
             </div>
           </div>
         </div>

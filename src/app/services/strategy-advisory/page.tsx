@@ -155,41 +155,25 @@ export default function StrategyAdvisoryPage() {
             <span className="text-[11px] text-white/50">Strategy & Advisory</span>
           </div>
 
-          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-16 items-end pb-16">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2E8AEA]/15 border border-[#2E8AEA]/25 mb-6">
-                <Compass size={12} className="text-[#5BA8EF]" />
-                <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#5BA8EF]">Strategy & Advisory</span>
-              </div>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
-                ESG strategy,<br />compliance &<br /><span className="text-[#5BA8EF]">transformation</span>
-              </h1>
-              <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
-                Six integrated advisory practices covering ESG strategy design, BRSR and regulatory compliance, carbon management, risk governance, sustainable finance, and data infrastructure for listed companies and industrial businesses across India.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg"
-                  style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
-                  Speak to an Advisor <ArrowRight size={14} />
-                </Link>
-                <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
-                  All Six Practices
-                </Link>
-              </div>
+          <div className="max-w-3xl pb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2E8AEA]/15 border border-[#2E8AEA]/25 mb-6">
+              <Compass size={12} className="text-[#5BA8EF]" />
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#5BA8EF]">Strategy & Advisory</span>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 mb-2">
-              {[
-                { val: 'BRSR Core', lbl: 'Mandatory disclosure' },
-                { val: 'SBTi', lbl: 'Carbon targets' },
-                { val: 'TCFD', lbl: 'Climate risk' },
-                { val: 'PCAF', lbl: 'Financed emissions' },
-              ].map((s) => (
-                <div key={s.lbl} className="rounded-xl border border-white/8 bg-white/4 p-4">
-                  <div className="font-display font-bold text-base text-[#5BA8EF] mb-0.5">{s.val}</div>
-                  <div className="text-[10px] text-white/30">{s.lbl}</div>
-                </div>
-              ))}
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
+              ESG strategy,<br />compliance &<br /><span className="text-[#5BA8EF]">transformation</span>
+            </h1>
+            <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
+              Six integrated advisory practices covering ESG strategy design, BRSR and regulatory compliance, carbon management, risk governance, sustainable finance, and data infrastructure for listed companies and industrial businesses across India.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg"
+                style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
+                Speak to an Advisor <ArrowRight size={14} />
+              </Link>
+              <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
+                All Six Practices
+              </Link>
             </div>
           </div>
         </div>

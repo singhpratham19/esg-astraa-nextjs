@@ -155,41 +155,25 @@ export default function GovernanceSocialPage() {
             <span className="text-[11px] text-white/50">Governance & Social</span>
           </div>
 
-          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-16 items-end pb-16">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#7516EA]/15 border border-[#7516EA]/25 mb-6">
-                <Globe2 size={12} className="text-[#A78BFA]" />
-                <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#A78BFA]">Governance & Social Advisory</span>
-              </div>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
-                Board governance,<br />social impact &<br /><span className="text-[#A78BFA]">BRSR assurance</span>
-              </h1>
-              <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
-                Six governance and social practice areas covering board ESG oversight, human rights due diligence, DEI strategy, ethics and anti-corruption systems, and mandatory BRSR Core assurance for India's top-listed companies.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg"
-                  style={{ background: 'linear-gradient(135deg, #7516EA, #2E8AEA)' }}>
-                  Speak to an Advisor <ArrowRight size={14} />
-                </Link>
-                <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
-                  All Six Practices
-                </Link>
-              </div>
+          <div className="max-w-3xl pb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#7516EA]/15 border border-[#7516EA]/25 mb-6">
+              <Globe2 size={12} className="text-[#A78BFA]" />
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#A78BFA]">Governance & Social Advisory</span>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 mb-2">
-              {[
-                { val: 'UNGP', lbl: 'Human rights standard' },
-                { val: 'ISO 37001', lbl: 'Anti-bribery system' },
-                { val: 'ISAE 3000', lbl: 'Assurance standard' },
-                { val: 'BRSR Core', lbl: 'Mandatory assurance' },
-              ].map((s) => (
-                <div key={s.lbl} className="rounded-xl border border-white/8 bg-white/4 p-4">
-                  <div className="font-display font-bold text-base text-[#A78BFA] mb-0.5">{s.val}</div>
-                  <div className="text-[10px] text-white/30">{s.lbl}</div>
-                </div>
-              ))}
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.0] tracking-tight mb-6">
+              Board governance,<br />social impact &<br /><span className="text-[#A78BFA]">BRSR assurance</span>
+            </h1>
+            <p className="text-lg text-white/45 leading-relaxed max-w-xl mb-8">
+              Six governance and social practice areas covering board ESG oversight, human rights due diligence, DEI strategy, ethics and anti-corruption systems, and mandatory BRSR Core assurance for India's top-listed companies.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg"
+                style={{ background: 'linear-gradient(135deg, #7516EA, #2E8AEA)' }}>
+                Speak to an Advisor <ArrowRight size={14} />
+              </Link>
+              <Link href="#services" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
+                All Six Practices
+              </Link>
             </div>
           </div>
         </div>
