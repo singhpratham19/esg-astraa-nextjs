@@ -6,7 +6,7 @@ import {
   PlayCircle, Factory, Zap, Heart, Building2, Landmark, Mountain, Cpu, Wheat, Target,
   FileCheck, Leaf, Shield, TrendingUp, Globe, Settings, BookOpen, BarChart2, Users,
   Repeat, Bell, DollarSign, Scale, ShieldCheck, Award, Receipt, Link2, Search, ShieldAlert,
-  FileText,
+  FileText, Droplets, Recycle, Truck, TreePine,
 } from 'lucide-react'
 import ButterflyLogo from './ButterflyLogo'
 
@@ -86,12 +86,12 @@ const NAV: NavItem[] = [
         {
           title: 'Strategy & Advisory',
           items: [
-            { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/esg-strategy-transformation/', icon: <Target size={16} /> },
-            { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/brsr-esg-compliance/', icon: <FileCheck size={16} /> },
-            { label: 'Carbon Advisory & Credits', desc: 'Scope 1/2/3, CBAM, credits', href: '/services/carbon-advisory-credits/', icon: <Leaf size={16} /> },
-            { label: 'ESG Risk & Governance', desc: 'Board governance, supply chain risk', href: '/services/esg-risk-governance/', icon: <Shield size={16} /> },
-            { label: 'Sustainable Finance', desc: 'Green bonds, SLL, PCAF', href: '/services/sustainable-finance/', icon: <TrendingUp size={16} /> },
-            { label: 'ESG Data & Intelligence', desc: 'KPI framework, benchmarks', href: '/services/esg-data-intelligence/', icon: <BarChart3 size={16} /> },
+            { label: 'ESG Strategy & Transformation', desc: 'Materiality, roadmap, integration', href: '/services/strategy-advisory/#esg-strategy', icon: <Target size={16} /> },
+            { label: 'BRSR & ESG Compliance', desc: 'SEBI BRSR, GRI, ISSB reporting', href: '/services/strategy-advisory/#brsr-compliance', icon: <FileCheck size={16} /> },
+            { label: 'Carbon Advisory & Credits', desc: 'Scope 1/2/3, CBAM, credits', href: '/services/strategy-advisory/#carbon-advisory', icon: <Leaf size={16} /> },
+            { label: 'ESG Risk & Governance', desc: 'Board governance, supply chain risk', href: '/services/strategy-advisory/#esg-risk', icon: <Shield size={16} /> },
+            { label: 'Sustainable Finance', desc: 'Green bonds, SLL, PCAF', href: '/services/strategy-advisory/#sustainable-finance-strategy', icon: <TrendingUp size={16} /> },
+            { label: 'ESG Data & Intelligence', desc: 'KPI framework, benchmarks', href: '/services/strategy-advisory/#esg-data-strategy', icon: <BarChart3 size={16} /> },
           ],
         },
         {
@@ -127,9 +127,14 @@ const NAV: NavItem[] = [
       sections: [
         {
           items: [
-            { label: 'Environmental', desc: 'GHG, wastewater, renewable energy', href: '/solutions/environmental/', icon: <Leaf size={16} /> },
-            { label: 'Biodiversity & Nature', desc: 'TNFD, water stewardship, deforestation', href: '/solutions/biodiversity-nature/', icon: <Globe size={16} /> },
-            { label: 'By Process', desc: 'Energy audit, ETP, clearances, LCA', href: '/solutions/by-process/', icon: <Settings size={16} /> },
+            { label: 'Energy Efficiency', desc: 'Audits, ISO 50001, BEE PAT', href: '/solutions/#energy-efficiency', icon: <Zap size={16} /> },
+            { label: 'Renewable Energy', desc: 'Solar, wind, PPA, RPO compliance', href: '/solutions/#renewable-energy', icon: <Settings size={16} /> },
+            { label: 'Water Conservation', desc: 'ZLD, rainwater harvesting, reuse', href: '/solutions/#water-conservation', icon: <Droplets size={16} /> },
+            { label: 'Waste Management', desc: 'SWM Rules, EPR, zero waste', href: '/solutions/#waste-management', icon: <Recycle size={16} /> },
+            { label: 'Green Fleet', desc: 'EV transition, Scope 3 logistics', href: '/solutions/#green-fleet', icon: <Truck size={16} /> },
+            { label: 'Sustainable Procurement', desc: 'ISO 20400, supplier screening', href: '/solutions/#sustainable-procurement', icon: <Leaf size={16} /> },
+            { label: 'Green Buildings', desc: 'LEED, GRIHA, facility retrofits', href: '/solutions/#green-buildings', icon: <Globe size={16} /> },
+            { label: 'Ecological Restoration', desc: 'Afforestation, CAMPA, nature-positive', href: '/solutions/#ecological-restoration', icon: <TreePine size={16} /> },
           ],
         },
       ],
