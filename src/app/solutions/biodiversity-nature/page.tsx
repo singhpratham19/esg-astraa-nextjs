@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, TreePine, MapPin, Droplets, Sprout } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle2, TreePine, MapPin, Droplets, Sprout } from 'lucide-react'
 
 export const metadata = {
   title: 'Biodiversity & Nature Solutions | TNFD, Water Stewardship, Deforestation | ESG Astraa',
@@ -9,10 +9,12 @@ export const metadata = {
 
 const SOLUTIONS = [
   {
+    num: '01',
     icon: TreePine,
     title: 'Biodiversity Assessment',
     badge: 'TNFD-Aligned Nature Risk',
     color: '#0D9488',
+    metric: { val: 'TNFD LEAP', sub: 'Locate · Evaluate · Assess · Prepare' },
     desc: 'Structured biodiversity risk assessment aligned to the TNFD framework, identifying location-specific nature dependencies, impacts, risks, and response opportunities across operations and value chains.',
     keyAreas: [
       'Site-level nature dependency and impact screening',
@@ -23,10 +25,12 @@ const SOLUTIONS = [
     frameworks: ['TNFD', 'GRI 304', 'SBTN'],
   },
   {
+    num: '02',
     icon: MapPin,
     title: 'Land Use & Deforestation',
     badge: 'Zero-Deforestation Supply Chains',
     color: '#92400E',
+    metric: { val: 'EUDR', sub: 'EU Deforestation Regulation compliance' },
     desc: 'Advisory on EUDR compliance, zero-deforestation commitments, land conversion risk mapping, and traceability systems for agricultural commodity businesses with forest-risk supply chains.',
     keyAreas: [
       'EUDR compliance readiness assessment',
@@ -37,10 +41,12 @@ const SOLUTIONS = [
     frameworks: ['EUDR', 'GRI 304-2', 'Forest 500'],
   },
   {
+    num: '03',
     icon: Droplets,
     title: 'Water Stewardship',
-    badge: 'Risk, Harvesting & Neutrality Plans',
+    badge: 'Risk, Harvesting & Neutrality',
     color: '#0369A1',
+    metric: { val: 'AWS Standard', sub: 'Alliance for Water Stewardship' },
     desc: 'Context-based water stewardship advisory covering basin-level risk assessment, water harvesting programme design, neutrality target setting, and CDP Water Security disclosure support.',
     keyAreas: [
       'Water risk assessment using WRI Aqueduct and WWF tools',
@@ -51,10 +57,12 @@ const SOLUTIONS = [
     frameworks: ['CDP Water', 'GRI 303', 'AWS Standard'],
   },
   {
+    num: '04',
     icon: Sprout,
     title: 'Ecological Restoration',
     badge: 'Nature-Positive Project Linkages',
     color: '#16A34A',
+    metric: { val: 'Nature+', sub: 'Nature-positive commitment design' },
     desc: 'Advisory on voluntary biodiversity credit markets, nature-positive commitments, compensatory afforestation, and ecosystem restoration project identification and development linkages.',
     keyAreas: [
       'Nature-positive strategy and commitment design',
@@ -66,184 +74,180 @@ const SOLUTIONS = [
   },
 ]
 
-const METRICS = [
-  { val: 'TNFD', lbl: 'Framework aligned' },
-  { val: 'EUDR', lbl: 'Trade compliance' },
-  { val: 'Net+', lbl: 'Nature-positive target' },
-  { val: '4', lbl: 'Solution areas' },
-]
-
 export default function BiodiversityNaturePage() {
   return (
     <main>
-      {/* Hero */}
-      <section className="bg-[#042F2E] pt-32 pb-20 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-20"
-          style={{ backgroundImage: 'radial-gradient(circle at 75% 40%, #0D9488 0%, transparent 60%), radial-gradient(circle at 15% 70%, #16A34A 0%, transparent 50%)' }} />
+      {/* ─── HERO: Full-bleed dark with large typography ─── */}
+      <section className="bg-[#042F2E] pt-36 pb-0 relative overflow-hidden">
+        <div className="absolute inset-0"
+          style={{ backgroundImage: 'radial-gradient(ellipse at 60% 0%, #0D948840 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, #16A34A30 0%, transparent 55%)' }} />
+
         <div className="max-w-site mx-auto px-6 relative">
-          <div className="flex items-center gap-3 mb-6">
-            <Link href="/solutions/" className="text-[11px] font-medium text-white/40 hover:text-white/70 transition-colors no-underline">Solutions</Link>
-            <span className="text-white/20">/</span>
-            <span className="text-[11px] font-medium text-white/70">Biodiversity & Nature</span>
-          </div>
-          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#2DD4BF] block mb-5">Biodiversity & Nature Solutions</span>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white leading-[1.06] mb-6 tracking-tight max-w-3xl">
-            Nature risk, water stewardship, and restoration advisory
-          </h1>
-          <p className="text-lg text-white/55 leading-relaxed mb-10 max-w-xl">
-            Four practice areas covering TNFD-aligned biodiversity risk, zero-deforestation supply chains, context-based water stewardship, and ecological restoration linkages.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-6 py-3 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
-              Discuss Your Requirements <ArrowRight size={15} />
-            </Link>
-            <Link href="/services/" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/60 hover:text-white transition-colors no-underline">
-              View Advisory Services <ArrowRight size={15} />
-            </Link>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 mb-10">
+            <Link href="/solutions/" className="text-[11px] text-white/30 hover:text-white/60 transition-colors no-underline">Solutions</Link>
+            <span className="text-white/15">/</span>
+            <span className="text-[11px] text-white/50">Biodiversity & Nature</span>
           </div>
 
-          <div className="mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {METRICS.map((m) => (
-              <div key={m.lbl}>
-                <div className="font-display text-2xl font-bold text-[#2DD4BF] mb-1">{m.val}</div>
-                <div className="text-xs text-white/40">{m.lbl}</div>
-              </div>
-            ))}
+          <div className="max-w-3xl mb-14">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#2DD4BF] block mb-6">Biodiversity & Nature Solutions</span>
+            <h1 className="font-display text-6xl md:text-7xl font-bold text-white leading-[0.95] tracking-tight mb-6">
+              Nature risk,<br />water, and<br /><span className="text-[#2DD4BF]">restoration</span>
+            </h1>
+            <p className="text-xl text-white/45 leading-relaxed mb-10 max-w-xl">
+              Four practice areas for businesses with biodiversity exposure, deforestation obligations, water stress risk, and nature-positive commitments.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact/" className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-5 py-2.5 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
+                Talk to Our Team <ArrowRight size={14} />
+              </Link>
+              <Link href="#solutions" className="inline-flex items-center gap-2 text-[13px] font-medium text-white/40 hover:text-white transition-colors no-underline">
+                View Solutions ↓
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Why Nature Matters */}
-      <section className="py-16 bg-slate-bg border-b border-slate-border/40">
-        <div className="max-w-site mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
+        {/* Bottom stats band */}
+        <div className="border-t border-white/8 bg-white/3">
+          <div className="max-w-site mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-px">
             {[
-              { title: 'TNFD Disclosure', desc: 'Institutional investors and lenders are requiring TNFD-aligned nature-related risk disclosures for businesses with significant land, water, or biodiversity dependencies.' },
-              { title: 'EUDR Compliance', desc: 'Exporters of forest-risk commodities to the EU face mandatory deforestation due diligence obligations under EUDR, requiring traceability to plot level.' },
-              { title: 'Nature-Positive Targets', desc: 'Leading businesses are setting nature-positive commitments alongside net zero, requiring baseline biodiversity assessments and credible restoration linkages.' },
-            ].map((item) => (
-              <div key={item.title} className="bg-white rounded-xl border border-slate-border/40 p-6">
-                <div className="w-8 h-1 rounded-full bg-[#0D9488] mb-4" />
-                <h3 className="font-bold text-[#0D1B3E] mb-2 text-sm">{item.title}</h3>
-                <p className="text-xs text-slate-body/60 leading-relaxed">{item.desc}</p>
+              { val: 'TNFD', lbl: 'Framework aligned' },
+              { val: 'EUDR', lbl: 'Trade compliance' },
+              { val: 'AWS', lbl: 'Water standard' },
+              { val: '4', lbl: 'Solution areas' },
+            ].map((s) => (
+              <div key={s.lbl} className="px-6 py-4">
+                <div className="font-display font-bold text-xl text-[#2DD4BF]">{s.val}</div>
+                <div className="text-[10px] text-white/30 mt-0.5">{s.lbl}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions Grid */}
-      <section className="py-24 bg-white">
-        <div className="max-w-site mx-auto px-6">
-          <div className="mb-14">
-            <span className="section-label mb-5 inline-flex">Our Nature Solutions</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] mt-3">
-              Four biodiversity and nature practice areas
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-6">
-            {SOLUTIONS.map((sol) => {
-              const Icon = sol.icon
-              return (
-                <div key={sol.title} className="bg-white rounded-2xl border border-slate-border/50 hover:shadow-xl hover:border-[#0D9488]/30 transition-all group p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: sol.color }}>
-                      <Icon size={20} />
-                    </div>
+      {/* ─── SOLUTIONS: Large numbered cards stacked ─── */}
+      <section id="solutions" className="bg-white">
+        {SOLUTIONS.map((sol, i) => {
+          const Icon = sol.icon
+          return (
+            <div key={sol.num} className="border-b border-slate-border/30">
+              <div className="max-w-site mx-auto px-6">
+                <div className="grid lg:grid-cols-[280px_1fr] gap-0 divide-x divide-slate-border/30">
+                  {/* Left sidebar */}
+                  <div className="py-12 pr-10 flex flex-col justify-between gap-8">
                     <div>
-                      <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full bg-[#F0FDFA] text-[#0D9488]">{sol.badge}</span>
-                      <h3 className="font-display font-bold text-xl text-[#0D1B3E] mt-2 group-hover:text-[#0D9488] transition-colors">{sol.title}</h3>
+                      <span className="font-display font-bold text-7xl text-slate-border/15 block leading-none mb-6">{sol.num}</span>
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-4" style={{ background: sol.color }}>
+                        <Icon size={22} />
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-wide uppercase rounded-full px-2.5 py-1" style={{ color: sol.color, background: `${sol.color}15` }}>
+                        {sol.badge}
+                      </span>
+                    </div>
+
+                    {/* Metric card */}
+                    <div className="rounded-xl p-5 border border-slate-border/40 bg-slate-bg">
+                      <div className="font-display font-bold text-lg mb-1" style={{ color: sol.color }}>{sol.metric.val}</div>
+                      <div className="text-[10px] text-slate-body/45 leading-tight mb-3">{sol.metric.sub}</div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {sol.frameworks.map((f) => (
+                          <span key={f} className="text-[9px] font-bold text-slate-body/40 border border-slate-border/50 px-2 py-0.5 rounded">{f}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-sm text-slate-body/65 leading-relaxed mb-6">{sol.desc}</p>
-
-                  <div className="space-y-2.5 mb-6">
-                    {sol.keyAreas.map((area) => (
-                      <div key={area} className="flex items-start gap-2.5">
-                        <CheckCircle2 size={14} className="text-[#0D9488] mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-slate-body/65 leading-tight">{area}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-5 border-t border-slate-border/30 flex items-center justify-between">
-                    <div className="flex gap-2 flex-wrap">
-                      {sol.frameworks.map((f) => (
-                        <span key={f} className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-bg text-slate-body/50">{f}</span>
+                  {/* Right content */}
+                  <div className="py-12 pl-10">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0D1B3E] mb-4">{sol.title}</h2>
+                    <p className="text-slate-body/60 leading-relaxed mb-8 max-w-2xl">{sol.desc}</p>
+                    <div className="grid sm:grid-cols-2 gap-3 max-w-2xl">
+                      {sol.keyAreas.map((area) => (
+                        <div key={area} className="flex items-start gap-3 p-4 rounded-xl border border-slate-border/40 hover:border-[#0D9488]/30 hover:bg-[#F0FDFA] transition-colors group">
+                          <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0 transition-colors" style={{ color: sol.color }} />
+                          <span className="text-sm text-slate-body/65 leading-tight">{area}</span>
+                        </div>
                       ))}
                     </div>
-                    <Link href="/contact/" className="text-xs font-bold text-[#0D9488] hover:gap-3 flex items-center gap-1.5 no-underline transition-all">
-                      Enquire <ArrowRight size={11} />
-                    </Link>
+                    <div className="mt-8">
+                      <Link href="/contact/"
+                        className="inline-flex items-center gap-2 text-sm font-bold no-underline hover:gap-3 transition-all"
+                        style={{ color: sol.color }}>
+                        Enquire about this solution <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              )
-            })}
-          </div>
-        </div>
+              </div>
+            </div>
+          )
+        })}
       </section>
 
-      {/* Frameworks Banner */}
-      <section className="py-14 bg-slate-bg border-t border-b border-slate-border/40">
+      {/* ─── WHY NATURE NOW ─── */}
+      <section className="py-24 bg-slate-bg border-b border-slate-border/40">
         <div className="max-w-site mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
-            <p className="text-xs font-bold tracking-[0.12em] uppercase text-slate-body/35 flex-shrink-0">
-              Frameworks covered
-            </p>
-            <div className="flex flex-wrap gap-x-10 gap-y-3 items-center">
-              {['TNFD', 'GRI 303 Water', 'GRI 304 Biodiversity', 'SBTN', 'EUDR', 'AWS Standard', 'CDP Water', 'Forest 500', 'Verra BCS'].map((f) => (
-                <span key={f} className="text-sm font-semibold text-slate-body/45">{f}</span>
+          <div className="grid lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-1">
+              <span className="section-label mb-5 inline-flex">Why It Matters Now</span>
+              <h2 className="font-display text-3xl font-bold text-[#0D1B3E] mt-3 leading-tight">
+                Nature risk is moving from voluntary to mandatory
+              </h2>
+            </div>
+            <div className="lg:col-span-2 grid md:grid-cols-3 gap-5">
+              {[
+                { title: 'TNFD Disclosures', desc: 'Institutional investors and lenders are requiring TNFD-aligned nature disclosures for businesses with material land, water, or biodiversity dependencies.' },
+                { title: 'EUDR Obligations', desc: 'Exporters of forest-risk commodities to the EU face mandatory deforestation due diligence, requiring supply chain traceability to plot level.' },
+                { title: 'Nature-Positive Targets', desc: 'Leading businesses are setting nature-positive commitments alongside net zero goals, requiring credible biodiversity baselines and restoration plans.' },
+              ].map((item) => (
+                <div key={item.title} className="bg-white rounded-xl border border-slate-border/40 p-6">
+                  <div className="w-6 h-1 rounded-full bg-[#0D9488] mb-4" />
+                  <h3 className="font-bold text-[#0D1B3E] text-sm mb-2">{item.title}</h3>
+                  <p className="text-xs text-slate-body/55 leading-relaxed">{item.desc}</p>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-[#042F2E]">
+      {/* ─── FRAMEWORKS ─── */}
+      <section className="py-12 bg-white border-b border-slate-border/40">
         <div className="max-w-site mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-[10px] font-bold tracking-[0.16em] uppercase text-[#2DD4BF] block mb-4">Get Started</span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
-                Understand your nature-related risks and opportunities
-              </h2>
-              <p className="text-white/45 leading-relaxed">
-                Our advisors can map your biodiversity exposure, water risk context, and deforestation obligations against TNFD, EUDR, and investor expectations.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
-              <Link href="/contact/" className="inline-flex items-center justify-center gap-2 text-[13px] font-bold text-white px-6 py-3 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
-                Book a Consultation <ArrowRight size={15} />
-              </Link>
-              <Link href="/solutions/" className="inline-flex items-center justify-center gap-2 text-[13px] font-semibold text-white/65 px-6 py-3 rounded-lg border border-white/15 hover:border-white/30 transition-colors">
-                All Solutions <ArrowRight size={15} />
-              </Link>
+          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
+            <p className="text-[10px] font-bold tracking-[0.14em] uppercase text-slate-body/30 flex-shrink-0">Frameworks covered</p>
+            <div className="flex flex-wrap gap-x-8 gap-y-2">
+              {['TNFD', 'GRI 303 Water', 'GRI 304 Biodiversity', 'SBTN', 'EUDR', 'AWS Standard', 'CDP Water', 'Forest 500', 'Verra BCS'].map((f) => (
+                <span key={f} className="text-xs font-semibold text-slate-body/40">{f}</span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related */}
-      <section className="py-20 bg-white">
-        <div className="max-w-site mx-auto px-6">
-          <h2 className="font-display text-2xl font-bold text-[#0D1B3E] mb-8">Explore other solution areas</h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            {[
-              { href: '/solutions/environmental/', title: 'Environmental', desc: 'GHG reduction, wastewater management, renewable energy, and circular economy frameworks.', color: '#16A34A' },
-              { href: '/solutions/by-process/', title: 'By Process', desc: 'Energy audits, air quality, ETP/STP setup, environmental clearances, and LCA.', color: '#2E8AEA' },
-            ].map((rel) => (
-              <Link key={rel.href} href={rel.href}
-                className="group flex items-start justify-between gap-4 p-6 rounded-xl border border-slate-border/50 hover:shadow-lg hover:border-transparent transition-all no-underline">
-                <div>
-                  <h3 className="font-bold text-[#0D1B3E] mb-1 group-hover:text-[#2E8AEA] transition-colors">{rel.title}</h3>
-                  <p className="text-sm text-slate-body/55 leading-relaxed">{rel.desc}</p>
-                </div>
-                <ArrowRight size={18} className="text-slate-body/30 group-hover:text-[#2E8AEA] flex-shrink-0 mt-0.5 transition-colors" />
-              </Link>
-            ))}
+      {/* ─── CTA ─── */}
+      <section className="py-24 bg-[#042F2E] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20"
+          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #0D9488 0%, transparent 60%)' }} />
+        <div className="max-w-site mx-auto px-6 relative grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#2DD4BF] block mb-5">Get Started</span>
+            <h2 className="font-display text-4xl font-bold text-white leading-tight mb-4">
+              Understand your nature-related risks and opportunities
+            </h2>
+            <p className="text-white/45 leading-relaxed">
+              Our advisors map your biodiversity exposure, water risk context, and deforestation obligations against TNFD, EUDR, and investor expectations.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 md:justify-end">
+            <Link href="/contact/" className="inline-flex items-center justify-center gap-2 text-[13px] font-bold text-white px-6 py-3 rounded-lg bg-[#0D9488] hover:bg-[#0F766E] transition-colors">
+              Book a Consultation <ArrowRight size={14} />
+            </Link>
+            <Link href="/solutions/" className="inline-flex items-center justify-center gap-2 text-[13px] font-medium text-white/50 hover:text-white no-underline transition-colors border border-white/10 px-6 py-3 rounded-lg">
+              All Solutions <ArrowUpRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
