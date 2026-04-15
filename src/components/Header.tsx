@@ -156,7 +156,7 @@ const NAV: NavItem[] = [
             { label: 'About ESG Astraa', desc: 'Our mission, team, and approach', href: '/about/', icon: <Users size={16} /> },
             { label: 'Our Methodology', desc: 'How we deliver outcomes', href: '/about/our-methodology/', icon: <Repeat size={16} /> },
             { label: 'Partners & Certifications', desc: 'Frameworks and accreditations', href: '/about/partners-certifications/', icon: <ClipboardCheck size={16} /> },
-            { label: 'Case Studies', desc: 'Client outcomes and results', href: '/case-studies/', icon: <BookOpen size={16} /> },
+            { label: 'Case Studies', desc: 'Business case studies and outcomes', href: '/case-studies/', icon: <BookOpen size={16} /> },
           ],
         },
       ],
