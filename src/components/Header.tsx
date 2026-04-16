@@ -36,24 +36,18 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   {
-    label: 'Platform',
-    href: '/platform/',
+    label: 'Insights',
+    href: '/insights/',
     dropdown: {
       sections: [
         {
-          title: 'Core Platform',
           items: [
-            { label: 'Audit Automation', desc: 'End-to-end ESG audit engine', href: '/platform/audit-automation/', icon: <ClipboardCheck size={16} /> },
-            { label: 'Reporting Dashboard', desc: 'Real-time ESG KPI tracking', href: '/platform/reporting/', icon: <LayoutDashboard size={16} /> },
-            { label: 'Data Management', desc: 'Integrate & centralise ESG data', href: '/platform/data-management/', icon: <Database size={16} /> },
-            { label: 'Compliance Tracker', desc: 'Monitor regulatory deadlines', href: '/platform/compliance/', icon: <BarChart3 size={16} /> },
-            { label: 'Custom Report Builder', desc: 'Tailored output for any audience', href: '/platform/reports/', icon: <FileOutput size={16} /> },
-          ],
-        },
-        {
-          title: '',
-          items: [
-            { label: 'Request a Demo', desc: 'See the platform live', href: '/request-demo/', icon: <PlayCircle size={16} /> },
+            { label: 'Case Studies', desc: 'Real-world ESG implementation examples', href: '/insights/case-studies/', icon: <BarChart3 size={16} /> },
+            { label: 'Whitepapers', desc: 'In-depth ESG research documents', href: '/insights/whitepapers/', icon: <BookOpen size={16} /> },
+            { label: 'Industry Reports', desc: 'Sector ESG landscape analysis', href: '/insights/industry-reports/', icon: <BarChart2 size={16} /> },
+            { label: 'ESG Benchmarks', desc: 'Data-driven performance benchmarks', href: '/insights/esg-benchmarks/', icon: <BarChart3 size={16} /> },
+            { label: 'Thought Leadership', desc: 'Expert commentary and trends', href: '/insights/thought-leadership/', icon: <Users size={16} /> },
+            { label: 'Regulatory Updates', desc: 'SEBI, RBI, CSRD tracking', href: '/insights/regulatory-updates/', icon: <Bell size={16} /> },
           ],
         },
       ],
@@ -151,17 +145,24 @@ const NAV: NavItem[] = [
     href: '/about/',
   },
   {
-    label: 'Insights',
-    href: '/insights/',
+    label: 'Platform',
+    href: '/platform/',
     dropdown: {
       sections: [
         {
+          title: 'Core Platform',
           items: [
-            { label: 'Whitepapers', desc: 'In-depth ESG research documents', href: '/insights/whitepapers/', icon: <BookOpen size={16} /> },
-            { label: 'Industry Reports', desc: 'Sector ESG landscape analysis', href: '/insights/industry-reports/', icon: <BarChart2 size={16} /> },
-            { label: 'ESG Benchmarks', desc: 'Data-driven performance benchmarks', href: '/insights/esg-benchmarks/', icon: <BarChart3 size={16} /> },
-            { label: 'Thought Leadership', desc: 'Expert commentary and trends', href: '/insights/thought-leadership/', icon: <Users size={16} /> },
-            { label: 'Regulatory Updates', desc: 'SEBI, RBI, CSRD tracking', href: '/insights/regulatory-updates/', icon: <Bell size={16} /> },
+            { label: 'Audit Automation', desc: 'End-to-end ESG audit engine', href: '/platform/audit-automation/', icon: <ClipboardCheck size={16} /> },
+            { label: 'Reporting Dashboard', desc: 'Real-time ESG KPI tracking', href: '/platform/reporting/', icon: <LayoutDashboard size={16} /> },
+            { label: 'Data Management', desc: 'Integrate & centralise ESG data', href: '/platform/data-management/', icon: <Database size={16} /> },
+            { label: 'Compliance Tracker', desc: 'Monitor regulatory deadlines', href: '/platform/compliance/', icon: <BarChart3 size={16} /> },
+            { label: 'Custom Report Builder', desc: 'Tailored output for any audience', href: '/platform/reports/', icon: <FileOutput size={16} /> },
+          ],
+        },
+        {
+          title: '',
+          items: [
+            { label: 'Request a Demo', desc: 'See the platform live', href: '/request-demo/', icon: <PlayCircle size={16} /> },
           ],
         },
       ],
@@ -329,15 +330,11 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          <Link href="/auth/signin/" className="text-[14px] font-medium text-white/75 hover:text-white transition-colors no-underline">
-            Sign In
-          </Link>
-          <Link href="/request-demo/"
-            className="text-[13px] font-bold text-white px-5 py-2.5 rounded-lg transition-all hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
-            Request Demo
+          <Link href="/contact/" className="text-[14px] font-medium text-white/75 hover:text-white transition-colors no-underline">
+            Contact Us
           </Link>
         </div>
+
 
         {/* Mobile Toggle */}
         <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
@@ -390,17 +387,12 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-5 pb-2 space-y-3">
-              <Link href="/auth/signin/" onClick={() => setMobileOpen(false)}
-                className="block text-center text-sm font-medium text-white/70 no-underline py-2">
-                Sign In
-              </Link>
-              <Link href="/request-demo/" onClick={() => setMobileOpen(false)}
-                className="block text-center text-[13px] font-bold text-white px-5 py-3 rounded-lg"
-                style={{ background: 'linear-gradient(135deg, #2E8AEA, #7516EA)' }}>
-                Request Demo
-              </Link>
-            </div>
+          </div>
+          <div className="pt-5 pb-2 space-y-3 border-t border-white/10">
+            <Link href="/contact/" onClick={() => setMobileOpen(false)}
+              className="block text-center text-sm font-medium text-white/70 no-underline py-2">
+              Contact Us
+            </Link>
           </div>
         </div>
       )}
