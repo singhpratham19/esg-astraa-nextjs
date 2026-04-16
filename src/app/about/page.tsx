@@ -169,7 +169,7 @@ export default function AboutPage() {
             <div>
               <p className="font-display font-bold text-[#0D1B3E] leading-snug mb-8"
                 style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)' }}>
-                We provide a unique synthesis of strategic advisory and digital intelligence, backed by the foundational rigor of specialized financial audit practices.
+                We provide a unique synthesis of strategic advisory and digital intelligence, backed by the financial rigour of specialized audit practices.
               </p>
               <p className="text-slate-500 leading-relaxed text-[1.0625rem]">
                 By integrating data-driven insights with audit-ready precision, we empower modern enterprises to navigate evolving regulatory landscapes including <strong className="text-[#0D1B3E] font-semibold">SEBI BRSR</strong> and <strong className="text-[#0D1B3E] font-semibold">GRI standards</strong> — transforming compliance into a strategic advantage.
