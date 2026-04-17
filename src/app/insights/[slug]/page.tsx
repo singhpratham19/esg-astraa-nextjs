@@ -3,6 +3,14 @@ import { INSIGHTS_CATEGORIES } from '@/lib/data'
 import { notFound } from 'next/navigation'
 
 const CATEGORY_CONTENT: Record<string, { title: string; items: { title: string; desc: string; date: string }[] }> = {
+  'case-studies': {
+    title: 'Case Studies',
+    items: [
+      { title: 'BRSR Implementation for a Leading Manufacturer', desc: 'Full BRSR compliance achieved in 90 days — from zero reporting infrastructure to audit-ready documentation.', date: 'March 2026' },
+      { title: 'Carbon Credit Strategy for an Energy Company', desc: '₹4.8Cr carbon credit portfolio value generated through VCS certification and CCTS readiness.', date: 'January 2026' },
+      { title: 'Green Bond Framework for a Financial Institution', desc: '₹500Cr green bond issuance facilitated with ICMA alignment and investor-ready ESG narrative.', date: 'November 2025' },
+    ],
+  },
   whitepapers: {
     title: 'Whitepapers',
     items: [

@@ -584,6 +584,7 @@ export const INDUSTRIES: Industry[] = [
 ]
 
 export const INSIGHTS_CATEGORIES = [
+  { slug: 'case-studies', title: 'Case Studies', desc: 'Real-world ESG implementation examples and outcomes' },
   { slug: 'whitepapers', title: 'Whitepapers', desc: 'Gated, in-depth research documents on ESG topics' },
   { slug: 'industry-reports', title: 'Industry Reports', desc: 'Sector-specific ESG landscape and compliance analysis' },
   { slug: 'esg-benchmarks', title: 'ESG Benchmarks', desc: 'Data-driven performance benchmarks by industry and geography' },
